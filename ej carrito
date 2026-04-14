@@ -1,0 +1,37 @@
+<main>
+
+    <section>
+        <h2>Carrito de compras</h2>
+        <p>Revisa los productos que has seleccionado</p>
+    </section>
+
+    <section>
+
+        <article>
+            <h3>Máquina de palomitas</h3>
+            <p>Precio: B/18.00</p>
+            <p>Cantidad: 1</p>
+
+            <button type="button">Eliminar</button>
+        </article>
+
+        <article>
+            <h3>Sillas</h3>
+            <p>Precio: B/1.50</p>
+            <p>Cantidad: 20</p>
+
+            <button type="button">Eliminar</button>
+        </article>
+
+    </section>
+
+    <hr>
+
+    <section>
+        <h3>Total</h3>
+        <p>B/48.00</p>
+
+        <a href="reserva.html">Continuar con la reserva</a>
+    </section>
+
+</main>

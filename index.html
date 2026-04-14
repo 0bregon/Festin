@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Festín</title>
+</head>
+<body>
+    <header>
+        <h1>
+            <a href="index.html">
+                <img src="imagen.webp" alt="Festín">
+            </a>
+        </h1> 
+
+        <div>
+            <button type="button">Opciones de accesibilidad</button>
+        </div>
+
+        <nav aria-label="Menú principal">
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="catalogo.html">Catálogo</a></li>
+                <li><a href="servicios.html">Servicios</a></li>
+                <li><a href="paquetes.html">Paquetes</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+
+        <form>
+            <label for="buscar-prod">Buscar productos:</label>
+            <input type="search" id="buscar-prod" name="q" placeholder="Ej. Palomitas, sillas...">
+            <button type="submit">Buscar</button>
+        </form>
+
+        <div> <!--iconos-->
+            <a href="carrito.html">
+                <img src="imagen.webp" alt="Ir al carrito">
+            </a>
+            
+            <a href="perfil-usuario.html">
+                <img src="imagen.webp" alt="Ir al perfil de usuario">
+            </a>
+            
+        </div>
+    </header>
+
+    <main>
+    <hr>
+    <section>
+        <h2>Haz de tu evento un festin inolvidable</h2>
+        <p>Somos especialistas en el alquiler de equipos y servicios para eventos en Panamá Oeste. 
+            Desde celebraciones infantiles hasta grandes ocasiones, ofrecemos inflables, animadores, 
+            máquinas de comida, decoración y mucho más para crear experiencias únicas.</p>
+        <figure>
+            <img src="imagen.webp" alt="Niños alrededor de una mesa">
+            <figcaption>Diversión segura para todas las edades.</figcaption>
+        </figure>
+        <p><a href="contacto.html">Solicitar una cotización</a></p>
+    </section>
+    
+    <hr>
+    <section>
+        <h3>Especialistas en toda clase de eventos</h3>
+        <ul>
+            <li>Eventos infantiles</li>
+            <li>Eventos formales (Bodas, XV años)</li>
+            <li>Eventos juveniles</li>
+            <li>Eventos familiares</li>
+            <li>Eventos corporativos</li>
+            <li>Otros eventos</li>
+        </ul>
+    </section>
+    
+    <hr>
+    <section>
+        <h3>Productos destacados del catálogo</h3>
+        <article>
+            <h4>Candy Bar</h4>
+        </article>
+        <article>
+            <h4>Sillas</h4>
+        </article>
+        <article>
+            <h4>Maquina de palomitas</h4>
+        </article>
+
+        <p><a href="catalogo.html">Ver catálogo completo</a></p>
+    </section>
+    
+    <hr>
+    <section>
+        <h3>Servicios que ofrecemos</h3>
+        <ul>
+            <li>Animadores y payasos</li>
+            <li>Pintacaritas</li>
+            <li>Fotografía y video</li>
+            <li>Decoración temática</li>
+            <li>Música y sonido</li>
+        </ul>    
+        <h4>¿Quieres un paquete personalizado?</h4>
+        <p><a href="servicios.html">Ver catálogo completo</a></p>
+    </section>
+
+    <hr>
+    <aside>
+        <h3>Instrucciones y Cuidados</h3>
+            <p>La seguridad es nuestra prioridad. Consulta nuestras guías sobre el uso correcto de los equipos alquilados.</p>
+            <p><a href="instrucciones.html">Leer manual de seguridad</a></p>
+
+        <video width="640" height="360" controls>
+            <source src="video.mp4" type="video/mp4">
+            <source src="video.webm" type="video/webm">
+            Tu navegador no soporta la etiqueta de video.
+        </video>
+    </aside>
+
+    <section>
+        <h3>Déjanos tu opinión</h3>
+
+        <form action="#" method="POST">
+            <div>
+                <label for="nombre-usuario">Nombre:</label>
+                <input type="text" id="nombre-usuario" name="usuario" required>
+            </div>
+            
+            <div>
+                <label for="mensaje-usuario">Comentario:</label>
+                <textarea id="mensaje-usuario" name="comentario" rows="4" cols="50" placeholder="Cuéntanos cómo fue tu evento..."></textarea>
+            </div>
+
+            <button type="submit">Publicar comentario</button>
+        </form>
+    </section>
+    <hr>
+
+    </main>
+
+    <footer>
+        <section>
+            <h3>Contacto</h3>
+            <p>Ubicación: Panamá Oeste, La Chorrera, Barrio Colón</p>
+            <p>Teléfono: +507 6000-0000</p>
+            <p>Correo: festinPanama@gmail.com</p>
+        </section>
+        
+        <nav aria-label="Enlaces legales">
+            <a href="privacidad-y-terminos.html">
+                Política de Privacidad y Términos y Condiciones
+            </a>
+        </nav>
+
+        <p><small>&copy; 2026 Festín Panamá. Todos los derechos reservados.</small></p>
+    </footer>
+
+</body>
+</html>
