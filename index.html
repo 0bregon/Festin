@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Festín</title>
+    <link href="/estilo.css" rel="stylesheet" type="text/css" media="all">
 </head>
 <body>
     <header>
         <h1>
             <a href="index.html">
-                <img src="imagen.webp" alt="Festín">
+                <img src="Logo Festín 2.png" alt="Festín" class="img">
             </a>
         </h1> 
 
@@ -17,7 +18,9 @@
             <button type="button">Opciones de accesibilidad</button>
         </div>
 
-        <nav aria-label="Menú principal">
+        <nav aria-label="Menú principal" class="menu">
+            <button class="menu-toggle">☰ Menú</button>
+
             <ul>
                 <li><a href="index.html">Inicio</a></li>
                 <li><a href="catalogo.html">Catálogo</a></li>
@@ -47,8 +50,7 @@
     </header>
 
     <main>
-    <hr>
-    <section>
+    <section class="seccion">
         <h2>Haz de tu evento un festin inolvidable</h2>
         <p>Somos especialistas en el alquiler de equipos y servicios para eventos en Panamá Oeste. 
             Desde celebraciones infantiles hasta grandes ocasiones, ofrecemos inflables, animadores, 
@@ -60,8 +62,7 @@
         <p><a href="contacto.html">Solicitar una cotización</a></p>
     </section>
     
-    <hr>
-    <section>
+    <section class="seccion">
         <h3>Especialistas en toda clase de eventos</h3>
         <ul>
             <li>Eventos infantiles</li>
@@ -73,8 +74,7 @@
         </ul>
     </section>
     
-    <hr>
-    <section>
+    <section class="seccion">
         <h3>Productos destacados del catálogo</h3>
         <article>
             <h4>Candy Bar</h4>
@@ -89,8 +89,7 @@
         <p><a href="catalogo.html">Ver catálogo completo</a></p>
     </section>
     
-    <hr>
-    <section>
+    <section class="seccion">
         <h3>Servicios que ofrecemos</h3>
         <ul>
             <li>Animadores y payasos</li>
@@ -103,8 +102,7 @@
         <p><a href="servicios.html">Ver catálogo completo</a></p>
     </section>
 
-    <hr>
-    <aside>
+    <aside class="seccion">
         <h3>Instrucciones y Cuidados</h3>
             <p>La seguridad es nuestra prioridad. Consulta nuestras guías sobre el uso correcto de los equipos alquilados.</p>
             <p><a href="instrucciones.html">Leer manual de seguridad</a></p>
@@ -116,7 +114,7 @@
         </video>
     </aside>
 
-    <section>
+    <section class="seccion">
         <h3>Déjanos tu opinión</h3>
 
         <form action="#" method="POST">
@@ -133,7 +131,6 @@
             <button type="submit">Publicar comentario</button>
         </form>
     </section>
-    <hr>
 
     </main>
 

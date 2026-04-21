@@ -1,0 +1,100 @@
+body {
+  background-color: ghostwhite;
+  color: black;
+  
+}
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Tipografía general */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #fff;
+  color: #000;
+  line-height: 1.5;
+}
+
+.container {
+  padding: 16px;
+}
+
+/* Reset básico de la lista */
+.menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Botón de móvil*/
+.menu-toggle {
+    display: block;
+    background-color: white;
+    border: 2px solid red;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+/* Ocultar menú por defecto en móvil */
+.menu ul {
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+/* Mostrar menú cuando está activo */
+.menu.active ul {
+    display: flex;
+}
+
+/* Links */
+.menu a,
+.menu a:visited {
+    display: block;
+    padding: 10px 15px;
+    background-color: white;
+    border: 2px solid red;
+    text-decoration: none;
+    color: black;
+    border-radius: 5px;
+}
+
+.menu a:hover {
+    background-color: seashell;
+}
+
+/* Computadoras */
+@media (min-width: 768px) {
+    .menu-toggle {
+        display: none; /* ocultar hamburguesa */
+    }
+
+    .menu ul {
+        display: flex;        /* mostrar siempre */
+        flex-direction: row;  /* horizontal */
+        gap: 10px;
+    }
+}
+
+.encabezado {
+    
+}
+
+.seccion {
+    text-align: center; /*centrear contenido*/
+    border-style: solid; /* */
+    border-color: oklab(64.884% 0.21122 0.10743); /* */
+    border-width: medium; /* */
+    background-color: white;
+    margin-bottom: 24px;
+}
+
+.img {
+  width: 100%;
+  height: auto;
+}
