@@ -14,9 +14,9 @@
             </a>
         </h1> 
 
-        <div>
+        <aside>
             <button type="button">Opciones de accesibilidad</button>
-        </div>
+        </aside>
 
         <nav aria-label="Menú principal" class="menu">
             <button class="menu-toggle">☰ Menú</button>
@@ -37,7 +37,7 @@
             <button type="submit">Buscar</button>
         </form>
 
-        <div> <!--iconos-->
+        <aside> <!--iconos-->
             <a href="carrito.html">
                 <img src="imagen.webp" alt="Ir al carrito">
             </a>
@@ -46,7 +46,7 @@
                 <img src="imagen.webp" alt="Ir al perfil de usuario">
             </a>
             
-        </div>
+        </aside>
     </header>
 
     <main>
@@ -55,11 +55,12 @@
         <p>Somos especialistas en el alquiler de equipos y servicios para eventos en Panamá Oeste. 
             Desde celebraciones infantiles hasta grandes ocasiones, ofrecemos inflables, animadores, 
             máquinas de comida, decoración y mucho más para crear experiencias únicas.</p>
-        <figure>
+
+        <figure> <!--- FIGURE   -->
             <img src="imagen.webp" alt="Niños alrededor de una mesa">
             <figcaption>Diversión segura para todas las edades.</figcaption>
         </figure>
-        <p><a href="contacto.html">Solicitar una cotización</a></p>
+        <p><a href="reserva.html">Realizar una reserva</a></p>
     </section>
     
     <section class="seccion">
@@ -118,15 +119,16 @@
         <h3>Déjanos tu opinión</h3>
 
         <form action="#" method="POST">
-            <div>
+            <aside>
                 <label for="nombre-usuario">Nombre:</label>
                 <input type="text" id="nombre-usuario" name="usuario" required>
-            </div>
+            </aside>
             
-            <div>
+            <aside>
                 <label for="mensaje-usuario">Comentario:</label>
                 <textarea id="mensaje-usuario" name="comentario" rows="4" cols="50" placeholder="Cuéntanos cómo fue tu evento..."></textarea>
-            </div>
+            </aside>
+
 
             <button type="submit">Publicar comentario</button>
         </form>
