@@ -4,12 +4,13 @@
     <meta charset="UTF-8"> <!-- Codificación de caracteres -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Título de la página</title>
+    <link href="estilo.css" rel="stylesheet">
 </head>
 <body>
-    <header>
+    <header class="encabezado">
         <h1>
             <a href="index.html">
-                <img src="imagen.webp" alt="Festín">
+                <img src="imagen.webp" alt="Festín" class="logo">
             </a>
         </h1> 
 
@@ -17,7 +18,7 @@
             <button type="button">Opciones de accesibilidad</button>
         </div>
 
-        <nav aria-label="Menú principal">
+        <nav aria-label="Menú principal" class="menu">
             <ul>
                 <li><a href="index.html">Inicio</a></li>
                 <li><a href="catalogo.html">Catálogo</a></li>
@@ -28,78 +29,79 @@
             </ul>
         </nav>
 
-        <form>
+        <form class="busqueda">
             <label for="buscar-prod">Buscar productos:</label>
             <input type="search" id="buscar-prod" name="q" placeholder="Ej. Palomitas, sillas...">
             <button type="submit">Buscar</button>
         </form>
 
-        <div> <!--iconos-->
+        <aside> <!--iconos-->
             <a href="carrito.html">
-                <img src="imagen.webp" alt="Ir al carrito">
+                <img src="imagen.webp" alt="Ir al carrito" class="icono">
             </a>
             
             <a href="perfil-usuario.html">
-                <img src="imagen.webp" alt="Ir al perfil de usuario">
+                <img src="imagen.webp" alt="Ir al perfil de usuario" class="icono">
             </a>
-            
-        </div>
+        </aside>
     </header>
 
     <main>
         <h1>Términos y Condiciones</h1>
 
-        <section>
+        <section class="seccion">
             <h2>1. Reservas</h2>
             <p>Las reservas se realizan mediante solicitud y están sujetas a la disponibilidad de los productos y servicios en la fecha seleccionada.</p>
         </section>
 
-        <section>
+        <section class="seccion">
             <h2>2. Confirmación</h2>
             <p>La reserva será considerada válida únicamente después de la confirmación por parte del proveedor.</p>
         </section>
 
-        <section>
+        <section class="seccion">
             <h2>3. Abono</h2>
             <p>Se podrá requerir un abono previo para garantizar la reserva de los productos y servicios.</p>
         </section>
 
-        <section>
+        <section class="seccion">
             <h2>4. Cancelaciones</h2>
             <p>Las cancelaciones deben realizarse con anticipación. El abono realizado puede no ser reembolsable dependiendo del tiempo de cancelación.</p>
         </section>
 
-        <section>
+        <section class="seccion">
             <h2>5. Responsabilidad</h2>
             <p>El cliente es responsable del cuidado de los equipos alquilados durante el evento. En caso de daños, se podrán aplicar cargos adicionales.</p>
         </section>
 
-        <section>
+        <section class="seccion">
             <h2>6. Entrega y retiro</h2>
             <p>Los horarios de entrega y retiro serán coordinados previamente con el cliente.</p>
         </section>
 
-        <section>
+        <section class="seccion">
             <h2>7. Uso de servicios</h2>
             <p>Los servicios contratados deben utilizarse únicamente para el evento acordado.</p>
         </section>
 
-        <section>
+        <section class="seccion">
             <h2>8. Modificaciones</h2>
             <p>Los cambios en la reserva estarán sujetos a disponibilidad.</p>
         </section>
 
-        <section>
+        <section class="seccion">
             <h2>9. Aceptación</h2>
             <p>Al realizar una solicitud de reserva, el cliente acepta los presentes términos y condiciones.</p>
         </section>
-        <div>
+
+        <div class="seccion">
             <label>
                 <input type="checkbox" name="terminos" required>
                 He leído y acepto los términos y condiciones
             </label>
         </div>
-        <div>
+
+        <div class="seccion">
             <button type="button" onclick="window.location.href='reserva.html'">
                 Cancelar
             </button>

@@ -5,18 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Festín</title>
     <link href="estilo.css" rel="stylesheet">
+
+    <script>
+    const boton = document.querySelector(".menu-toggle");
+    const menu = document.querySelector(".menu");
+
+    boton.addEventListener("click", () => {
+        menu.classList.toggle("active");
+    });
+    </script>
 </head>
 <body>
-    <header>
+    <header class="encabezado">
         <h1>
             <a href="index.html">
-                <img src="Logo.webp" alt="Festín" class="img">
+                <img src="Logo.png" alt="Festín" class="logo">
             </a>
         </h1> 
-
-        <aside>
-            <button type="button">Opciones de accesibilidad</button>
-        </aside>
 
         <nav aria-label="Menú principal" class="menu">
             <button class="menu-toggle">☰ Menú</button>
@@ -31,19 +36,22 @@
             </ul>
         </nav>
 
-        <form>
+        <form class="busqueda">
             <label for="buscar-prod">Buscar productos:</label>
-            <input type="search" id="buscar-prod" name="q" placeholder="Ej. Palomitas, sillas...">
+            <input type="search" id="buscar-prod" name="q" placeholder="">
             <button type="submit">Buscar</button>
         </form>
 
         <aside> <!--iconos-->
             <a href="carrito.html">
-                <img src="imagen.webp" alt="Ir al carrito">
+                <img src="carrito.png" alt="Ir al carrito" class="icono">
             </a>
             
             <a href="perfil-usuario.html">
-                <img src="imagen.webp" alt="Ir al perfil de usuario">
+                <img src="usuario.png" alt="Ir al perfil de usuario" class="icono">
+            </a>
+            <a href="">
+                <img src="accesibilidad.png" alt="Opciones de accesibilidad" class="icono">
             </a>
             
         </aside>
@@ -57,10 +65,10 @@
             máquinas de comida, decoración y mucho más para crear experiencias únicas.</p>
 
         <figure> <!--- FIGURE   -->
-            <img src="imagen.webp" alt="Niños alrededor de una mesa">
-            <figcaption>Diversión segura para todas las edades.</figcaption>
+            <img src="ninos1.webp" alt="Niños alrededor de una mesa">
         </figure>
-        <p><a href="reserva.html">Realizar una reserva</a></p>
+
+        <p class="boton"><a href="reserva.html">Realizar una reserva</a></p>
     </section>
     
     <section class="seccion">
@@ -87,7 +95,7 @@
             <h4>Maquina de palomitas</h4>
         </article>
 
-        <p><a href="catalogo.html">Ver catálogo completo</a></p>
+        <p class="boton"><a href="catalogo.html">Ver catálogo completo</a></p>
     </section>
     
     <section class="seccion">
@@ -100,20 +108,20 @@
             <li>Música y sonido</li>
         </ul>    
         <h4>¿Quieres un paquete personalizado?</h4>
-        <p><a href="servicios.html">Ver catálogo completo</a></p>
+        <p class="boton"><a href="servicios.html">Ver catálogo completo</a></p>
     </section>
 
-    <aside class="seccion">
+    <section class="seccion">
         <h3>Instrucciones y Cuidados</h3>
             <p>La seguridad es nuestra prioridad. Consulta nuestras guías sobre el uso correcto de los equipos alquilados.</p>
-            <p><a href="instrucciones.html">Leer manual de seguridad</a></p>
+            <p class="boton"><a href="instrucciones.html">Leer manual de seguridad</a></p>
 
-        <video width="640" height="360" controls>
+        <video class="video" controls>
             <source src="video.mp4" type="video/mp4">
             <source src="video.webm" type="video/webm">
             Tu navegador no soporta la etiqueta de video.
         </video>
-    </aside>
+    </section>
 
     <section class="seccion">
         <h3>Déjanos tu opinión</h3>

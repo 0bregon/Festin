@@ -5,88 +5,229 @@
   box-sizing: border-box;
 }
 
-/* Tipografía general */
+/* Tipografía */
 body {
-  font-family: Fredoka;
-  background-color: yellow;
-  color: black;
+  font-family: 'Fredoka', sans-serif;
+  background: linear-gradient(to bottom, #fffde7, #e0f7fa);
+  color: #333;
   line-height: 1.5;
 }
 
-.container {
-  padding: 16px;
+/* HEADER */
+.encabezado {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap; /* permite que el buscador baje */
+  gap: 10px;
+  padding: 10px;
+  background: #fff79c;
+  border-bottom: 2px solid #fff79c;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
 }
 
-/* Menú */
+.encabezado > * {
+  flex-shrink: 1;
+  min-width: 0;
+}
+
+/* ORDEN EN MÓVIL */
+.menu { order: 1; }
+h1 { order: 2; }
+aside { order: 3; }
+.busqueda { 
+  order: 4;
+  width: 100%; /* 👈 baja el buscador */
+}
+
+/* LOGO */
+.logo {
+  height: 45px;
+}
+
+h1 {
+  margin: 0;
+  display: flex;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .logo {
+    height: 60px;
+  }
+}
+
+/* MENÚ */
 .menu ul {
   list-style: none;
-  padding: 0;
-  margin: 0;
 }
 
-/* Botón hamburguesa (móvil) */
 .menu-toggle {
-  display: block;
-  background-color: white;
-  border: 2px solid red;
-  padding: 10px 15px;
+  background: white;
+  border: 2px solid #ff6b6b;
+  padding: 8px 12px;
   cursor: pointer;
-  border-radius: 5px;
+  border-radius: 8px;
+  transition: 0.2s;
 }
 
-/* Menú oculto en móvil */
+.menu-toggle:hover {
+  background: #ffecec;
+}
+
 .menu ul {
   display: none;
   flex-direction: column;
-  gap: 10px;
+  gap: 8px;
   margin-top: 10px;
 }
 
-/* Mostrar menú cuando está activo */
 .menu.active ul {
   display: flex;
+  position: absolute;
+  top: 70px;
+  left: 10px;
+  background: white;
+  padding: 10px;
+  border-radius: 10px;
+  border: 2px solid #ff6b6b;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
-/* Links del menú */
-.menu a,
-.menu a:visited {
-  display: block;
-  padding: 10px 15px;
-  background-color: white;
-  border: 2px solid red;
+.menu a {
+  padding: 8px 12px;
+  background: white;
+  border: 2px solid #ff6b6b;
   text-decoration: none;
-  color: black;
-  border-radius: 5px;
+  color: #333;
+  border-radius: 8px;
+  transition: 0.2s;
 }
 
 .menu a:hover {
-  background-color: seashell;
+  background: #ffecec;
 }
 
-/* Secciones */
+/* BUSCADOR */
+.busqueda {
+  display: flex;
+  align-items: center;
+  background: white;
+  border-radius: 20px;
+  padding: 5px 10px;
+  border: 2px solid #4dd0e1;
+  min-width: 0;
+  transition: 0.3s;
+}
+
+.busqueda:focus-within {
+  box-shadow: 0 0 8px rgba(77, 208, 225, 0.5);
+}
+
+.busqueda input {
+  border: none;
+  outline: none;
+  min-width: 0;
+  width: 100%;
+  font-family: inherit;
+}
+
+.busqueda button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+/* ICONOS */
+aside {
+  display: flex;
+  gap: 10px;
+}
+
+.icono {
+  width: 24px;
+  height: 24px;
+  transition: 0.2s;
+}
+
+.icono:hover {
+  transform: scale(1.2);
+}
+
+/* SECCIONES */
 .seccion {
-  text-align: left;
-  border: 2px solid #ff4d4d; /* color compatible */
-  background-color: white;
-  margin-bottom: 24px;
-  padding: 10px;
+  border: 2px solid #6fc3ff;
+  background: #e3f2fd;
+  margin: 20px;
+  padding: 15px;
+  border-radius: 10px;
 }
 
-/* Computadoras (pantallas grandes) */
-@media (min-width: 768px) {
-  .menu-toggle {
-    display: none; /* ocultar botón */
-  }
-
-  .menu ul {
-    display: flex;        /* mostrar siempre */
-    flex-direction: row;  /* horizontal */
-    gap: 10px;
-  }
+/* BOTONES */
+.boton a {
+  display: inline-block;
+  padding: 10px 15px;
+  background: #80deea;
+  border: 2px solid #26c6da;
+  text-decoration: none;
+  color: #333;
+  border-radius: 8px;
+  transition: 0.2s;
 }
 
-/* Imágenes */
+.boton a:hover {
+  background: #4dd0e1;
+}
+
+/* IMÁGENES */
 img {
   width: 100%;
   height: auto;
+  border-radius: 10px;
+}
+
+/* OCULTAR LABEL */
+label[for="buscar-prod"] {
+  position: absolute;
+  left: -9999px;
+}
+
+/* DESKTOP */
+@media (min-width: 768px) {
+  .encabezado {
+    flex-wrap: nowrap; /* todo en una fila */
+  }
+
+  /* NUEVO ORDEN EN PC */
+  h1 { order: 1; }
+  .menu { order: 2; }
+  .busqueda { 
+    order: 3;
+    width: 150px; 
+  }
+  aside { order: 4; }
+
+  .menu-toggle {
+    display: none;
+  }
+
+  .menu ul {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    position: static;
+    border: none;
+    background: none;
+    box-shadow: none;
+  }
+}
+
+.video {
+  width: 100%;        /* ocupa todo el ancho disponible */
+  max-width: 500px;   /* límite para que no se haga gigante */
+  height: auto;       /* mantiene proporción */
+  display: block;
+  margin: 20px auto;  /* centrar */
+  border-radius: 10px;
 }

@@ -1,23 +1,30 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8"> <!-- Codificación de caracteres -->
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reservas</title>
+    <link href="estilo.css" rel="stylesheet">
+
+    <script>
+    const boton = document.querySelector(".menu-toggle");
+    const menu = document.querySelector(".menu");
+
+    boton.addEventListener("click", () => {
+        menu.classList.toggle("active");
+    });
+    </script>
 </head>
 <body>
-    <header>
+    <header class="encabezado container">
         <h1>
             <a href="index.html">
-                <img src="imagen.webp" alt="Festín">
+                <img src="Logo.png" alt="Festín" class="logo">
             </a>
         </h1> 
 
-        <div>
-            <button type="button">Opciones de accesibilidad</button>
-        </div>
-
-        <nav aria-label="Menú principal">
+        <nav aria-label="Menú principal" class="menu">
+            <button class="menu-toggle">☰ Menú</button>
             <ul>
                 <li><a href="index.html">Inicio</a></li>
                 <li><a href="catalogo.html">Catálogo</a></li>
@@ -28,34 +35,37 @@
             </ul>
         </nav>
 
-        <form>
+        <form class="busqueda">
             <label for="buscar-prod">Buscar productos:</label>
             <input type="search" id="buscar-prod" name="q" placeholder="Ej. Palomitas, sillas...">
             <button type="submit">Buscar</button>
         </form>
 
-        <div> <!--iconos-->
+        <aside class="iconos">
             <a href="carrito.html">
-                <img src="imagen.webp" alt="Ir al carrito">
+                <img src="carrito.png" alt="Ir al carrito" class="icono">
             </a>
             
             <a href="perfil-usuario.html">
-                <img src="imagen.webp" alt="Ir al perfil de usuario">
+                <img src="usuario.png" alt="Ir al perfil de usuario" class="icono">
             </a>
-            
-        </div>
+
+            <a href="">
+                <img src="accesibilidad.png" alt="Opciones de accesibilidad" class="icono">
+            </a>
+        </aside>
     </header>
 
-    <main>
-        <section>
+    <main class="container">
+
+        <section class="seccion">
             <h2>Reserva tu evento</h2>
             <p>Completa el formulario para solicitar tu reserva</p>
         </section>
 
-        <section>
+        <section class="seccion">
             <form action="procesar-reserva.php" method="POST">
 
-                <!-- DATOS DEL CLIENTE -->
                 <fieldset>
                     <legend>Datos del cliente</legend>
 
@@ -71,7 +81,6 @@
 
                 <br>
 
-                <!-- DATOS DEL EVENTO -->
                 <fieldset>
                     <legend>Datos del evento</legend>
 
@@ -96,7 +105,6 @@
 
                 <br>
 
-                <!-- SERVICIOS / PRODUCTOS -->
                 <fieldset>
                     <legend>Servicios y productos</legend>
 
@@ -123,7 +131,6 @@
 
                 <br>
 
-                <!-- DETALLES ADICIONALES -->
                 <fieldset>
                     <legend>Detalles adicionales</legend>
 
@@ -136,7 +143,6 @@
 
                 <br>
 
-                <!-- CONFIRMACIÓN -->
                 <fieldset>
                     <legend>Confirmación</legend>
 
@@ -148,28 +154,32 @@
 
                 <br>
 
-                <!-- BOTÓN -->
-                <button type="submit">Enviar reserva</button>
+                <p class="boton">
+                    <button type="submit">Enviar reserva</button>
+                </p>
 
             </form>
         </section>
+
     </main>
 
-    <footer>
-        <section>
+    <footer class="container">
+        <section class="seccion">
             <h3>Contacto</h3>
             <p>Ubicación: Panamá Oeste, La Chorrera, Barrio Colón</p>
             <p>Teléfono: +507 6000-0000</p>
             <p>Correo: festinPanama@gmail.com</p>
         </section>
         
-        <nav aria-label="Enlaces legales">
+        <nav aria-label="Enlaces legales" class="legal">
             <a href="privacidad-y-terminos.html">
                 Política de Privacidad y Términos y Condiciones
             </a>
         </nav>
 
-        <p><small>&copy; 2026 Festín Panamá. Todos los derechos reservados.</small></p>
+        <p class="copyright">
+            <small>&copy; 2026 Festín Panamá. Todos los derechos reservados.</small>
+        </p>
     </footer>
     
 </body>

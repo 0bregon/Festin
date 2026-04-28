@@ -4,20 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Servicios</title>
+    <link href="estilo.css" rel="stylesheet">
 </head>
 <body>
-    <header>
+    <header class="encabezado">
         <h1>
             <a href="index.html">
-                <img src="imagen.webp" alt="Festín">
+                <img src="Logo.png" alt="Festín" class="logo">
             </a>
         </h1> 
 
-        <div>
-            <button type="button">Opciones de accesibilidad</button>
-        </div>
+        <nav aria-label="Menú principal" class="menu">
+            <button class="menu-toggle">☰ Menú</button>
 
-        <nav aria-label="Menú principal">
             <ul>
                 <li><a href="index.html">Inicio</a></li>
                 <li><a href="catalogo.html">Catálogo</a></li>
@@ -28,32 +27,36 @@
             </ul>
         </nav>
 
-        <form>
+        <form class="busqueda">
             <label for="buscar-prod">Buscar productos:</label>
-            <input type="search" id="buscar-prod" name="q" placeholder="Ej. Palomitas, sillas...">
+            <input type="search" id="buscar-prod" name="q" placeholder="">
             <button type="submit">Buscar</button>
         </form>
 
-        <div> <!--iconos-->
+        <aside> <!--iconos-->
             <a href="carrito.html">
-                <img src="imagen.webp" alt="Ir al carrito">
+                <img src="carrito.png" alt="Ir al carrito" class="icono">
             </a>
             
             <a href="perfil-usuario.html">
-                <img src="imagen.webp" alt="Ir al perfil de usuario">
+                <img src="usuario.png" alt="Ir al perfil de usuario" class="icono">
+            </a>
+            <a href="">
+                <img src="accesibilidad.png" alt="Opciones de accesibilidad" class="icono">
             </a>
             
-        </div>
+        </aside>
     </header>
     
     <main>
         <hr>
-        <section>
+        <section class="seccion">
             <h2>Servicios</h2> 
             <p>Ofrecemos soluciones completas para la organizacion y montaje de eventos</p>
         </section>
         <hr>
-        <section>
+
+        <section class="seccion">
             <h3>Animacion de evetos</h3>
             <article>
                 <h4>Payasos y payasitas</h4>
@@ -76,10 +79,11 @@
                         <button type="button">Agregar al carrito</button>
                     </footer>
             </article>
-           
         </section>
+
         <hr>
-        <section>
+
+        <section class="seccion">
             <h3>Estaciones de comida</h3>
             <article>
                 <h4>Estación de palomitas</h4>
@@ -127,7 +131,8 @@
         </section>
 
         <hr>
-        <section>
+
+        <section class="seccion">
             <h3>Regalos y detalles</h3>
             <article>
                 <h4>Arreglos personalizados</h4>
@@ -153,7 +158,8 @@
         </section>
 
         <hr>
-        <section>
+
+        <section class="seccion">
             <h3>Sonido y entretenimiento</h3>
             <article>
                 <h4>DJ para eventos</h4>
@@ -180,7 +186,8 @@
         </section>
 
         <hr>
-        <section>
+
+        <section class="seccion">
             <h3>Logistica</h3>
             <article>
                 <h4>Entrega y retiro de equipos</h4>
@@ -210,7 +217,8 @@
         </section>
 
         <hr>
-        <section>
+
+        <section class="seccion">
             <h3>Fotografia</h3>
             <article>
                 <h4>Cobertura fotográfica</h4>
@@ -236,6 +244,7 @@
         </section>
 
     </main>
+
     <footer>
         <section>
             <h3>Contacto</h3>
