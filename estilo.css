@@ -279,3 +279,168 @@ label[for="buscar-prod"] {
   border: 5px solid #fff;
   box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
+
+.boton-carrito {
+    /* 1. Reset de estilos de navegador */
+    background: #ffffff;      /* Tu color de fondo */
+    padding: 10px 20px;       /* Espaciado interno */
+    
+    /* 2. Estilos de texto */
+    color: rgb(0, 0, 0);             /* Color de la letra */
+    font-size: 16px;
+    font-family: inherit;     /* Hereda la fuente del resto de la web */
+    cursor: pointer;          /* Hace que aparezca la "manito" al pasar el mouse */
+    
+    /* 3. Estética adicional */
+    border-radius: 5px;       /* Bordes redondeados */
+    transition: background 0.3s ease; /* Suaviza el cambio de color */
+}
+
+/* Efecto al pasar el mouse (Hover) */
+.boton-carrito:hover {
+    background: #2ecc71;
+}
+
+
+
+/* Contenedor principal */
+.galeria-contenedor {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  margin: 10px auto;
+  padding: 0 10px; /* Margen de seguridad a los lados en pantallas chicas */
+  box-sizing: border-box;
+}
+
+/* El "marco" que oculta las imágenes que no están activas */
+.galeria-pantalla {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  margin: 0;
+  padding: 0;
+  list-style: none; /* Quita los puntos si usas <ul> */
+  
+  /* Mantiene una proporción excelente en celulares sin deformar la foto */
+  aspect-ratio: 4 / 3; 
+}
+
+/* Contenedor interno de las diapositivas (si usas divs o li) */
+.galeria-diapositivas,
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out; /* Desvanecimiento suave */
+  z-index: 1;
+}
+
+/* Clase para mostrar la imagen actual */
+.slide.activa {
+  opacity: 1;
+  z-index: 2;
+}
+
+/* Estilo para cada imagen */
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Recorta la imagen para que llene el espacio sin estirarse */
+  object-position: center;
+  position: relative;
+  z-index: 1; 
+}
+
+/* Estilo de las flechas (adaptadas para pantallas táctiles) */
+.flecha {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  width: 40px; /* Tamaño cómodo para tocar con el dedo */
+  height: 40px;
+  border-radius: 50%;
+  font-size: 18px;
+  cursor: pointer;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease;
+}
+
+.flecha:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Foco accesible para teclado */
+.flecha:focus {
+  outline: 3px solid #3498db;
+  outline-offset: 2px;
+}
+
+/* Posicionar las flechas a los lados */
+.anterior {
+  left: 10px;
+}
+
+.siguiente {
+  right: 10px;
+}
+
+/* Descripción de la foto */
+.descripcion-foto {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.75); /* Fondo oscuro para contrastar */
+  color: white;
+  padding: 10px 15px;
+  box-sizing: border-box;
+  font-family: sans-serif;
+  font-size: 13px; /* Un pelín más pequeña para que quepa bien en celular */
+  text-align: center;
+  z-index: 5; /* Asegura que flote sobre la imagen */
+  pointer-events: none; /* No estorba los clics */
+}
+
+
+@media (min-width: 768px) {
+  .galeria-contenedor {
+    margin: 20px auto;
+    padding: 0; /* Quitamos el espacio de los lados en pantallas grandes */
+  }
+
+  .galeria-pantalla {
+    aspect-ratio: auto; /* Cancelamos la proporción móvil */
+    height: 450px;      /* Forzamos tus 450px de altura fija para pantallas grandes */
+  }
+
+  .flecha {
+    width: 48px;  /* Flechas un poco más grandes para usar con mouse */
+    height: 48px;
+    font-size: 22px;
+  }
+
+  .anterior {
+    left: 20px; /* Separamos un poco más las flechas del borde */
+  }
+
+  .siguiente {
+    right: 20px;
+  }
+
+  .descripcion-foto {
+    font-size: 14px; /* Letra estándar para PC */
+    padding: 15px;
+  }
+}

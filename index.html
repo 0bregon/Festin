@@ -57,9 +57,29 @@
             Desde celebraciones infantiles hasta grandes ocasiones, ofrecemos inflables, animadores, 
             máquinas de comida, decoración y mucho más para crear experiencias únicas.</p>
 
-        <figure> <!--- FIGURE   -->
-            <img src="ninos1.webp" alt="Niños alrededor de una mesa">
-        </figure>
+        <section class="galeria-contenedor" aria-roledescription="carrusel" aria-label="Galería de fotos de productos">
+            <div class="controles-galeria">
+                <button class="flecha anterior" aria-label="Imagen anterior" aria-controls="diapositivas-carrusel">&#10094;</button>
+                <button class="flecha siguiente" aria-label="Siguiente imagen" aria-controls="diapositivas-carrusel">&#10095;</button>
+            </div>
+
+            <ul id="diapositivas-carrusel" class="galeria-pantalla" aria-live="polite">
+                
+                <li class="slide activa" role="group" aria-roledescription="diapositiva" aria-label="1 de 3">
+                <figure>
+                    <img src="https://saketos.es/wp-content/uploads/2025/03/ninas-de-un-ano-3-1-jpg.webp" alt="Mesa de cumpleaños">
+                    <figcaption class="descripcion-foto">Primer cumpleaños</figcaption>
+                </figure>
+                </li>
+
+                <li class="slide" role="group" aria-roledescription="diapositiva" aria-label="2 de 3">
+                <figure>
+                    <img src="https://img1.elyerromenu.com/images/lisy-decoraciones/decoracion-cumpleanos-nina/img.webp" alt="Fiesta de cumpleaños con temática de Moana">
+                    <figcaption class="descripcion-foto">Decoración de Moana</figcaption>
+                </figure>
+                </li>
+            </ul>
+        </section>
 
         <p class="boton"><a href="reserva.html">Realizar una reserva</a></p>
     </section>

@@ -33,3 +33,30 @@ if (boton && menu && menuPanel) {
         }
     });
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+  const slides = document.querySelectorAll('.slide');
+  const botonAnterior = document.querySelector('.anterior');
+  const botonSiguiente = document.querySelector('.siguiente');
+  let indiceActual = 0;
+
+  function mostrarImagen(indice) {
+    // Quitar la clase activa a todas las imágenes
+    slides.forEach(slide => slide.classList.remove('activa'));
+    
+    // Asignar la clase activa a la nueva imagen
+    slides[indice].classList.add('activa');
+  }
+
+  botonSiguiente.addEventListener('click', () => {
+    // Avanzar de índice, si llega al final regresa al 0
+    indiceActual = (indiceActual + 1) % slides.length;
+    mostrarImagen(indiceActual);
+  });
+
+  botonAnterior.addEventListener('click', () => {
+    // Retroceder de índice, si es menor a 0 va al último
+    indiceActual = (indiceActual - 1 + slides.length) % slides.length;
+    mostrarImagen(indiceActual);
+  });
+});
