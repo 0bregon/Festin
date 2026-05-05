@@ -128,7 +128,7 @@ h1 {
   transform: scale(1.05);
 }
 
-/* 💻 DESKTOP */
+/* PC */
 @media (min-width: 768px) {
 
   .menu-toggle {

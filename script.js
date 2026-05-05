@@ -1,7 +1,8 @@
 const boton = document.querySelector(".menu-toggle");
 const menu = document.querySelector(".menu");
+const menuPanel = document.querySelector(".menu ul");
 
-if (boton && menu) {
+if (boton && menu && menuPanel) {
 
     // Toggle con botón
     boton.addEventListener("click", (e) => {
@@ -16,19 +17,18 @@ if (boton && menu) {
         }
     });
 
-    // Detectar swipe
+    // SWIPE DENTRO DEL MENÚ
     let startX = 0;
-    let endX = 0;
 
-    document.addEventListener("touchstart", (e) => {
+    menuPanel.addEventListener("touchstart", (e) => {
         startX = e.touches[0].clientX;
     });
 
-    document.addEventListener("touchend", (e) => {
-        endX = e.changedTouches[0].clientX;
+    menuPanel.addEventListener("touchend", (e) => {
+        let endX = e.changedTouches[0].clientX;
 
-        // swipe izquierda para cerrar
-        if (menu.classList.contains("active") && (startX - endX > 50)) {
+        // si desliza a la izquierda suficiente
+        if (startX - endX > 50) {
             menu.classList.remove("active");
         }
     });
