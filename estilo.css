@@ -201,13 +201,28 @@ aside {
 .seccion {
   border: 3px solid #4dd0e1;
   background: rgba(255, 255, 255, 0.85);
-  margin: 20px;
-  padding: 20px;
+  margin: 10px;
+  padding: 10px;
   border-radius: 20px;
   box-shadow: 5px 5px 0px rgba(255, 128, 171, 0.2);
 }
+.seccion ul {
+  margin: 10px 0;    /* Espacio controlado arriba y abajo */
+  padding-left: 20px; /* Mantiene los puntitos ordenados dentro del borde sin salirse a la izquierda */
+  box-sizing: border-box;
+}
+
+/* Ajuste para que los elementos de la lista no queden apretados */
+.seccion li {
+  margin-bottom: 8px;
+}
 
 /* BOTONES */
+.boton {
+  text-align: center;
+  margin: 20px auto;
+}
+
 .boton a {
   display: inline-block;
   padding: 12px 20px;
@@ -443,4 +458,82 @@ label[for="buscar-prod"] {
     font-size: 14px; /* Letra estándar para PC */
     padding: 15px;
   }
+}
+
+/* Centrar el login en la pantalla */
+.contenedor-login {
+  max-width: 450px;
+  margin: 40px auto;
+}
+
+/* Espaciado de los campos del formulario */
+.formulario-login {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Controla la distancia entre el email, la contraseña y el botón */
+  margin-top: 20px;
+}
+
+.grupo-campo {
+  display: flex;
+  flex-direction: column;
+  gap: 8px; /* Espacio entre el texto del label y la caja de texto */
+  text-align: left; /* Asegura que el texto esté alineado a la izquierda */
+}
+
+/* Estilo para las cajas de texto (inputs) */
+.formulario-login input {
+  padding: 12px;
+  border: 2px solid #4dd0e1;
+  border-radius: 10px;
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.formulario-login input:focus {
+  border-color: #29b6f6; /* Se ilumina al hacer clic */
+  box-shadow: 0 0 5px rgba(41, 182, 246, 0.5);
+}
+
+/* Botón de envío */
+.boton-enviar {
+  padding: 12px;
+  background: #4dd0e1;
+  border: 2px solid #29b6f6;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 4px 0 #0288d1;
+  transition: all 0.2s ease;
+}
+
+.boton-enviar:hover {
+  background: #29b6f6;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 0 #0288d1;
+}
+
+.boton-enviar:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 #0288d1;
+}
+
+/* Enlace inferior */
+.registro-link {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.registro-link a {
+  color: #0288d1;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.registro-link a:hover {
+  text-decoration: underline;
 }

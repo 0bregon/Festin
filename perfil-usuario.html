@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perfil</title>
+    <title>Mi Perfil | Festín</title>
     <link href="estilo.css" rel="stylesheet">
-
     <script src="script.js" defer></script>
 </head>
 <body>
@@ -38,12 +37,10 @@
             <a href="carrito.html">
                 <img src="carrito.png" alt="Ir al carrito" class="icono">
             </a>
-            
-            <a href="perfil-usuario.html">
+            <a href="perfil.html">
                 <img src="usuario.png" alt="Ir al perfil de usuario" class="icono">
             </a>
-
-            <a href="">
+            <a href="#accesibilidad">
                 <img src="accesibilidad.png" alt="Opciones de accesibilidad" class="icono">
             </a>
         </aside>
@@ -51,70 +48,64 @@
 
     <main class="container">
 
-        <section class="seccion">
-            <h2>Mi perfil</h2>
-            <p>Gestiona tu información y revisa tus reservas</p>
+        <section class="seccion perfil-invitado">
+            <h2>¡Hola, invitado!</h2>
+            <p>Para poder ver tu información de perfil, realizar el seguimiento de tus reservas y acumular puntos para descuentos, necesitas acceder a tu cuenta.</p>
+            
+            <div class="botones-invitado">
+                <p class="boton"><a href="SignIn.html">Iniciar sesión</a></p>
+                <p class="boton secundario"><a href="SignUp.html">Crear una cuenta</a></p>
+            </div>
         </section>
 
-        <section class="seccion">
+
+        <section class="seccion perfil-usuario-activo">
+            <h2>¡Hola de nuevo, Fulano!</h2>
+            <p>Aquí tienes el resumen de tu cuenta y el estado de tus alquileres activos.</p>
+        </section>
+
+        <section class="seccion perfil-usuario-activo">
             <h3>Información personal</h3>
-
-            <p><strong>Nombre:</strong> Fulano Rodríguez</p>
-            <p><strong>Correo:</strong> Fulano6@email.com</p>
-            <p><strong>Teléfono:</strong> +507 6000-0000</p>
-
-            <button type="button">Editar datos</button>
+            <div class="info-usuario">
+                <p><strong>Nombre:</strong> Fulano Rodríguez</p>
+                <p><strong>Correo:</strong> Fulano6@email.com</p>
+                <p><strong>Teléfono:</strong> +507 6000-0000</p>
+            </div>
+            
+            <p class="boton"><a href="editar-perfil.html">Editar datos</a></p>
         </section>
 
-        <hr>
-
-        <section class="seccion">
-            <h2>Estado del pedido</h2>
-
-            <label>
-                <input type="checkbox" checked disabled> Reservado
-            </label><br>
-
-            <label>
-                <input type="checkbox" checked disabled> Abonado
-            </label><br>
-
-            <label>
-                <input type="checkbox" disabled> Pago completo
-            </label><br>
-
-            <label>
-                <input type="checkbox" disabled> Dia del evento
-            </label><br>
-
-            <label>
-                <input type="checkbox" disabled> Devolución de equipo
-            </label><br>
-
-            <label>
-                <input type="checkbox" disabled> Finalizado
-            </label>
-        </section>
-
-        <hr>
-
-        <section class="seccion">
-            <h2>Puntos acumulados</h2>
-            <p><strong>0 puntos</strong></p>
-
-            <h3>Beneficios:</h3>
-            <ul>
-                <li>Descuento en próximos eventos</li>
-                <li>Acceso a promociones</li>
+        <section class="seccion perfil-usuario-activo">
+            <h3>Estado de tu pedido</h3>
+            <p class="estado-subtitulo">Progreso de tu alquiler para el evento:</p>
+            
+            <ul class="lista-progreso" aria-label="Pasos del estado del pedido">
+                <li class="paso completado">✓ Reservado</li>
+                <li class="paso completado">✓ Abonado</li>
+                <li class="paso pendiente">Pago completo</li>
+                <li class="paso pendiente">Día del evento</li>
+                <li class="paso pendiente">Devolución de equipo</li>
+                <li class="paso pendiente">Finalizado</li>
             </ul>
         </section>
 
-        <hr>
+        <section class="seccion perfil-usuario-activo">
+            <h3>Puntos acumulados</h3>
+            <p class="puntos-destacados"><span>150</span> puntos</p>
 
-        <section class="seccion">
-            <h2>Acceso rápido</h2>
-            <p>Escanea el código QR para entrar al sitio</p>
-            <img src="qr.png" alt="Código QR de acceso al sitio">
+            <h4>Tus beneficios activos:</h4>
+            <ul>
+                <li>¡Tienes un 10% de descuento listo para usar en tu próximo inflable!</li>
+                <li>Soporte y atención prioritaria para tus eventos.</li>
+            </ul>
+        </section>
+
+        <section class="seccion qr-seccion perfil-usuario-activo">
+            <h3>Acceso rápido</h3>
+            <p>Usa este código en tu celular para ingresar rápido en nuestros puntos de retiro:</p>
+            <div class="qr-contenedor">
+                <img src="qr.png" alt="Código QR de acceso" class="imagen-qr">
+            </div>
         </section>
 
     </main>

@@ -137,23 +137,41 @@
     </section>
 
     <section class="seccion">
-        <h3>Déjanos tu opinión</h3>
+    <h3>Déjanos tu opinión</h3>
+    <p>Cuéntanos cómo fue tu experiencia con Festín. ¡Tu opinión nos ayuda a mejorar!</p>
 
-        <form action="#" method="POST">
-            <aside>
+    <form action="procesar-comentario.php" method="POST" class="formulario-comentarios">
+        
+        <fieldset>
+            <legend class="sr-only">Formulario para redactar tu comentario</legend>
+
+            <div class="grupo-campo">
                 <label for="nombre-usuario">Nombre:</label>
-                <input type="text" id="nombre-usuario" name="usuario" required>
-            </aside>
+                <input 
+                    type="text" 
+                    id="nombre-usuario" 
+                    name="usuario" 
+                    placeholder="Tu nombre completo" 
+                    autocomplete="name"
+                    required
+                >
+            </div>
             
-            <aside>
+            <div class="grupo-campo">
                 <label for="mensaje-usuario">Comentario:</label>
-                <textarea id="mensaje-usuario" name="comentario" rows="4" cols="50" placeholder="Cuéntanos cómo fue tu evento..."></textarea>
-            </aside>
+                <textarea 
+                    id="mensaje-usuario" 
+                    name="comentario" 
+                    rows="5" 
+                    placeholder="Cuéntanos cómo fue tu evento..." 
+                    required
+                ></textarea>
+            </div>
+        </fieldset>
 
-
-            <button type="submit">Publicar comentario</button>
-        </form>
-    </section>
+        <button type="submit" class="boton-enviar">Publicar comentario</button>
+    </form>
+</section>
 
     </main>
 
