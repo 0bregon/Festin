@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Festín</title>
+    <!-- Enlace a Google Fonts si es necesario para 'Fredoka', o asumiendo que está local -->
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link href="estilo.css" rel="stylesheet">
-
     <script src="script.js" defer></script>
 </head>
 <body>
@@ -17,9 +18,9 @@
         </h1> 
 
         <nav aria-label="Menú principal" class="menu">
-            <button class="menu-toggle">☰ Menú</button>
+            <button class="menu-toggle" aria-expanded="false" aria-controls="menu-lista">☰ Menú</button>
 
-            <ul>
+            <ul id="menu-lista">
                 <li><a href="index.html">Inicio</a></li>
                 <li><a href="catalogo.html">Catálogo</a></li>
                 <li><a href="servicios.html">Servicios</a></li>
@@ -31,8 +32,8 @@
 
         <form class="busqueda">
             <label for="buscar-prod">Buscar productos:</label>
-            <input type="search" id="buscar-prod" name="q" placeholder="">
-            <button type="submit">Buscar</button>
+            <input type="search" id="buscar-prod" name="q" placeholder="Buscar...">
+            <button type="submit">🔍</button>
         </form>
 
         <aside>
@@ -43,43 +44,46 @@
             <a href="perfil-usuario.html">
                 <img src="usuario.png" alt="Ir al perfil de usuario" class="icono">
             </a>
-            <a href="">
-                <img src="accesibilidad.png" alt="Opciones de accesibilidad" class="icono">
+            <a href="#" aria-label="Opciones de accesibilidad">
+                <img src="accesibilidad.png" alt="" class="icono">
             </a>
-            
         </aside>
     </header>
 
     <main>
     <section class="seccion">
-        <h2>Haz de tu evento un festin inolvidable</h2>
+        <h2>Haz de tu evento un festín inolvidable</h2>
         <p>Somos especialistas en el alquiler de equipos y servicios para eventos en Panamá Oeste. 
             Desde celebraciones infantiles hasta grandes ocasiones, ofrecemos inflables, animadores, 
             máquinas de comida, decoración y mucho más para crear experiencias únicas.</p>
 
+        <!-- CARRUSEL CORREGIDO -->
         <section class="galeria-contenedor" aria-roledescription="carrusel" aria-label="Galería de fotos de productos">
             <div class="controles-galeria">
-                <button class="flecha anterior" aria-label="Imagen anterior" aria-controls="diapositivas-carrusel">&#10094;</button>
-                <button class="flecha siguiente" aria-label="Siguiente imagen" aria-controls="diapositivas-carrusel">&#10095;</button>
+                <button class="flecha anterior" aria-label="Imagen anterior">&#10094;</button>
+                <button class="flecha siguiente" aria-label="Siguiente imagen">&#10095;</button>
             </div>
 
-            <ul id="diapositivas-carrusel" class="galeria-pantalla" aria-live="polite">
+            <ul class="galeria-pantalla" aria-live="polite">
                 
-                <li class="slide activa" role="group" aria-roledescription="diapositiva" aria-label="1 de 3">
-                <figure>
-                    <img src="https://saketos.es/wp-content/uploads/2025/03/ninas-de-un-ano-3-1-jpg.webp" alt="Mesa de cumpleaños">
-                    <figcaption class="descripcion-foto">Primer cumpleaños</figcaption>
-                </figure>
+                <!-- Slide 1: Activa -->
+                <li class="slide activa" role="group" aria-roledescription="diapositiva" aria-label="1 de 2">
+                    <figure>
+                        <img src="https://saketos.es/wp-content/uploads/2025/03/ninas-de-un-ano-3-1-jpg.webp" alt="Mesa de cumpleaños infantil">
+                        <figcaption class="descripcion-foto">Primer cumpleaños</figcaption>
+                    </figure>
                 </li>
 
-                <li class="slide" role="group" aria-roledescription="diapositiva" aria-label="2 de 3">
-                <figure>
-                    <img src="https://img1.elyerromenu.com/images/lisy-decoraciones/decoracion-cumpleanos-nina/img.webp" alt="Fiesta de cumpleaños con temática de Moana">
-                    <figcaption class="descripcion-foto">Decoración de Moana</figcaption>
-                </figure>
+                <!-- Slide 2: Inactiva -->
+                <li class="slide" role="group" aria-roledescription="diapositiva" aria-label="2 de 2">
+                    <figure>
+                        <img src="https://img1.elyerromenu.com/images/lisy-decoraciones/decoracion-cumpleanos-nina/img.webp" alt="Fiesta de cumpleaños con temática de Moana">
+                        <figcaption class="descripcion-foto">Decoración de Moana</figcaption>
+                    </figure>
                 </li>
             </ul>
         </section>
+        <!-- FIN CARRUSEL -->
 
         <p class="boton"><a href="reserva.html">Realizar una reserva</a></p>
     </section>
@@ -94,152 +98,123 @@
             <li>Eventos corporativos</li>
             <li>Otros eventos</li>
         </ul>
-        
     </section>
     
-        <section class="seccion">
-            <section class="productos-destacados">
-                <h3>Productos destacados del catálogo</h3>
+    <section class="seccion">
+        <section class="productos-destacados">
+            <h3>Productos destacados del catálogo</h3>
 
-                <div class="contenedor-productos">
+            <div class="contenedor-productos">
 
-                    <article class="tarjeta-producto">
-                        <h4>Candy Bar</h4>
-                        <img src="candybar1.jpeg" alt="Candy Bar">
-                    </article>
+                <article class="tarjeta-producto">
+                    <h4>Candy Bar</h4>
+                    <img src="candybar1.jpeg" alt="Candy Bar colorido">
+                </article>
 
-                    <article class="tarjeta-producto">
-                        <h4>Sillas</h4>
-                        <img src="sillas.webp" alt="Sillas">
-                    </article>
+                <article class="tarjeta-producto">
+                    <h4>Sillas</h4>
+                    <img src="sillas.webp" alt="Sillas blancas Tiffany">
+                </article>
 
-                    <article class="tarjeta-producto">
-                        <h4>Máquina de palomitas</h4>
-                        <img src="palomitas.jpg" alt="Máquina de palomitas">
-                    </article>
+                <article class="tarjeta-producto">
+                    <h4>Máquina de palomitas</h4>
+                    <img src="palomitas.jpg" alt="Máquina de palomitas roja">
+                </article>
 
-                </div>
+            </div>
 
-                <p class="boton">
-                    <a href="catalogo.html">Ver catálogo completo</a>
-                </p>
+            <p class="boton">
+                <a href="catalogo.html">Ver catálogo completo</a>
+            </p>
 
-            </section>
         </section>
+    </section>
     
     <section class="seccion">
         <section class="servicios">
             <h3>Servicios que ofrecemos</h3>
             <div class="contenedor-servicios">
                 <ul class="lista-servicios">
-                    <li onclick="cambiarServicio(
-                        'payasos.webp',
-                        'Animadores y payasos'
-                    )">
+                    <li onclick="cambiarServicio('payasos.webp', 'Animadores y payasos')">
                         Animadores y payasos
-                        
                     </li>
 
-                    <li onclick="cambiarServicio(
-                        'pintacaritas.jpg',
-                        'Pintacaritas'
-                    )">
+                    <li onclick="cambiarServicio('pintacaritas.jpg', 'Pintacaritas')">
                         Pintacaritas
                     </li>
 
-                    <li onclick="cambiarServicio(
-                        'sesionFotos.jpg',
-                        'Fotografía y video'
-                    )">
+                    <li onclick="cambiarServicio('sesionFotos.jpg', 'Fotografía y video')">
                         Fotografía y video
                     </li>
 
-                    <li onclick="cambiarServicio(
-                        'decoracion1.webp',
-                        'Decoración temática'
-                    )">
+                    <li onclick="cambiarServicio('decoracion1.webp', 'Decoración temática')">
                         Decoración temática
                     </li>
 
-                    <li onclick="cambiarServicio(
-                        'dj.webp',
-                        'Música y sonido'
-                    )">
+                    <li onclick="cambiarServicio('dj.webp', 'Música y sonido')">
                         Música y sonido
                     </li>
-
                 </ul>
 
                 <div class="vista-servicio">
-
                     <img 
                         id="imagen-servicio"
                         src="payasos.webp"
-                        alt="Servicio">
+                        alt="Animador vestido de payaso">
 
                     <h4 id="titulo-servicio">
                         Animadores y payasos
                     </h4>
-
                 </div>
-
             </div>
             <h4>¿Quieres un paquete personalizado?</h4>
             <p class="boton">
                 <a href="servicios.html">Ver servicios</a>
             </p>
-
         </section>
     </section>
 
     <section class="seccion">
         <h3>Instrucciones y Cuidados</h3>
-            <p>La seguridad es nuestra prioridad. Consulta nuestras guías sobre el uso correcto de los equipos alquilados.</p>
-            <p class="boton"><a href="instrucciones.html">Leer manual de seguridad</a></p>
-
-        <video class="video" controls>
-            <source src="video.mp4" type="video/mp4">
-            <source src="video.webm" type="video/webm">
-            Tu navegador no soporta la etiqueta de video.
-        </video>
+        <p>La seguridad es nuestra prioridad. Consulta nuestras guías sobre el uso correcto de los equipos alquilados.</p>
+        <p class="boton"><a href="manual.html">Leer manual de seguridad</a></p>
     </section>
 
     <section class="seccion">
-    <h3>Déjanos tu opinión</h3>
-    <p>Cuéntanos cómo fue tu experiencia con Festín. ¡Tu opinión nos ayuda a mejorar!</p>
+        <h3>Déjanos tu opinión</h3>
+        <p>Cuéntanos cómo fue tu experiencia con Festín. ¡Tu opinión nos ayuda a mejorar!</p>
 
-    <form action="procesar-comentario.php" method="POST" class="formulario-comentarios">
-        
-        <fieldset>
-            <legend class="sr-only">Formulario para redactar tu comentario</legend>
+        <form action="procesar-comentario.php" method="POST" class="formulario-comentarios formulario-login">
+            <fieldset>
+                <legend class="sr-only">Formulario para redactar tu comentario</legend>
 
-            <div class="grupo-campo">
-                <label for="nombre-usuario">Nombre:</label>
-                <input 
-                    type="text" 
-                    id="nombre-usuario" 
-                    name="usuario" 
-                    placeholder="Tu nombre completo" 
-                    autocomplete="name"
-                    required
-                >
-            </div>
-            
-            <div class="grupo-campo">
-                <label for="mensaje-usuario">Comentario:</label>
-                <textarea 
-                    id="mensaje-usuario" 
-                    name="comentario" 
-                    rows="5" 
-                    placeholder="Cuéntanos cómo fue tu evento..." 
-                    required
-                ></textarea>
-            </div>
-        </fieldset>
+                <div class="grupo-campo">
+                    <label for="nombre-usuario">Nombre:</label>
+                    <input 
+                        type="text" 
+                        id="nombre-usuario" 
+                        name="usuario" 
+                        placeholder="Tu nombre completo" 
+                        autocomplete="name"
+                        required
+                    >
+                </div>
+                
+                <div class="grupo-campo">
+                    <label for="mensaje-usuario">Comentario:</label>
+                    <textarea 
+                        id="mensaje-usuario" 
+                        name="comentario" 
+                        rows="5" 
+                        placeholder="Cuéntanos cómo fue tu evento..." 
+                        required
+                    ></textarea>
+                </div>
+            </fieldset>
 
-        <button type="submit" class="boton-enviar">Publicar comentario</button>
-    </form>
-</section>
+            <button type="submit" class="boton-enviar">Publicar comentario</button>
+        </form>
+    </section>
 
     </main>
 

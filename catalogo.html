@@ -5,8 +5,96 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Catálogo</title>
     <link href="estilo.css" rel="stylesheet">
-
     <script src="script.js" defer></script>
+    <style>
+        /* Correcciones CSS para carruseles */
+        .galeria-contenedor {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+        }
+
+        .galeria-pantalla {
+            display: flex;
+            transition: transform 0.3s ease-in-out;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            gap: 0;
+        }
+
+        .slide {
+            min-width: 100%;
+            display: none;
+            position: relative;
+        }
+
+        .slide.activa {
+            display: block;
+        }
+
+        .slide figure {
+            margin: 0;
+            position: relative;
+            width: 100%;
+        }
+
+        .slide img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+            position: relative;
+            z-index: 1;
+        }
+
+        .descripcion-foto {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0,0,0,0.6);
+            color: white;
+            padding: 0.5rem;
+            font-size: 0.875rem;
+            z-index: 2;
+        }
+
+        .controles-galeria {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+            z-index: 3;
+            pointer-events: none;
+        }
+
+        .controles-galeria .flecha {
+            pointer-events: auto;
+            background: rgba(0,0,0,0.5);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            font-size: 1.5rem;
+            transition: background 0.2s;
+        }
+
+        .controles-galeria .flecha:hover {
+            background: rgba(0,0,0,0.8);
+        }
+
+        @media (max-width: 768px) {
+            .galeria-contenedor {
+                overflow: hidden;
+            }
+            .slide img {
+                object-fit: contain;
+            }
+        }
+    </style>
 </head>
 <body>
     <header class="encabezado container">
@@ -59,55 +147,41 @@
         <hr>
         <section class="seccion">
             <h3>Decoracion</h3>
+
             <article class="seccion">
                 <h4>Arco de globos</h4>
+
                 <section class="galeria-contenedor" aria-roledescription="carrusel" aria-label="Galería de fotos de productos">
+
                     <div class="controles-galeria">
-                        <button class="flecha anterior" aria-label="Imagen anterior" aria-controls="diapositivas-carrusel">&#10094;</button>
-                        <button class="flecha siguiente" aria-label="Siguiente imagen" aria-controls="diapositivas-carrusel">&#10095;</button>
+                        <button class="flecha anterior" aria-label="Imagen anterior">
+                            &#10094;
+                        </button>
+                        <button class="flecha siguiente" aria-label="Siguiente imagen">
+                            &#10095;
+                        </button>
                     </div>
 
-                    <ul id="diapositivas-carrusel" class="galeria-pantalla" aria-live="polite">
-                        
-                        <li class="slide activa" role="group" aria-roledescription="diapositiva" aria-label="1 de 3">
-                        <figure>
-                            <img src="globos1.webp" alt="Mesa de cumpleaños">
-                            <img src="globos2.webp" alt="Mesa de cumpleaños">
-                            <figcaption class="descripcion-foto">Primer cumpleaños</figcaption>
-                        </figure>
+                    <ul class="galeria-pantalla" aria-live="polite">
+                        <li class="slide activa" role="group" aria-roledescription="diapositiva" aria-label="1 de 2">
+                            <figure>
+                                <img src="globos1.webp" alt="Arco de globos decorativo para cumpleaños">
+                                <figcaption class="descripcion-foto">Decoración temática con globos</figcaption>
+                            </figure>
+                        </li>
+                        <li class="slide" role="group" aria-roledescription="diapositiva" aria-label="2 de 2">
+                            <figure>
+                                <img src="globos2.webp" alt="Arco de globos coloridos para eventos">
+                                <figcaption class="descripcion-foto">Ideal para cumpleaños y celebraciones</figcaption>
+                            </figure>
                         </li>
                     </ul>
                 </section>
-                <p>Transforma cualquier espacio en el centro de la fiesta con un arco de globos lleno de color y estilo. 
-                    Ideal para cumpleaños, baby showers, bautizos, graduaciones y celebraciones especiales. Se adapta a 
-                    diferentes temáticas y crea un fondo perfecto para fotos y decoración principal.</p>
+
+                <p>Transforma cualquier espacio en el centro de la fiesta con un arco de globos lleno de color y estilo. Ideal para cumpleaños, baby showers, bautizos, graduaciones y celebraciones especiales. Se adapta a diferentes temáticas y crea un fondo perfecto para fotos y decoración principal.</p>
+
                 <footer>
                     <p>B/22.00</p>
-                    <button type="button" class="boton-carrito">Agregar al carrito</button>
-                </footer>
-            </article>
-
-            <article class="seccion">
-                <h4>--</h4>
-                <section class="galeria-contenedor" aria-roledescription="carrusel" aria-label="Galería de fotos de productos">
-                    <div class="controles-galeria">
-                        <button class="flecha anterior" aria-label="Imagen anterior" aria-controls="diapositivas-carrusel">&#10094;</button>
-                        <button class="flecha siguiente" aria-label="Siguiente imagen" aria-controls="diapositivas-carrusel">&#10095;</button>
-                    </div>
-
-                    <ul id="diapositivas-carrusel" class="galeria-pantalla" aria-live="polite">
-                        
-                        <li class="slide activa" role="group" aria-roledescription="diapositiva" aria-label="1 de 3">
-                        <figure>
-                            <img src="https://saketos.es/wp-content/uploads/2025/03/ninas-de-un-ano-3-1-jpg.webp" alt="Mesa de cumpleaños">
-                            <figcaption class="descripcion-foto">Primer cumpleaños</figcaption>
-                        </figure>
-                        </li>
-                    </ul>
-                </section>
-                <p></p>
-                <footer>
-                    <p>B/.00</p>
                     <button type="button" class="boton-carrito">Agregar al carrito</button>
                 </footer>
             </article>
@@ -116,28 +190,36 @@
         <hr>
         <section class="seccion">
             <h3>Bases decorativas</h3>
+            
             <article class="seccion">
                 <h4>Candy Bar</h4>
                 <section class="galeria-contenedor" aria-roledescription="carrusel" aria-label="Galería de fotos de productos">
                     <div class="controles-galeria">
-                        <button class="flecha anterior" aria-label="Imagen anterior" aria-controls="diapositivas-carrusel">&#10094;</button>
-                        <button class="flecha siguiente" aria-label="Siguiente imagen" aria-controls="diapositivas-carrusel">&#10095;</button>
+                        <button class="flecha anterior" aria-label="Imagen anterior">&#10094;</button>
+                        <button class="flecha siguiente" aria-label="Siguiente imagen">&#10095;</button>
                     </div>
-
-                    <ul id="diapositivas-carrusel" class="galeria-pantalla" aria-live="polite">
-                        
+                    <ul class="galeria-pantalla" aria-live="polite">
                         <li class="slide activa" role="group" aria-roledescription="diapositiva" aria-label="1 de 3">
-                        <figure>
-                            <img src="candybar1.jpeg" alt="Mesa de cumpleaños">
-                            <img src="candybar2.jpeg" alt="Mesa de cumpleaños">
-                            <img src="candybar3.jpeg" alt="Mesa de cumpleaños">
-                            <figcaption class="descripcion-foto">Primer cumpleaños</figcaption>
-                        </figure>
+                            <figure>
+                                <img src="candybar1.jpeg" alt="Candy Bar decoración mesa de cumpleaños">
+                                <figcaption class="descripcion-foto">Primer cumpleaños</figcaption>
+                            </figure>
+                        </li>
+                        <li class="slide" role="group" aria-roledescription="diapositiva" aria-label="2 de 3">
+                            <figure>
+                                <img src="candybar2.jpeg" alt="Candy Bar decoración mesa de cumpleaños">
+                                <figcaption class="descripcion-foto">Primer cumpleaños</figcaption>
+                            </figure>
+                        </li>
+                        <li class="slide" role="group" aria-roledescription="diapositiva" aria-label="3 de 3">
+                            <figure>
+                                <img src="candybar3.jpeg" alt="Candy Bar decoración mesa de cumpleaños">
+                                <figcaption class="descripcion-foto">Primer cumpleaños</figcaption>
+                            </figure>
                         </li>
                     </ul>
                 </section>
-                <p>Un espacio dulce y colorido para sorprender a todos los invitados. Incluye decoración temática 
-                    y área organizada para colocar golosinas, cupcakes, chocolates y snacks.</p>
+                <p>Un espacio dulce y colorido para sorprender a todos los invitados. Incluye decoración temática y área organizada para colocar golosinas, cupcakes, chocolates y snacks.</p>
                 <footer>
                     <p>B/0.00</p>
                     <button type="button" class="boton-carrito">Agregar al carrito</button>
@@ -148,17 +230,15 @@
                 <h4>Carrusel</h4>
                 <section class="galeria-contenedor" aria-roledescription="carrusel" aria-label="Galería de fotos de productos">
                     <div class="controles-galeria">
-                        <button class="flecha anterior" aria-label="Imagen anterior" aria-controls="diapositivas-carrusel">&#10094;</button>
-                        <button class="flecha siguiente" aria-label="Siguiente imagen" aria-controls="diapositivas-carrusel">&#10095;</button>
+                        <button class="flecha anterior" aria-label="Imagen anterior">&#10094;</button>
+                        <button class="flecha siguiente" aria-label="Siguiente imagen">&#10095;</button>
                     </div>
-
-                    <ul id="diapositivas-carrusel" class="galeria-pantalla" aria-live="polite">
-                        
-                        <li class="slide activa" role="group" aria-roledescription="diapositiva" aria-label="1 de 3">
-                        <figure>
-                            <img src="" alt="Mesa de cumpleaños">
-                            <figcaption class="descripcion-foto">Primer cumpleaños</figcaption>
-                        </figure>
+                    <ul class="galeria-pantalla" aria-live="polite">
+                        <li class="slide activa" role="group" aria-roledescription="diapositiva" aria-label="1 de 1">
+                            <figure>
+                                <img src="https://via.placeholder.com/600x400?text=Carrusel" alt="Carrusel decorativo para eventos">
+                                <figcaption class="descripcion-foto">Primer cumpleaños</figcaption>
+                            </figure>
                         </li>
                     </ul>
                 </section>
@@ -173,17 +253,15 @@
                 <h4>Bases para pasteles</h4>
                 <section class="galeria-contenedor" aria-roledescription="carrusel" aria-label="Galería de fotos de productos">
                     <div class="controles-galeria">
-                        <button class="flecha anterior" aria-label="Imagen anterior" aria-controls="diapositivas-carrusel">&#10094;</button>
-                        <button class="flecha siguiente" aria-label="Siguiente imagen" aria-controls="diapositivas-carrusel">&#10095;</button>
+                        <button class="flecha anterior" aria-label="Imagen anterior">&#10094;</button>
+                        <button class="flecha siguiente" aria-label="Siguiente imagen">&#10095;</button>
                     </div>
-
-                    <ul id="diapositivas-carrusel" class="galeria-pantalla" aria-live="polite">
-                        
-                        <li class="slide activa" role="group" aria-roledescription="diapositiva" aria-label="1 de 3">
-                        <figure>
-                            <img src="baseDulce.jpeg" alt="Mesa de cumpleaños">
-                            <figcaption class="descripcion-foto">Primer cumpleaños</figcaption>
-                        </figure>
+                    <ul class="galeria-pantalla" aria-live="polite">
+                        <li class="slide activa" role="group" aria-roledescription="diapositiva" aria-label="1 de 1">
+                            <figure>
+                                <img src="baseDulce.jpeg" alt="Base decorativa para pasteles de cumpleaños">
+                                <figcaption class="descripcion-foto">Primer cumpleaños</figcaption>
+                            </figure>
                         </li>
                     </ul>
                 </section>
@@ -198,17 +276,15 @@
                 <h4>Bases para pastillas</h4>
                 <section class="galeria-contenedor" aria-roledescription="carrusel" aria-label="Galería de fotos de productos">
                     <div class="controles-galeria">
-                        <button class="flecha anterior" aria-label="Imagen anterior" aria-controls="diapositivas-carrusel">&#10094;</button>
-                        <button class="flecha siguiente" aria-label="Siguiente imagen" aria-controls="diapositivas-carrusel">&#10095;</button>
+                        <button class="flecha anterior" aria-label="Imagen anterior">&#10094;</button>
+                        <button class="flecha siguiente" aria-label="Siguiente imagen">&#10095;</button>
                     </div>
-
-                    <ul id="diapositivas-carrusel" class="galeria-pantalla" aria-live="polite">
-                        
-                        <li class="slide activa" role="group" aria-roledescription="diapositiva" aria-label="1 de 3">
-                        <figure>
-                            <img src="baseP.jpeg" alt="Mesa de cumpleaños">
-                            <figcaption class="descripcion-foto">Primer cumpleaños</figcaption>
-                        </figure>
+                    <ul class="galeria-pantalla" aria-live="polite">
+                        <li class="slide activa" role="group" aria-roledescription="diapositiva" aria-label="1 de 1">
+                            <figure>
+                                <img src="baseP.jpeg" alt="Base decorativa para pastillas de eventos">
+                                <figcaption class="descripcion-foto">Primer cumpleaños</figcaption>
+                            </figure>
                         </li>
                     </ul>
                 </section>
@@ -223,20 +299,33 @@
                 <h4>Bases para cupcakes</h4>
                 <section class="galeria-contenedor" aria-roledescription="carrusel" aria-label="Galería de fotos de productos">
                     <div class="controles-galeria">
-                        <button class="flecha anterior" aria-label="Imagen anterior" aria-controls="diapositivas-carrusel">&#10094;</button>
-                        <button class="flecha siguiente" aria-label="Siguiente imagen" aria-controls="diapositivas-carrusel">&#10095;</button>
+                        <button class="flecha anterior" aria-label="Imagen anterior">&#10094;</button>
+                        <button class="flecha siguiente" aria-label="Siguiente imagen">&#10095;</button>
                     </div>
-
-                    <ul id="diapositivas-carrusel" class="galeria-pantalla" aria-live="polite">
-                        
-                        <li class="slide activa" role="group" aria-roledescription="diapositiva" aria-label="1 de 3">
-                        <figure>
-                            <img src="cupcake1.jpeg" alt="Mesa de cumpleaños">
-                            <img src="cupcake2.jpeg" alt="Mesa de cumpleaños">
-                            <img src="cupcake3.jpeg" alt="Mesa de cumpleaños">
-                            <img src="cupcake4.jpeg" alt="Mesa de cumpleaños">
-                            <figcaption class="descripcion-foto">Primer cumpleaños</figcaption>
-                        </figure>
+                    <ul class="galeria-pantalla" aria-live="polite">
+                        <li class="slide activa" role="group" aria-roledescription="diapositiva" aria-label="1 de 4">
+                            <figure>
+                                <img src="cupcake1.jpeg" alt="Base decorativa para cupcakes de cumpleaños">
+                                <figcaption class="descripcion-foto">Primer cumpleaños</figcaption>
+                            </figure>
+                        </li>
+                        <li class="slide" role="group" aria-roledescription="diapositiva" aria-label="2 de 4">
+                            <figure>
+                                <img src="cupcake2.jpeg" alt="Base decorativa para cupcakes de cumpleaños">
+                                <figcaption class="descripcion-foto">Primer cumpleaños</figcaption>
+                            </figure>
+                        </li>
+                        <li class="slide" role="group" aria-roledescription="diapositiva" aria-label="3 de 4">
+                            <figure>
+                                <img src="cupcake3.jpeg" alt="Base decorativa para cupcakes de cumpleaños">
+                                <figcaption class="descripcion-foto">Primer cumpleaños</figcaption>
+                            </figure>
+                        </li>
+                        <li class="slide" role="group" aria-roledescription="diapositiva" aria-label="4 de 4">
+                            <figure>
+                                <img src="cupcake4.jpeg" alt="Base decorativa para cupcakes de cumpleaños">
+                                <figcaption class="descripcion-foto">Primer cumpleaños</figcaption>
+                            </figure>
                         </li>
                     </ul>
                 </section>
@@ -251,17 +340,15 @@
                 <h4>Pedestales decorativos</h4>
                 <section class="galeria-contenedor" aria-roledescription="carrusel" aria-label="Galería de fotos de productos">
                     <div class="controles-galeria">
-                        <button class="flecha anterior" aria-label="Imagen anterior" aria-controls="diapositivas-carrusel">&#10094;</button>
-                        <button class="flecha siguiente" aria-label="Siguiente imagen" aria-controls="diapositivas-carrusel">&#10095;</button>
+                        <button class="flecha anterior" aria-label="Imagen anterior">&#10094;</button>
+                        <button class="flecha siguiente" aria-label="Siguiente imagen">&#10095;</button>
                     </div>
-
-                    <ul id="diapositivas-carrusel" class="galeria-pantalla" aria-live="polite">
-                        
-                        <li class="slide activa" role="group" aria-roledescription="diapositiva" aria-label="1 de 3">
-                        <figure>
-                            <img src="https://saketos.es/wp-content/uploads/2025/03/ninas-de-un-ano-3-1-jpg.webp" alt="Mesa de cumpleaños">
-                            <figcaption class="descripcion-foto">Primer cumpleaños</figcaption>
-                        </figure>
+                    <ul class="galeria-pantalla" aria-live="polite">
+                        <li class="slide activa" role="group" aria-roledescription="diapositiva" aria-label="1 de 1">
+                            <figure>
+                                <img src="https://saketos.es/wp-content/uploads/2025/03/ninas-de-un-ano-3-1-jpg.webp" alt="Pedestales decorativos para eventos">
+                                <figcaption class="descripcion-foto">Primer cumpleaños</figcaption>
+                            </figure>
                         </li>
                     </ul>
                 </section>
@@ -276,17 +363,15 @@
                 <h4>Bandejas decorativas</h4>
                 <section class="galeria-contenedor" aria-roledescription="carrusel" aria-label="Galería de fotos de productos">
                     <div class="controles-galeria">
-                        <button class="flecha anterior" aria-label="Imagen anterior" aria-controls="diapositivas-carrusel">&#10094;</button>
-                        <button class="flecha siguiente" aria-label="Siguiente imagen" aria-controls="diapositivas-carrusel">&#10095;</button>
+                        <button class="flecha anterior" aria-label="Imagen anterior">&#10094;</button>
+                        <button class="flecha siguiente" aria-label="Siguiente imagen">&#10095;</button>
                     </div>
-
-                    <ul id="diapositivas-carrusel" class="galeria-pantalla" aria-live="polite">
-                        
-                        <li class="slide activa" role="group" aria-roledescription="diapositiva" aria-label="1 de 3">
-                        <figure>
-                            <img src="https://saketos.es/wp-content/uploads/2025/03/ninas-de-un-ano-3-1-jpg.webp" alt="Mesa de cumpleaños">
-                            <figcaption class="descripcion-foto">Primer cumpleaños</figcaption>
-                        </figure>
+                    <ul class="galeria-pantalla" aria-live="polite">
+                        <li class="slide activa" role="group" aria-roledescription="diapositiva" aria-label="1 de 1">
+                            <figure>
+                                <img src="https://saketos.es/wp-content/uploads/2025/03/ninas-de-un-ano-3-1-jpg.webp" alt="Bandejas decorativas para eventos">
+                                <figcaption class="descripcion-foto">Primer cumpleaños</figcaption>
+                            </figure>
                         </li>
                     </ul>
                 </section>
@@ -301,17 +386,15 @@
                 <h4>Caballetes</h4>
                 <section class="galeria-contenedor" aria-roledescription="carrusel" aria-label="Galería de fotos de productos">
                     <div class="controles-galeria">
-                        <button class="flecha anterior" aria-label="Imagen anterior" aria-controls="diapositivas-carrusel">&#10094;</button>
-                        <button class="flecha siguiente" aria-label="Siguiente imagen" aria-controls="diapositivas-carrusel">&#10095;</button>
+                        <button class="flecha anterior" aria-label="Imagen anterior">&#10094;</button>
+                        <button class="flecha siguiente" aria-label="Siguiente imagen">&#10095;</button>
                     </div>
-
-                    <ul id="diapositivas-carrusel" class="galeria-pantalla" aria-live="polite">
-                        
-                        <li class="slide activa" role="group" aria-roledescription="diapositiva" aria-label="1 de 3">
-                        <figure>
-                            <img src="https://saketos.es/wp-content/uploads/2025/03/ninas-de-un-ano-3-1-jpg.webp" alt="Mesa de cumpleaños">
-                            <figcaption class="descripcion-foto">Primer cumpleaños</figcaption>
-                        </figure>
+                    <ul class="galeria-pantalla" aria-live="polite">
+                        <li class="slide activa" role="group" aria-roledescription="diapositiva" aria-label="1 de 1">
+                            <figure>
+                                <img src="https://saketos.es/wp-content/uploads/2025/03/ninas-de-un-ano-3-1-jpg.webp" alt="Caballetes decorativos para eventos">
+                                <figcaption class="descripcion-foto">Primer cumpleaños</figcaption>
+                            </figure>
                         </li>
                     </ul>
                 </section>
@@ -326,17 +409,15 @@
                 <h4>Letras de madera pequeñas</h4>
                 <section class="galeria-contenedor" aria-roledescription="carrusel" aria-label="Galería de fotos de productos">
                     <div class="controles-galeria">
-                        <button class="flecha anterior" aria-label="Imagen anterior" aria-controls="diapositivas-carrusel">&#10094;</button>
-                        <button class="flecha siguiente" aria-label="Siguiente imagen" aria-controls="diapositivas-carrusel">&#10095;</button>
+                        <button class="flecha anterior" aria-label="Imagen anterior">&#10094;</button>
+                        <button class="flecha siguiente" aria-label="Siguiente imagen">&#10095;</button>
                     </div>
-
-                    <ul id="diapositivas-carrusel" class="galeria-pantalla" aria-live="polite">
-                        
-                        <li class="slide activa" role="group" aria-roledescription="diapositiva" aria-label="1 de 3">
-                        <figure>
-                            <img src="https://saketos.es/wp-content/uploads/2025/03/ninas-de-un-ano-3-1-jpg.webp" alt="Mesa de cumpleaños">
-                            <figcaption class="descripcion-foto">Primer cumpleaños</figcaption>
-                        </figure>
+                    <ul class="galeria-pantalla" aria-live="polite">
+                        <li class="slide activa" role="group" aria-roledescription="diapositiva" aria-label="1 de 1">
+                            <figure>
+                                <img src="https://saketos.es/wp-content/uploads/2025/03/ninas-de-un-ano-3-1-jpg.webp" alt="Letras de madera pequeñas para decoración">
+                                <figcaption class="descripcion-foto">Primer cumpleaños</figcaption>
+                            </figure>
                         </li>
                     </ul>
                 </section>
@@ -355,23 +436,19 @@
                 <h4>Maquina de palomitas</h4>
                 <section class="galeria-contenedor" aria-roledescription="carrusel" aria-label="Galería de fotos de productos">
                     <div class="controles-galeria">
-                        <button class="flecha anterior" aria-label="Imagen anterior" aria-controls="diapositivas-carrusel">&#10094;</button>
-                        <button class="flecha siguiente" aria-label="Siguiente imagen" aria-controls="diapositivas-carrusel">&#10095;</button>
+                        <button class="flecha anterior" aria-label="Imagen anterior">&#10094;</button>
+                        <button class="flecha siguiente" aria-label="Siguiente imagen">&#10095;</button>
                     </div>
-
-                    <ul id="diapositivas-carrusel" class="galeria-pantalla" aria-live="polite">
-                        
-                        <li class="slide activa" role="group" aria-roledescription="diapositiva" aria-label="1 de 3">
-                        <figure>
-                            <img src="palomitas.jpg" alt="Mesa de cumpleaños">
-                            <figcaption class="descripcion-foto">Primer cumpleaños</figcaption>
-                        </figure>
+                    <ul class="galeria-pantalla" aria-live="polite">
+                        <li class="slide activa" role="group" aria-roledescription="diapositiva" aria-label="1 de 1">
+                            <figure>
+                                <img src="palomitas.jpg" alt="Máquina de palomitas para eventos">
+                                <figcaption class="descripcion-foto">Primer cumpleaños</figcaption>
+                            </figure>
                         </li>
                     </ul>
                 </section>
-                <p>Disfruta palomitas frescas, calientes y listas en pocos minutos. Perfecta para cumpleaños, eventos infantiles, 
-                    ferias o reuniones familiares. Su diseño llamativo le da un toque divertido al ambiente mientras llena el lugar 
-                    con ese aroma clásico de cine que despierta sonrisas apenas llega.</p>
+                <p>Disfruta palomitas frescas, calientes y listas en pocos minutos. Perfecta para cumpleaños, eventos infantiles, ferias o reuniones familiares. Su diseño llamativo le da un toque divertido al ambiente mientras llena el lugar con ese aroma clásico de cine que despierta sonrisas apenas llega.</p>
                 <footer>
                     <p>B/18.00</p>
                     <button type="button" class="boton-carrito">Agregar al carrito</button>
@@ -382,22 +459,19 @@
                 <h4>Máquina de algodón de azucar</h4>
                 <section class="galeria-contenedor" aria-roledescription="carrusel" aria-label="Galería de fotos de productos">
                     <div class="controles-galeria">
-                        <button class="flecha anterior" aria-label="Imagen anterior" aria-controls="diapositivas-carrusel">&#10094;</button>
-                        <button class="flecha siguiente" aria-label="Siguiente imagen" aria-controls="diapositivas-carrusel">&#10095;</button>
+                        <button class="flecha anterior" aria-label="Imagen anterior">&#10094;</button>
+                        <button class="flecha siguiente" aria-label="Siguiente imagen">&#10095;</button>
                     </div>
-
-                    <ul id="diapositivas-carrusel" class="galeria-pantalla" aria-live="polite">
-                        
-                        <li class="slide activa" role="group" aria-roledescription="diapositiva" aria-label="1 de 3">
-                        <figure>
-                            <img src="algodon.jpg" alt="Mesa de cumpleaños">
-                            <figcaption class="descripcion-foto">Primer cumpleaños</figcaption>
-                        </figure>
+                    <ul class="galeria-pantalla" aria-live="polite">
+                        <li class="slide activa" role="group" aria-roledescription="diapositiva" aria-label="1 de 1">
+                            <figure>
+                                <img src="algodon.jpg" alt="Máquina de algodón de azúcar para eventos">
+                                <figcaption class="descripcion-foto">Primer cumpleaños</figcaption>
+                            </figure>
                         </li>
                     </ul>
                 </section>
-                <p>Llena la fiesta de color y dulzura con algodón de azúcar recién preparado. Perfecta para cumpleaños 
-                    infantiles, ferias y celebraciones divertidas.</p>
+                <p>Llena la fiesta de color y dulzura con algodón de azúcar recién preparado. Perfecta para cumpleaños infantiles, ferias y celebraciones divertidas.</p>
                 <footer>
                     <p>B/.00</p>
                     <button type="button" class="boton-carrito">Agregar al carrito</button>
@@ -408,22 +482,19 @@
                 <h4>Máquina de HotDogs</h4>
                 <section class="galeria-contenedor" aria-roledescription="carrusel" aria-label="Galería de fotos de productos">
                     <div class="controles-galeria">
-                        <button class="flecha anterior" aria-label="Imagen anterior" aria-controls="diapositivas-carrusel">&#10094;</button>
-                        <button class="flecha siguiente" aria-label="Siguiente imagen" aria-controls="diapositivas-carrusel">&#10095;</button>
+                        <button class="flecha anterior" aria-label="Imagen anterior">&#10094;</button>
+                        <button class="flecha siguiente" aria-label="Siguiente imagen">&#10095;</button>
                     </div>
-
-                    <ul id="diapositivas-carrusel" class="galeria-pantalla" aria-live="polite">
-                        
-                        <li class="slide activa" role="group" aria-roledescription="diapositiva" aria-label="1 de 3">
-                        <figure>
-                            <img src="" alt="Mesa de cumpleaños">
-                            <figcaption class="descripcion-foto">Primer cumpleaños</figcaption>
-                        </figure>
+                    <ul class="galeria-pantalla" aria-live="polite">
+                        <li class="slide activa" role="group" aria-roledescription="diapositiva" aria-label="1 de 1">
+                            <figure>
+                                <img src="https://via.placeholder.com/600x400?text=Maquina+HotDogs" alt="Máquina de Hot Dogs para eventos">
+                                <figcaption class="descripcion-foto">Primer cumpleaños</figcaption>
+                            </figure>
                         </li>
                     </ul>
                 </section>
-                <p>Prepara deliciosos hot dogs de manera rápida y práctica para consentir a todos tus invitados
-                     durante el evento.</p>
+                <p>Prepara deliciosos hot dogs de manera rápida y práctica para consentir a todos tus invitados durante el evento.</p>
                 <footer>
                     <p>B/.00</p>
                     <button type="button" class="boton-carrito">Agregar al carrito</button>
@@ -434,22 +505,19 @@
                 <h4>Máquina de raspados</h4>
                 <section class="galeria-contenedor" aria-roledescription="carrusel" aria-label="Galería de fotos de productos">
                     <div class="controles-galeria">
-                        <button class="flecha anterior" aria-label="Imagen anterior" aria-controls="diapositivas-carrusel">&#10094;</button>
-                        <button class="flecha siguiente" aria-label="Siguiente imagen" aria-controls="diapositivas-carrusel">&#10095;</button>
+                        <button class="flecha anterior" aria-label="Imagen anterior">&#10094;</button>
+                        <button class="flecha siguiente" aria-label="Siguiente imagen">&#10095;</button>
                     </div>
-
-                    <ul id="diapositivas-carrusel" class="galeria-pantalla" aria-live="polite">
-                        
-                        <li class="slide activa" role="group" aria-roledescription="diapositiva" aria-label="1 de 3">
-                        <figure>
-                            <img src="https://saketos.es/wp-content/uploads/2025/03/ninas-de-un-ano-3-1-jpg.webp" alt="Mesa de cumpleaños">
-                            <figcaption class="descripcion-foto">Primer cumpleaños</figcaption>
-                        </figure>
+                    <ul class="galeria-pantalla" aria-live="polite">
+                        <li class="slide activa" role="group" aria-roledescription="diapositiva" aria-label="1 de 1">
+                            <figure>
+                                <img src="https://saketos.es/wp-content/uploads/2025/03/ninas-de-un-ano-3-1-jpg.webp" alt="Máquina de raspados para eventos">
+                                <figcaption class="descripcion-foto">Primer cumpleaños</figcaption>
+                            </figure>
                         </li>
                     </ul>
                 </section>
-                <p>Refresca cualquier celebración con deliciosos raspados preparados al instante. Ideal para eventos 
-                    al aire libre y días calurosos.</p>
+                <p>Refresca cualquier celebración con deliciosos raspados preparados al instante. Ideal para eventos al aire libre y días calurosos.</p>
                 <footer>
                     <p>B/.00</p>
                     <button type="button" class="boton-carrito">Agregar al carrito</button>
@@ -460,22 +528,19 @@
                 <h4>Fuente de chocolate</h4>
                 <section class="galeria-contenedor" aria-roledescription="carrusel" aria-label="Galería de fotos de productos">
                     <div class="controles-galeria">
-                        <button class="flecha anterior" aria-label="Imagen anterior" aria-controls="diapositivas-carrusel">&#10094;</button>
-                        <button class="flecha siguiente" aria-label="Siguiente imagen" aria-controls="diapositivas-carrusel">&#10095;</button>
+                        <button class="flecha anterior" aria-label="Imagen anterior">&#10094;</button>
+                        <button class="flecha siguiente" aria-label="Siguiente imagen">&#10095;</button>
                     </div>
-
-                    <ul id="diapositivas-carrusel" class="galeria-pantalla" aria-live="polite">
-                        
-                        <li class="slide activa" role="group" aria-roledescription="diapositiva" aria-label="1 de 3">
-                        <figure>
-                            <img src="chocolate.jpg" alt="Mesa de cumpleaños">
-                            <figcaption class="descripcion-foto">Primer cumpleaños</figcaption>
-                        </figure>
+                    <ul class="galeria-pantalla" aria-live="polite">
+                        <li class="slide activa" role="group" aria-roledescription="diapositiva" aria-label="1 de 1">
+                            <figure>
+                                <img src="chocolate.jpg" alt="Fuente de chocolate para eventos">
+                                <figcaption class="descripcion-foto">Primer cumpleaños</figcaption>
+                            </figure>
                         </li>
                     </ul>
                 </section>
-                <p>Añade un toque divertido y delicioso a tu evento con una fuente de chocolate perfecta para frutas, 
-                    malvaviscos y snacks dulces. Un detalle que siempre roba miradas.</p>
+                <p>Añade un toque divertido y delicioso a tu evento con una fuente de chocolate perfecta para frutas, malvaviscos y snacks dulces. Un detalle que siempre roba miradas.</p>
                 <footer>
                     <p>B/.00</p>
                     <button type="button" class="boton-carrito">Agregar al carrito</button>
@@ -486,17 +551,15 @@
                 <h4>--</h4>
                 <section class="galeria-contenedor" aria-roledescription="carrusel" aria-label="Galería de fotos de productos">
                     <div class="controles-galeria">
-                        <button class="flecha anterior" aria-label="Imagen anterior" aria-controls="diapositivas-carrusel">&#10094;</button>
-                        <button class="flecha siguiente" aria-label="Siguiente imagen" aria-controls="diapositivas-carrusel">&#10095;</button>
+                        <button class="flecha anterior" aria-label="Imagen anterior">&#10094;</button>
+                        <button class="flecha siguiente" aria-label="Siguiente imagen">&#10095;</button>
                     </div>
-
-                    <ul id="diapositivas-carrusel" class="galeria-pantalla" aria-live="polite">
-                        
-                        <li class="slide activa" role="group" aria-roledescription="diapositiva" aria-label="1 de 3">
-                        <figure>
-                            <img src="https://saketos.es/wp-content/uploads/2025/03/ninas-de-un-ano-3-1-jpg.webp" alt="Mesa de cumpleaños">
-                            <figcaption class="descripcion-foto">Primer cumpleaños</figcaption>
-                        </figure>
+                    <ul class="galeria-pantalla" aria-live="polite">
+                        <li class="slide activa" role="group" aria-roledescription="diapositiva" aria-label="1 de 1">
+                            <figure>
+                                <img src="https://via.placeholder.com/600x400?text=Producto" alt="Producto de evento">
+                                <figcaption class="descripcion-foto">Primer cumpleaños</figcaption>
+                            </figure>
                         </li>
                     </ul>
                 </section>
@@ -515,23 +578,19 @@
                 <h4>Sillas plegables</h4>
                 <section class="galeria-contenedor" aria-roledescription="carrusel" aria-label="Galería de fotos de productos">
                     <div class="controles-galeria">
-                        <button class="flecha anterior" aria-label="Imagen anterior" aria-controls="diapositivas-carrusel">&#10094;</button>
-                        <button class="flecha siguiente" aria-label="Siguiente imagen" aria-controls="diapositivas-carrusel">&#10095;</button>
+                        <button class="flecha anterior" aria-label="Imagen anterior">&#10094;</button>
+                        <button class="flecha siguiente" aria-label="Siguiente imagen">&#10095;</button>
                     </div>
-
-                    <ul id="diapositivas-carrusel" class="galeria-pantalla" aria-live="polite">
-                        
-                        <li class="slide activa" role="group" aria-roledescription="diapositiva" aria-label="1 de 3">
-                        <figure>
-                            <img src="https://saketos.es/wp-content/uploads/2025/03/ninas-de-un-ano-3-1-jpg.webp" alt="Mesa de cumpleaños">
-                            <figcaption class="descripcion-foto">Primer cumpleaños</figcaption>
-                        </figure>
+                    <ul class="galeria-pantalla" aria-live="polite">
+                        <li class="slide activa" role="group" aria-roledescription="diapositiva" aria-label="1 de 1">
+                            <figure>
+                                <img src="https://saketos.es/wp-content/uploads/2025/03/ninas-de-un-ano-3-1-jpg.webp" alt="Sillas plegables para eventos">
+                                <figcaption class="descripcion-foto">Primer cumpleaños</figcaption>
+                            </figure>
                         </li>
                     </ul>
                 </section>
-                <p>Sillas cómodas y prácticas para todo tipo de eventos. Ideales para cumpleaños, reuniones, 
-                    actividades escolares, celebraciones familiares y más. Fáciles de acomodar y combinar con 
-                    cualquier decoración, ayudando a mantener a todos tus invitados cómodos durante la fiesta.</p>
+                <p>Sillas cómodas y prácticas para todo tipo de eventos. Ideales para cumpleaños, reuniones, actividades escolares, celebraciones familiares y más. Fáciles de acomodar y combinar con cualquier decoración, ayudando a mantener a todos tus invitados cómodos durante la fiesta.</p>
                 <footer>
                     <p>B/1.50</p>
                     <button type="button" class="boton-carrito">Agregar al carrito</button>
@@ -542,22 +601,19 @@
                 <h4>Mesas redondas</h4>
                 <section class="galeria-contenedor" aria-roledescription="carrusel" aria-label="Galería de fotos de productos">
                     <div class="controles-galeria">
-                        <button class="flecha anterior" aria-label="Imagen anterior" aria-controls="diapositivas-carrusel">&#10094;</button>
-                        <button class="flecha siguiente" aria-label="Siguiente imagen" aria-controls="diapositivas-carrusel">&#10095;</button>
+                        <button class="flecha anterior" aria-label="Imagen anterior">&#10094;</button>
+                        <button class="flecha siguiente" aria-label="Siguiente imagen">&#10095;</button>
                     </div>
-
-                    <ul id="diapositivas-carrusel" class="galeria-pantalla" aria-live="polite">
-                        
-                        <li class="slide activa" role="group" aria-roledescription="diapositiva" aria-label="1 de 3">
-                        <figure>
-                            <img src="https://saketos.es/wp-content/uploads/2025/03/ninas-de-un-ano-3-1-jpg.webp" alt="Mesa de cumpleaños">
-                            <figcaption class="descripcion-foto">Primer cumpleaños</figcaption>
-                        </figure>
+                    <ul class="galeria-pantalla" aria-live="polite">
+                        <li class="slide activa" role="group" aria-roledescription="diapositiva" aria-label="1 de 1">
+                            <figure>
+                                <img src="https://saketos.es/wp-content/uploads/2025/03/ninas-de-un-ano-3-1-jpg.webp" alt="Mesas redondas para eventos">
+                                <figcaption class="descripcion-foto">Primer cumpleaños</figcaption>
+                            </figure>
                         </li>
                     </ul>
                 </section>
-                <p>Perfectas para reuniones familiares, cumpleaños y eventos sociales. Brindan comodidad 
-                    y mejor distribución para los invitados.</p>
+                <p>Perfectas para reuniones familiares, cumpleaños y eventos sociales. Brindan comodidad y mejor distribución para los invitados.</p>
                 <footer>
                     <p>B/.00</p>
                     <button type="button" class="boton-carrito">Agregar al carrito</button>
@@ -568,17 +624,15 @@
                 <h4>Mesas rectangulares</h4>
                 <section class="galeria-contenedor" aria-roledescription="carrusel" aria-label="Galería de fotos de productos">
                     <div class="controles-galeria">
-                        <button class="flecha anterior" aria-label="Imagen anterior" aria-controls="diapositivas-carrusel">&#10094;</button>
-                        <button class="flecha siguiente" aria-label="Siguiente imagen" aria-controls="diapositivas-carrusel">&#10095;</button>
+                        <button class="flecha anterior" aria-label="Imagen anterior">&#10094;</button>
+                        <button class="flecha siguiente" aria-label="Siguiente imagen">&#10095;</button>
                     </div>
-
-                    <ul id="diapositivas-carrusel" class="galeria-pantalla" aria-live="polite">
-                        
-                        <li class="slide activa" role="group" aria-roledescription="diapositiva" aria-label="1 de 3">
-                        <figure>
-                            <img src="https://saketos.es/wp-content/uploads/2025/03/ninas-de-un-ano-3-1-jpg.webp" alt="Mesa de cumpleaños">
-                            <figcaption class="descripcion-foto">Primer cumpleaños</figcaption>
-                        </figure>
+                    <ul class="galeria-pantalla" aria-live="polite">
+                        <li class="slide activa" role="group" aria-roledescription="diapositiva" aria-label="1 de 1">
+                            <figure>
+                                <img src="https://saketos.es/wp-content/uploads/2025/03/ninas-de-un-ano-3-1-jpg.webp" alt="Mesas rectangulares para eventos">
+                                <figcaption class="descripcion-foto">Primer cumpleaños</figcaption>
+                            </figure>
                         </li>
                     </ul>
                 </section>
@@ -593,17 +647,15 @@
                 <h4>Manteles</h4>
                 <section class="galeria-contenedor" aria-roledescription="carrusel" aria-label="Galería de fotos de productos">
                     <div class="controles-galeria">
-                        <button class="flecha anterior" aria-label="Imagen anterior" aria-controls="diapositivas-carrusel">&#10094;</button>
-                        <button class="flecha siguiente" aria-label="Siguiente imagen" aria-controls="diapositivas-carrusel">&#10095;</button>
+                        <button class="flecha anterior" aria-label="Imagen anterior">&#10094;</button>
+                        <button class="flecha siguiente" aria-label="Siguiente imagen">&#10095;</button>
                     </div>
-
-                    <ul id="diapositivas-carrusel" class="galeria-pantalla" aria-live="polite">
-                        
-                        <li class="slide activa" role="group" aria-roledescription="diapositiva" aria-label="1 de 3">
-                        <figure>
-                            <img src="https://saketos.es/wp-content/uploads/2025/03/ninas-de-un-ano-3-1-jpg.webp" alt="Mesa de cumpleaños">
-                            <figcaption class="descripcion-foto">Primer cumpleaños</figcaption>
-                        </figure>
+                    <ul class="galeria-pantalla" aria-live="polite">
+                        <li class="slide activa" role="group" aria-roledescription="diapositiva" aria-label="1 de 1">
+                            <figure>
+                                <img src="https://saketos.es/wp-content/uploads/2025/03/ninas-de-un-ano-3-1-jpg.webp" alt="Manteles decorativos para eventos">
+                                <figcaption class="descripcion-foto">Primer cumpleaños</figcaption>
+                            </figure>
                         </li>
                     </ul>
                 </section>
@@ -618,17 +670,15 @@
                 <h4>Carpas</h4>
                 <section class="galeria-contenedor" aria-roledescription="carrusel" aria-label="Galería de fotos de productos">
                     <div class="controles-galeria">
-                        <button class="flecha anterior" aria-label="Imagen anterior" aria-controls="diapositivas-carrusel">&#10094;</button>
-                        <button class="flecha siguiente" aria-label="Siguiente imagen" aria-controls="diapositivas-carrusel">&#10095;</button>
+                        <button class="flecha anterior" aria-label="Imagen anterior">&#10094;</button>
+                        <button class="flecha siguiente" aria-label="Siguiente imagen">&#10095;</button>
                     </div>
-
-                    <ul id="diapositivas-carrusel" class="galeria-pantalla" aria-live="polite">
-                        
-                        <li class="slide activa" role="group" aria-roledescription="diapositiva" aria-label="1 de 3">
-                        <figure>
-                            <img src="https://saketos.es/wp-content/uploads/2025/03/ninas-de-un-ano-3-1-jpg.webp" alt="Mesa de cumpleaños">
-                            <figcaption class="descripcion-foto">Primer cumpleaños</figcaption>
-                        </figure>
+                    <ul class="galeria-pantalla" aria-live="polite">
+                        <li class="slide activa" role="group" aria-roledescription="diapositiva" aria-label="1 de 1">
+                            <figure>
+                                <img src="https://saketos.es/wp-content/uploads/2025/03/ninas-de-un-ano-3-1-jpg.webp" alt="Carpas para eventos al aire libre">
+                                <figcaption class="descripcion-foto">Primer cumpleaños</figcaption>
+                            </figure>
                         </li>
                     </ul>
                 </section>
@@ -643,17 +693,15 @@
                 <h4>--</h4>
                 <section class="galeria-contenedor" aria-roledescription="carrusel" aria-label="Galería de fotos de productos">
                     <div class="controles-galeria">
-                        <button class="flecha anterior" aria-label="Imagen anterior" aria-controls="diapositivas-carrusel">&#10094;</button>
-                        <button class="flecha siguiente" aria-label="Siguiente imagen" aria-controls="diapositivas-carrusel">&#10095;</button>
+                        <button class="flecha anterior" aria-label="Imagen anterior">&#10094;</button>
+                        <button class="flecha siguiente" aria-label="Siguiente imagen">&#10095;</button>
                     </div>
-
-                    <ul id="diapositivas-carrusel" class="galeria-pantalla" aria-live="polite">
-                        
-                        <li class="slide activa" role="group" aria-roledescription="diapositiva" aria-label="1 de 3">
-                        <figure>
-                            <img src="https://saketos.es/wp-content/uploads/2025/03/ninas-de-un-ano-3-1-jpg.webp" alt="Mesa de cumpleaños">
-                            <figcaption class="descripcion-foto">Primer cumpleaños</figcaption>
-                        </figure>
+                    <ul class="galeria-pantalla" aria-live="polite">
+                        <li class="slide activa" role="group" aria-roledescription="diapositiva" aria-label="1 de 1">
+                            <figure>
+                                <img src="https://via.placeholder.com/600x400?text=Producto" alt="Producto de evento">
+                                <figcaption class="descripcion-foto">Primer cumpleaños</figcaption>
+                            </figure>
                         </li>
                     </ul>
                 </section>
@@ -672,23 +720,19 @@
                 <h4>Bocinas</h4>
                 <section class="galeria-contenedor" aria-roledescription="carrusel" aria-label="Galería de fotos de productos">
                     <div class="controles-galeria">
-                        <button class="flecha anterior" aria-label="Imagen anterior" aria-controls="diapositivas-carrusel">&#10094;</button>
-                        <button class="flecha siguiente" aria-label="Siguiente imagen" aria-controls="diapositivas-carrusel">&#10095;</button>
+                        <button class="flecha anterior" aria-label="Imagen anterior">&#10094;</button>
+                        <button class="flecha siguiente" aria-label="Siguiente imagen">&#10095;</button>
                     </div>
-
-                    <ul id="diapositivas-carrusel" class="galeria-pantalla" aria-live="polite">
-                        
-                        <li class="slide activa" role="group" aria-roledescription="diapositiva" aria-label="1 de 3">
-                        <figure>
-                            <img src="https://saketos.es/wp-content/uploads/2025/03/ninas-de-un-ano-3-1-jpg.webp" alt="Mesa de cumpleaños">
-                            <figcaption class="descripcion-foto">Primer cumpleaños</figcaption>
-                        </figure>
+                    <ul class="galeria-pantalla" aria-live="polite">
+                        <li class="slide activa" role="group" aria-roledescription="diapositiva" aria-label="1 de 1">
+                            <figure>
+                                <img src="https://saketos.es/wp-content/uploads/2025/03/ninas-de-un-ano-3-1-jpg.webp" alt="Bocinas para eventos">
+                                <figcaption class="descripcion-foto">Primer cumpleaños</figcaption>
+                            </figure>
                         </li>
                     </ul>
                 </section>
-                <p>Haz que la música se sienta en toda la celebración con bocinas potentes y de excelente calidad de sonido. 
-                    Perfectas para cumpleaños, karaoke, reuniones y eventos al aire libre. Ideales para ambientar desde una 
-                    tarde tranquila hasta una pista de baile improvisada bajo luces y risas.</p>
+                <p>Haz que la música se sienta en toda la celebración con bocinas potentes y de excelente calidad de sonido. Perfectas para cumpleaños, karaoke, reuniones y eventos al aire libre. Ideales para ambientar desde una tarde tranquila hasta una pista de baile improvisada bajo luces y risas.</p>
                 <footer>
                     <p>B/20.00</p>
                     <button type="button" class="boton-carrito">Agregar al carrito</button>
@@ -699,22 +743,19 @@
                 <h4>Micrófonos</h4>
                 <section class="galeria-contenedor" aria-roledescription="carrusel" aria-label="Galería de fotos de productos">
                     <div class="controles-galeria">
-                        <button class="flecha anterior" aria-label="Imagen anterior" aria-controls="diapositivas-carrusel">&#10094;</button>
-                        <button class="flecha siguiente" aria-label="Siguiente imagen" aria-controls="diapositivas-carrusel">&#10095;</button>
+                        <button class="flecha anterior" aria-label="Imagen anterior">&#10094;</button>
+                        <button class="flecha siguiente" aria-label="Siguiente imagen">&#10095;</button>
                     </div>
-
-                    <ul id="diapositivas-carrusel" class="galeria-pantalla" aria-live="polite">
-                        
-                        <li class="slide activa" role="group" aria-roledescription="diapositiva" aria-label="1 de 3">
-                        <figure>
-                            <img src="mic.webp" alt="Mesa de cumpleaños">
-                            <figcaption class="descripcion-foto">Primer cumpleaños</figcaption>
-                        </figure>
+                    <ul class="galeria-pantalla" aria-live="polite">
+                        <li class="slide activa" role="group" aria-roledescription="diapositiva" aria-label="1 de 1">
+                            <figure>
+                                <img src="mic.webp" alt="Micrófonos para eventos">
+                                <figcaption class="descripcion-foto">Primer cumpleaños</figcaption>
+                            </figure>
                         </li>
                     </ul>
                 </section>
-                <p>Ideales para karaoke, animación, presentaciones o actividades especiales durante el evento. 
-                    Excelente calidad de sonido y fácil uso.</p>
+                <p>Ideales para karaoke, animación, presentaciones o actividades especiales durante el evento. Excelente calidad de sonido y fácil uso.</p>
                 <footer>
                     <p>B/.00</p>
                     <button type="button" class="boton-carrito">Agregar al carrito</button>
@@ -725,24 +766,31 @@
                 <h4>Luces LED</h4>
                 <section class="galeria-contenedor" aria-roledescription="carrusel" aria-label="Galería de fotos de productos">
                     <div class="controles-galeria">
-                        <button class="flecha anterior" aria-label="Imagen anterior" aria-controls="diapositivas-carrusel">&#10094;</button>
-                        <button class="flecha siguiente" aria-label="Siguiente imagen" aria-controls="diapositivas-carrusel">&#10095;</button>
+                        <button class="flecha anterior" aria-label="Imagen anterior">&#10094;</button>
+                        <button class="flecha siguiente" aria-label="Siguiente imagen">&#10095;</button>
                     </div>
-
-                    <ul id="diapositivas-carrusel" class="galeria-pantalla" aria-live="polite">
-                        
+                    <ul class="galeria-pantalla" aria-live="polite">
                         <li class="slide activa" role="group" aria-roledescription="diapositiva" aria-label="1 de 3">
-                        <figure>
-                            <img src="luces0.jpg" alt="Mesa de cumpleaños">
-                            <img src="luces1.jpg" alt="Mesa de cumpleaños">
-                            <img src="luces2.jpg" alt="Mesa de cumpleaños">
-                            <figcaption class="descripcion-foto">Primer cumpleaños</figcaption>
-                        </figure>
+                            <figure>
+                                <img src="luces0.jpg" alt="Luces LED para eventos">
+                                <figcaption class="descripcion-foto">Primer cumpleaños</figcaption>
+                            </figure>
+                        </li>
+                        <li class="slide" role="group" aria-roledescription="diapositiva" aria-label="2 de 3">
+                            <figure>
+                                <img src="luces1.jpg" alt="Luces LED para eventos">
+                                <figcaption class="descripcion-foto">Primer cumpleaños</figcaption>
+                            </figure>
+                        </li>
+                        <li class="slide" role="group" aria-roledescription="diapositiva" aria-label="3 de 3">
+                            <figure>
+                                <img src="luces2.jpg" alt="Luces LED para eventos">
+                                <figcaption class="descripcion-foto">Primer cumpleaños</figcaption>
+                            </figure>
                         </li>
                     </ul>
                 </section>
-                <p>Dale un toque moderno y dinámico a la fiesta con iluminación LED de colores que transforma 
-                    cualquier espacio en un ambiente más divertido.</p>
+                <p>Dale un toque moderno y dinámico a la fiesta con iluminación LED de colores que transforma cualquier espacio en un ambiente más divertido.</p>
                 <footer>
                     <p>B/.00</p>
                     <button type="button" class="boton-carrito">Agregar al carrito</button>
@@ -753,17 +801,15 @@
                 <h4>Máquina de humo</h4>
                 <section class="galeria-contenedor" aria-roledescription="carrusel" aria-label="Galería de fotos de productos">
                     <div class="controles-galeria">
-                        <button class="flecha anterior" aria-label="Imagen anterior" aria-controls="diapositivas-carrusel">&#10094;</button>
-                        <button class="flecha siguiente" aria-label="Siguiente imagen" aria-controls="diapositivas-carrusel">&#10095;</button>
+                        <button class="flecha anterior" aria-label="Imagen anterior">&#10094;</button>
+                        <button class="flecha siguiente" aria-label="Siguiente imagen">&#10095;</button>
                     </div>
-
-                    <ul id="diapositivas-carrusel" class="galeria-pantalla" aria-live="polite">
-                        
-                        <li class="slide activa" role="group" aria-roledescription="diapositiva" aria-label="1 de 3">
-                        <figure>
-                            <img src="humo.jpg" alt="Mesa de cumpleaños">
-                            <figcaption class="descripcion-foto">Primer cumpleaños</figcaption>
-                        </figure>
+                    <ul class="galeria-pantalla" aria-live="polite">
+                        <li class="slide activa" role="group" aria-roledescription="diapositiva" aria-label="1 de 1">
+                            <figure>
+                                <img src="humo.jpg" alt="Máquina de humo para eventos">
+                                <figcaption class="descripcion-foto">Primer cumpleaños</figcaption>
+                            </figure>
                         </li>
                     </ul>
                 </section>
@@ -778,29 +824,25 @@
                 <h4>Máquina de Karaoke</h4>
                 <section class="galeria-contenedor" aria-roledescription="carrusel" aria-label="Galería de fotos de productos">
                     <div class="controles-galeria">
-                        <button class="flecha anterior" aria-label="Imagen anterior" aria-controls="diapositivas-carrusel">&#10094;</button>
-                        <button class="flecha siguiente" aria-label="Siguiente imagen" aria-controls="diapositivas-carrusel">&#10095;</button>
+                        <button class="flecha anterior" aria-label="Imagen anterior">&#10094;</button>
+                        <button class="flecha siguiente" aria-label="Siguiente imagen">&#10095;</button>
                     </div>
-
-                    <ul id="diapositivas-carrusel" class="galeria-pantalla" aria-live="polite">
-                        
-                        <li class="slide activa" role="group" aria-roledescription="diapositiva" aria-label="1 de 3">
-                        <figure>
-                            <img src="karaoke.jpg" alt="Mesa de cumpleaños">
-                            <figcaption class="descripcion-foto">Primer cumpleaños</figcaption>
-                        </figure>
+                    <ul class="galeria-pantalla" aria-live="polite">
+                        <li class="slide activa" role="group" aria-roledescription="diapositiva" aria-label="1 de 1">
+                            <figure>
+                                <img src="karaoke.jpg" alt="Máquina de Karaoke para eventos">
+                                <figcaption class="descripcion-foto">Primer cumpleaños</figcaption>
+                            </figure>
                         </li>
                     </ul>
                 </section>
-                <p>Haz que todos participen y se diviertan cantando sus canciones favoritas. Perfecto para reuniones 
-                    familiares, cumpleaños y eventos juveniles.</p>
+                <p>Haz que todos participen y se diviertan cantando sus canciones favoritas. Perfecto para reuniones familiares, cumpleaños y eventos juveniles.</p>
                 <footer>
                     <p>B/.00</p>
                     <button type="button" class="boton-carrito">Agregar al carrito</button>
                 </footer>
             </article>
         </section>
-
     </main>
 
     <footer class="container">
@@ -819,6 +861,5 @@
 
         <p class="copyright"><small>&copy; 2026 Festín Panamá. Todos los derechos reservados.</small></p>
     </footer>
-
 </body>
 </html>
