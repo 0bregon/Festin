@@ -60,3 +60,13 @@ document.addEventListener('DOMContentLoaded', () => {
     mostrarImagen(indiceActual);
   });
 });
+
+function cambiarServicio(imagen, titulo) {
+
+    document.getElementById("imagen-servicio").src = imagen;
+
+    document.getElementById("imagen-servicio").alt = titulo;
+
+    document.getElementById("titulo-servicio").textContent = titulo;
+
+}

@@ -94,34 +94,102 @@
             <li>Eventos corporativos</li>
             <li>Otros eventos</li>
         </ul>
+        
     </section>
     
-    <section class="seccion">
-        <h3>Productos destacados del catálogo</h3>
-        <article>
-            <h4>Candy Bar</h4>
-        </article>
-        <article>
-            <h4>Sillas</h4>
-        </article>
-        <article>
-            <h4>Maquina de palomitas</h4>
-        </article>
+        <section class="seccion">
+            <section class="productos-destacados">
+                <h3>Productos destacados del catálogo</h3>
 
-        <p class="boton"><a href="catalogo.html">Ver catálogo completo</a></p>
-    </section>
+                <div class="contenedor-productos">
+
+                    <article class="tarjeta-producto">
+                        <h4>Candy Bar</h4>
+                        <img src="candybar1.jpeg" alt="Candy Bar">
+                    </article>
+
+                    <article class="tarjeta-producto">
+                        <h4>Sillas</h4>
+                        <img src="sillas.webp" alt="Sillas">
+                    </article>
+
+                    <article class="tarjeta-producto">
+                        <h4>Máquina de palomitas</h4>
+                        <img src="palomitas.jpg" alt="Máquina de palomitas">
+                    </article>
+
+                </div>
+
+                <p class="boton">
+                    <a href="catalogo.html">Ver catálogo completo</a>
+                </p>
+
+            </section>
+        </section>
     
     <section class="seccion">
-        <h3>Servicios que ofrecemos</h3>
-        <ul>
-            <li>Animadores y payasos</li>
-            <li>Pintacaritas</li>
-            <li>Fotografía y video</li>
-            <li>Decoración temática</li>
-            <li>Música y sonido</li>
-        </ul>    
-        <h4>¿Quieres un paquete personalizado?</h4>
-        <p class="boton"><a href="servicios.html">Ver catálogo completo</a></p>
+        <section class="servicios">
+            <h3>Servicios que ofrecemos</h3>
+            <div class="contenedor-servicios">
+                <ul class="lista-servicios">
+                    <li onclick="cambiarServicio(
+                        'payasos.webp',
+                        'Animadores y payasos'
+                    )">
+                        Animadores y payasos
+                        
+                    </li>
+
+                    <li onclick="cambiarServicio(
+                        'pintacaritas.jpg',
+                        'Pintacaritas'
+                    )">
+                        Pintacaritas
+                    </li>
+
+                    <li onclick="cambiarServicio(
+                        'sesionFotos.jpg',
+                        'Fotografía y video'
+                    )">
+                        Fotografía y video
+                    </li>
+
+                    <li onclick="cambiarServicio(
+                        'decoracion1.webp',
+                        'Decoración temática'
+                    )">
+                        Decoración temática
+                    </li>
+
+                    <li onclick="cambiarServicio(
+                        'dj.webp',
+                        'Música y sonido'
+                    )">
+                        Música y sonido
+                    </li>
+
+                </ul>
+
+                <div class="vista-servicio">
+
+                    <img 
+                        id="imagen-servicio"
+                        src="payasos.webp"
+                        alt="Servicio">
+
+                    <h4 id="titulo-servicio">
+                        Animadores y payasos
+                    </h4>
+
+                </div>
+
+            </div>
+            <h4>¿Quieres un paquete personalizado?</h4>
+            <p class="boton">
+                <a href="servicios.html">Ver servicios</a>
+            </p>
+
+        </section>
     </section>
 
     <section class="seccion">
