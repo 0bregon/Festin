@@ -587,20 +587,48 @@ img {
     border-radius: 10px;
 }
 
-@media (max-width: 768px) {
-    .contenedor-productos {
-        flex-wrap: nowrap;
-        overflow-x: auto;
-        scroll-snap-type: x mandatory;
-        justify-content: flex-start;
-        padding-bottom: 10px;
-    }
+/* =========================================
+   PRODUCTOS DESTACADOS - CORRECCIÓN TABLET
+   ========================================= */
 
-    .tarjeta-producto {
-        min-width: 80%;
-        flex: 0 0 auto;
-        scroll-snap-align: center;
-    }
+/* Base móvil ya funciona, corregimos solo el rango intermedio */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .contenedor-productos {
+    /* Evita que flex estire las tarjetas */
+    justify-content: center;
+    gap: 15px;
+    padding: 10px;
+  }
+
+  .tarjeta-producto {
+    /* Ancho flexible pero con límites para evitar estiramiento */
+    width: auto;
+    flex: 0 0 calc(33.333% - 15px); /* 3 columnas con espacio */
+    min-width: 180px;   /* Mínimo para que no colapse */
+    max-width: 240px;   /* Máximo para que no crezca demasiado */
+    
+    /* Asegura que el contenido no fuerce altura */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .tarjeta-producto img {
+    /* Altura flexible con aspecto definido */
+    height: auto;
+    aspect-ratio: 4 / 3; /* Mantiene proporción sin deformar */
+    width: 100%;
+    object-fit: cover;
+  }
+}
+
+/* Ajuste adicional para pantallas muy anchas pero con zoom o ventanas reducidas */
+@media (min-width: 1025px) {
+  .tarjeta-producto {
+    /* Refuerza el ancho fijo solo en desktop real */
+    flex: 0 0 220px;
+    width: 220px;
+  }
 }
 
 /* =========================================
