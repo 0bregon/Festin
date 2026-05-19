@@ -691,14 +691,70 @@ img {
 }
 
 @media (max-width: 768px) {
-    .contenedor-servicios {
-        flex-direction: column;
-    }
+.contenedor-servicios {
+  flex-direction: column;
+  gap: 20px;
+  align-items: stretch;
+  padding: 10px 0;
+}
 
-    .vista-servicio img {
-        width: 100%;
-        max-width: 320px;
-    }
+.lista-servicios {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.lista-servicios li {
+  margin-bottom: 0;
+  padding: 14px 10px;
+  font-size: 0.95rem;
+  text-align: center;
+  background: #fff;
+  border: 2px solid #4dd0e1;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.lista-servicios li:hover,
+.lista-servicios li:active {
+  background: #4dd0e1;
+  transform: scale(0.97);
+}
+
+.vista-servicio {
+  background: #fff;
+  padding: 16px;
+  border-radius: 18px;
+  border: 3px solid #ff80ab;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  order: -1; /* Mueve la imagen ARRIBA en móvil */
+}
+
+.vista-servicio img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 12px;
+  margin: 0 auto 12px auto;
+  display: block;
+}
+
+/* Centrar "Música y sonido" */
+.lista-servicios li:last-child {
+  grid-column: 1 / -1;
+  justify-self: center;
+  width: fit-content;
+  min-width: 150px;
+}
 }
 
 /* =========================================
