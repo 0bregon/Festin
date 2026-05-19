@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mi Perfil | Festín</title>
     <link href="estilo.css" rel="stylesheet">
-    <script src="script.js" defer></script>
+    <!-- ✅ Agregado type="module" para que funcione import/export -->
+    <script type="module" src="auth.js" defer></script>
+    <script type="module" src="script.js" defer></script>
 </head>
 <body>
     <header class="encabezado container">
@@ -48,7 +50,8 @@
 
     <main class="container">
 
-        <section class="seccion perfil-invitado">
+        <!-- ✅ ID agregado para que JS lo controle -->
+        <section id="seccion-invitado" class="seccion perfil-invitado">
             <h2>¡Hola, invitado!</h2>
             <p>Para poder ver tu información de perfil, realizar el seguimiento de tus reservas y acumular puntos para descuentos, necesitas acceder a tu cuenta.</p>
             
@@ -59,53 +62,63 @@
         </section>
 
 
-        <section class="seccion perfil-usuario-activo">
-            <h2>¡Hola de nuevo, Juan!</h2>
-            <p>Aquí tienes el resumen de tu cuenta y el estado de tus alquileres activos.</p>
-        </section>
-
-        <section class="seccion perfil-usuario-activo">
-            <h3>Información personal</h3>
-            <div class="info-usuario">
-                <p><strong>Nombre:</strong> Juan Arenoza</p>
-                <p><strong>Correo:</strong> Fulano6@email.com</p>
-                <p><strong>Teléfono:</strong> +507 6000-0000</p>
-            </div>
+        <!-- ✅ ID + display:none para que JS lo muestre al loguearse -->
+        <section id="seccion-usuario" class="perfil-usuario-activo" style="display:none;">
             
-            <p class="boton"><a href="editar-perfil.html">Editar datos</a></p>
-        </section>
+            <section class="seccion">
+                <!-- ✅ ID para nombre dinámico -->
+                <h2>¡Hola de nuevo, <span id="perfil-nombre">Usuario</span>! 👋</h2>
+                <p>Aquí tienes el resumen de tu cuenta y el estado de tus alquileres activos.</p>
+                <!-- ✅ Botón cerrar sesión -->
+                <button id="btn-cerrar-sesion" class="boton-enviar" style="background:#ff6b6b; border-color:#e55a5a; box-shadow:0 4px 0 #c0392b; margin-top:10px;">Cerrar sesión</button>
+            </section>
 
-        <section class="seccion perfil-usuario-activo">
-            <h3>Estado de tu pedido</h3>
-            <p class="estado-subtitulo">Progreso de tu alquiler para el evento:</p>
-            
-            <ul class="lista-progreso" aria-label="Pasos del estado del pedido">
-                <li class="paso completado">✓ Reservado</li>
-                <li class="paso completado">✓ Abonado</li>
-                <li class="paso pendiente">Pago completo</li>
-                <li class="paso pendiente">Día del evento</li>
-                <li class="paso pendiente">Devolución de equipo</li>
-                <li class="paso pendiente">Finalizado</li>
-            </ul>
-        </section>
+            <section class="seccion">
+                <h3>Información personal</h3>
+                <div class="info-usuario">
+                    <!-- ✅ IDs para datos dinámicos -->
+                    <p><strong>Nombre:</strong> <span id="perfil-nombre-completo">Cargando...</span></p>
+                    <p><strong>Correo:</strong> <span id="perfil-email">Cargando...</span></p>
+                    <p><strong>Teléfono:</strong> +507 6000-0000 <small style="color:#666; display:block; margin-top:5px;">(Puedes editarlo en "Editar datos")</small></p>
+                </div>
+                
+                <p class="boton"><a href="editar-perfil.html">Editar datos</a></p>
+            </section>
 
-        <section class="seccion perfil-usuario-activo">
-            <h3>Puntos acumulados</h3>
-            <p class="puntos-destacados"><span>150</span> puntos</p>
+            <section class="seccion">
+                <h3>Estado de tu pedido</h3>
+                <p class="estado-subtitulo">Progreso de tu alquiler para el evento:</p>
+                
+                <ul class="lista-progreso" aria-label="Pasos del estado del pedido">
+                    <li class="paso completado">✓ Reservado</li>
+                    <li class="paso completado">✓ Abonado</li>
+                    <li class="paso pendiente">Pago completo</li>
+                    <li class="paso pendiente">Día del evento</li>
+                    <li class="paso pendiente">Devolución de equipo</li>
+                    <li class="paso pendiente">Finalizado</li>
+                </ul>
+            </section>
 
-            <h4>Tus beneficios activos:</h4>
-            <ul>
-                <li>¡Tienes un 10% de descuento listo para usar en tu próximo inflable!</li>
-                <li>Soporte y atención prioritaria para tus eventos.</li>
-            </ul>
-        </section>
+            <section class="seccion">
+                <h3>Puntos acumulados</h3>
+                <!-- ✅ ID para puntos dinámicos -->
+                <p class="puntos-destacados"><span id="perfil-puntos">150</span> puntos</p>
 
-        <section class="seccion qr-seccion perfil-usuario-activo">
-            <h3>Acceso rápido</h3>
-            <p>Usa este código en tu celular para ingresar rápido en nuestros puntos de retiro:</p>
-            <div class="qr-contenedor">
-                <img src="qr.png" alt="Código QR de acceso" class="imagen-qr">
-            </div>
+                <h4>Tus beneficios activos:</h4>
+                <ul>
+                    <li>¡Tienes un 10% de descuento listo para usar en tu próximo inflable!</li>
+                    <li>Soporte y atención prioritaria para tus eventos.</li>
+                </ul>
+            </section>
+
+            <section class="seccion qr-seccion">
+                <h3>Acceso rápido</h3>
+                <p>Usa este código en tu celular para ingresar rápido en nuestros puntos de retiro:</p>
+                <div class="qr-contenedor">
+                    <img src="qr.png" alt="Código QR de acceso" class="imagen-qr">
+                </div>
+            </section>
+
         </section>
 
     </main>
@@ -113,7 +126,7 @@
     <footer class="container">
         <section>
             <h3>Contacto</h3>
-            <p>Ubicación: Panamá Oeste, La Chorrera, Barrio Colón</p>
+            <p>Ubicación: Panamá Oeste, La Chorrera</p>
             <p>Teléfono: +507 6000-0000</p>
             <p>Correo: festinPanama@gmail.com</p>
         </section>
@@ -125,8 +138,7 @@
         </nav>
 
         <p class="copyright">
-            <small>&copy; 2026 Festín Panamá. Todos los derechos reservados.</small>
-        </p>
+            <small>&copy; 2026 Festín Panamá. Todos los derechos reservados.</small></p>
     </footer>
 </body>
 </html>

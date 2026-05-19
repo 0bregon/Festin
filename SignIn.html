@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Iniciar Sesión | Festín</title>
     <link href="estilo.css" rel="stylesheet">
-    <script src="script.js" defer></script>
+    <!-- Type="module" para que funcione el import de auth.js -->
+    <script type="module" src="auth.js" defer></script>
+    <script type="module" src="script.js" defer></script>
 </head>
 <body>
 
@@ -23,13 +25,14 @@
             <h2>Iniciar Sesión</h2>
             <p>Accede a tu cuenta para gestionar tus reservas y pedidos en Festín.</p>
             
-            <form action="perfil.html" method="POST" class="formulario-login">
+            <!-- ✅ FORMULARIO CORREGIDO: sin action, con IDs correctos -->
+            <form id="form-login" class="formulario-login">
 
                 <div class="grupo-campo">
-                    <label for="email">Correo electrónico</label>
+                    <label for="login-email">Correo electrónico</label>
                     <input 
                         type="email" 
-                        id="email" 
+                        id="login-email" 
                         name="email" 
                         placeholder="ejemplo@email.com" 
                         autocomplete="email" 
@@ -38,13 +41,14 @@
                 </div>
 
                 <div class="grupo-campo">
-                    <label for="password">Contraseña</label>
+                    <label for="login-pass">Contraseña</label>
                     <input 
                         type="password" 
-                        id="password" 
+                        id="login-pass" 
                         name="password" 
                         autocomplete="current-password" 
                         required
+                        minlength="6"
                     >
                 </div>
 
@@ -55,6 +59,14 @@
             <p class="registro-link">
                 ¿No tienes cuenta? <a href="SignUp.html">Crear una cuenta</a>
             </p>
+
+            <!-- Panel de usuario logueado (se muestra después del login) -->
+            <div id="panel-usuario" style="display:none; margin-top:20px; text-align:center; padding:15px; background:#e1f5fe; border-radius:10px; border:2px solid #4dd0e1;">
+                <p style="margin-bottom:10px;">👤 <strong id="nombre-usuario"></strong></p>
+                <p style="font-size:0.9rem; color:#666; margin-bottom:15px;" id="email-usuario"></p>
+                <button id="btn-cerrar-sesion" class="boton-enviar" style="background:#ff6b6b; border-color:#e55a5a; box-shadow:0 4px 0 #c0392b;">Cerrar sesión</button>
+            </div>
+
         </section>
 
     </main>
