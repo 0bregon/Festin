@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reservas</title>
+    <title>Reservar Evento | Festín</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link href="estilo.css" rel="stylesheet">
-
     <script src="script.js" defer></script>
 </head>
 <body>
@@ -15,7 +15,6 @@
                 <img src="Logo.png" alt="Festín" class="logo">
             </a>
         </h1> 
-
         <nav aria-label="Menú principal" class="menu">
             <button class="menu-toggle">☰ Menú</button>
             <ul>
@@ -27,72 +26,65 @@
                 <li><a href="contacto.html">Contacto</a></li>
             </ul>
         </nav>
-
         <form class="busqueda">
             <label for="buscar-prod">Buscar productos:</label>
             <input type="search" id="buscar-prod" name="q" placeholder="Ej. Palomitas, sillas...">
             <button type="submit">Buscar</button>
         </form>
-
         <aside class="iconos">
-            <a href="carrito.html">
-                <img src="carrito.png" alt="Ir al carrito" class="icono">
-            </a>
-            
-            <a href="perfil-usuario.html">
-                <img src="usuario.png" alt="Ir al perfil de usuario" class="icono">
-            </a>
-
-            <a href="">
-                <img src="accesibilidad.png" alt="Opciones de accesibilidad" class="icono">
-            </a>
+            <a href="carrito.html"><img src="carrito.png" alt="Ir al carrito" class="icono"></a>
+            <a href="perfil.html"><img src="usuario.png" alt="Ir al perfil de usuario" class="icono"></a>
+            <a href="#accesibilidad"><img src="accesibilidad.png" alt="Opciones de accesibilidad" class="icono"></a>
         </aside>
     </header>
 
     <main class="container">
-
         <section class="seccion">
             <h2>Reserva tu evento</h2>
             <p>Completa el formulario para solicitar tu reserva</p>
+            
+            <!-- Mensaje de error/éxito -->
+            <div id="reserva-mensaje" style="display:none; padding:15px; margin-bottom:20px; border-radius:10px; text-align:center;"></div>
         </section>
 
         <section class="seccion">
-            <form action="procesar-reserva.php" method="POST">
+            <!-- ✅ Sin action, con ID para JS -->
+            <form id="form-reserva">
 
                 <fieldset>
                     <legend>Datos del cliente</legend>
+                    <label for="reserva-nombre">Nombre completo:</label>
+                    <input type="text" id="reserva-nombre" name="nombre" required autocomplete="name">
 
-                    <label for="nombre">Nombre completo:</label>
-                    <input type="text" id="nombre" name="nombre" required>
+                    <label for="reserva-correo">Correo electrónico:</label>
+                    <input type="email" id="reserva-correo" name="correo" required autocomplete="email">
 
-                    <label for="correo">Correo electrónico:</label>
-                    <input type="email" id="correo" name="correo" required>
-
-                    <label for="telefono">Teléfono:</label>
-                    <input type="tel" id="telefono" name="telefono" required>
+                    <label for="reserva-telefono">Teléfono:</label>
+                    <input type="tel" id="reserva-telefono" name="telefono" required autocomplete="tel" pattern="[0-9+\-\s]{8,15}">
                 </fieldset>
 
                 <br>
 
                 <fieldset>
                     <legend>Datos del evento</legend>
+                    <label for="reserva-fecha">Fecha del evento:</label>
+                    <input type="date" id="reserva-fecha" name="fecha" required min="">
 
-                    <label for="fecha">Fecha del evento:</label>
-                    <input type="date" id="fecha" name="fecha" required>
+                    <label for="reserva-hora">Hora del evento:</label>
+                    <input type="time" id="reserva-hora" name="hora" required>
 
-                    <label for="hora">Hora del evento:</label>
-                    <input type="time" id="hora" name="hora" required>
+                    <label for="reserva-lugar">Lugar del evento:</label>
+                    <input type="text" id="reserva-lugar" name="lugar" required placeholder="Ej. Casa, salón, parque...">
 
-                    <label for="lugar">Lugar del evento:</label>
-                    <input type="text" id="lugar" name="lugar" required>
-
-                    <label for="tipo-evento">Tipo de evento:</label>
-                    <select id="tipo-evento" name="tipo_evento" required>
+                    <label for="reserva-tipo">Tipo de evento:</label>
+                    <select id="reserva-tipo" name="tipo_evento" required>
                         <option value="">Seleccione...</option>
                         <option value="infantil">Infantil</option>
                         <option value="boda">Boda</option>
                         <option value="cumpleaños">Cumpleaños</option>
                         <option value="corporativo">Corporativo</option>
+                        <option value="familiar">Familiar</option>
+                        <option value="otro">Otro</option>
                     </select>
                 </fieldset>
 
@@ -100,25 +92,21 @@
 
                 <fieldset>
                     <legend>Servicios y productos</legend>
-
-                    <label>
-                        <input type="checkbox" name="servicios[]" value="decoracion">
-                        Decoración
+                    <p style="font-size:0.9rem; color:#666; margin-bottom:10px;">Selecciona los servicios que necesitas:</p>
+                    <label style="display:block; margin:8px 0; cursor:pointer;">
+                        <input type="checkbox" name="servicios[]" value="decoracion"> Decoración temática
                     </label>
-
-                    <label>
-                        <input type="checkbox" name="servicios[]" value="mobiliario">
-                        Mobiliario
+                    <label style="display:block; margin:8px 0; cursor:pointer;">
+                        <input type="checkbox" name="servicios[]" value="mobiliario"> Mobiliario (sillas, mesas)
                     </label>
-
-                    <label>
-                        <input type="checkbox" name="servicios[]" value="comida">
-                        Estaciones de comida
+                    <label style="display:block; margin:8px 0; cursor:pointer;">
+                        <input type="checkbox" name="servicios[]" value="comida"> Estaciones de comida
                     </label>
-
-                    <label>
-                        <input type="checkbox" name="servicios[]" value="sonido">
-                        Sonido e iluminación
+                    <label style="display:block; margin:8px 0; cursor:pointer;">
+                        <input type="checkbox" name="servicios[]" value="sonido"> Sonido e iluminación
+                    </label>
+                    <label style="display:block; margin:8px 0; cursor:pointer;">
+                        <input type="checkbox" name="servicios[]" value="animacion"> Animación y entretenimiento
                     </label>
                 </fieldset>
 
@@ -126,34 +114,28 @@
 
                 <fieldset>
                     <legend>Detalles adicionales</legend>
-
-                    <label for="personas">Cantidad de personas:</label>
-                    <input type="number" id="personas" name="personas" min="1">
-
-                    <label for="comentarios">Comentarios:</label>
-                    <textarea id="comentarios" name="comentarios" rows="4"></textarea>
+                    <label for="reserva-personas">Cantidad de personas:</label>
+                    <input type="number" id="reserva-personas" name="personas" min="1" max="500" placeholder="Ej. 50">
+                    <label for="reserva-comentarios">Comentarios o necesidades especiales:</label>
+                    <textarea id="reserva-comentarios" name="comentarios" rows="4" placeholder="Cuéntanos más sobre tu evento..."></textarea>
                 </fieldset>
 
                 <br>
 
                 <fieldset>
                     <legend>Confirmación</legend>
-
-                    <label>
-                        <input type="checkbox" name="terminos" required>
-                        Acepto los términos y condiciones
+                    <label style="display:flex; align-items:flex-start; gap:10px; cursor:pointer;">
+                        <input type="checkbox" name="terminos" required style="margin-top:4px;">
+                        <span style="font-size:0.95rem;">Acepto los <a href="privacidad-y-terminos.html" target="_blank">términos y condiciones</a>.</span>
                     </label>
                 </fieldset>
 
                 <br>
-
                 <p class="boton">
-                    <button type="submit">Enviar reserva</button>
+                    <button type="submit" id="btn-enviar-reserva">Enviar reserva</button>
                 </p>
-
             </form>
         </section>
-
     </main>
 
     <footer class="container">
@@ -163,17 +145,10 @@
             <p>Teléfono: +507 6000-0000</p>
             <p>Correo: festinPanama@gmail.com</p>
         </section>
-        
         <nav aria-label="Enlaces legales" class="legal">
-            <a href="privacidad-y-terminos.html">
-                Política de Privacidad y Términos y Condiciones
-            </a>
+            <a href="privacidad-y-terminos.html">Política de Privacidad y Términos y Condiciones</a>
         </nav>
-
-        <p class="copyright">
-            <small>&copy; 2026 Festín Panamá. Todos los derechos reservados.</small>
-        </p>
+        <p class="copyright"><small>&copy; 2026 Festín Panamá. Todos los derechos reservados.</small></p>
     </footer>
-    
 </body>
 </html>

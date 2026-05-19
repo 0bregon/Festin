@@ -4,97 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Catálogo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link href="estilo.css" rel="stylesheet">
     <script src="script.js" defer></script>
-    <style>
-        /* Correcciones CSS para carruseles */
-        .galeria-contenedor {
-            position: relative;
-            overflow: hidden;
-            width: 100%;
-        }
-
-        .galeria-pantalla {
-            display: flex;
-            transition: transform 0.3s ease-in-out;
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            gap: 0;
-        }
-
-        .slide {
-            min-width: 100%;
-            display: none;
-            position: relative;
-        }
-
-        .slide.activa {
-            display: block;
-        }
-
-        .slide figure {
-            margin: 0;
-            position: relative;
-            width: 100%;
-        }
-
-        .slide img {
-            width: 100%;
-            height: auto;
-            display: block;
-            object-fit: cover;
-            position: relative;
-            z-index: 1;
-        }
-
-        .descripcion-foto {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: rgba(0,0,0,0.6);
-            color: white;
-            padding: 0.5rem;
-            font-size: 0.875rem;
-            z-index: 2;
-        }
-
-        .controles-galeria {
-            position: absolute;
-            top: 50%;
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            transform: translateY(-50%);
-            z-index: 3;
-            pointer-events: none;
-        }
-
-        .controles-galeria .flecha {
-            pointer-events: auto;
-            background: rgba(0,0,0,0.5);
-            color: white;
-            border: none;
-            padding: 0.5rem 1rem;
-            cursor: pointer;
-            font-size: 1.5rem;
-            transition: background 0.2s;
-        }
-
-        .controles-galeria .flecha:hover {
-            background: rgba(0,0,0,0.8);
-        }
-
-        @media (max-width: 768px) {
-            .galeria-contenedor {
-                overflow: hidden;
-            }
-            .slide img {
-                object-fit: contain;
-            }
-        }
-    </style>
 </head>
 <body>
     <header class="encabezado container">
@@ -140,8 +52,8 @@
     <main class="container">
         <hr>
         <section class="seccion">
-            <h2>Catalogo</h2> 
-            <p>Explora nuestros articulos disponibles para tu evento</p>
+            <h2>Catálogo</h2> 
+            <p>Explora nuestros artículos disponibles para tu evento</p>
         </section>
 
         <hr>
@@ -182,8 +94,12 @@
 
                 <footer>
                     <p>B/22.00</p>
-                    <button type="button" class="boton-carrito">Agregar al carrito</button>
-                </footer>
+<!-- Dentro de cada .tarjeta-producto -->
+                    <button onclick="agregarAlCarrito(1, 'Candy Bar', 45.00, 'candybar1.jpeg')" 
+                            class="boton-carrito" 
+                            style="margin-top:10px; width:100%; padding:10px; background:#4dd0e1; color:white; border:none; border-radius:10px; cursor:pointer; font-weight:bold;">
+                    ➕ Agregar al carrito
+</button>       </footer>
             </article>
         </section>
 

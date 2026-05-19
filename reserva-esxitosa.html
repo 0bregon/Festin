@@ -3,19 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Título de la página</title>
+    <title>Reserva Confirmada | Festín</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link href="estilo.css" rel="stylesheet">
-
     <script src="script.js" defer></script>
 </head>
 <body>
+    <!-- HEADER (igual que el resto) -->
     <header class="encabezado container">
-        <h1>
-            <a href="index.html">
-                <img src="Logo.png" alt="Festín" class="logo">
-            </a>
-        </h1> 
-
+        <h1><a href="index.html"><img src="Logo.png" alt="Festín" class="logo"></a></h1>
         <nav aria-label="Menú principal" class="menu">
             <button class="menu-toggle">☰ Menú</button>
             <ul>
@@ -27,30 +23,19 @@
                 <li><a href="contacto.html">Contacto</a></li>
             </ul>
         </nav>
-
         <form class="busqueda">
             <label for="buscar-prod">Buscar productos:</label>
             <input type="search" id="buscar-prod" name="q" placeholder="Ej. Palomitas, sillas...">
             <button type="submit">Buscar</button>
         </form>
-
         <aside class="iconos">
-            <a href="carrito.html">
-                <img src="carrito.png" alt="Ir al carrito" class="icono">
-            </a>
-            
-            <a href="perfil-usuario.html">
-                <img src="usuario.png" alt="Ir al perfil de usuario" class="icono">
-            </a>
-
-            <a href="">
-                <img src="accesibilidad.png" alt="Opciones de accesibilidad" class="icono">
-            </a>
+            <a href="carrito.html"><img src="carrito.png" alt="Ir al carrito" class="icono"></a>
+            <a href="perfil.html"><img src="usuario.png" alt="Ir al perfil" class="icono"></a>
+            <a href="#accesibilidad"><img src="accesibilidad.png" alt="Accesibilidad" class="icono"></a>
         </aside>
     </header>
 
     <main class="container">
-
         <section class="seccion">
             <h2>Estado de tu reserva</h2>
         </section>
@@ -60,19 +45,18 @@
             <p>Tu evento ha sido reservado correctamente.</p>
 
             <h4>Resumen de la reserva</h4>
-            <ul>
-                <li><strong>Nombre:</strong> Juan Pérez</li>
-                <li><strong>Fecha:</strong> 25/05/2026</li>
-                <li><strong>Hora:</strong> 3:00 PM</li>
-                <li><strong>Lugar:</strong> La Chorrera</li>
-                <li><strong>Servicios:</strong> Decoración, Sonido</li>
+            <ul id="resumen-reserva">
+                <li><strong>Nombre:</strong> <span id="exito-nombre">Cargando...</span></li>
+                <li><strong>Fecha:</strong> <span id="exito-fecha">Cargando...</span></li>
+                <li><strong>Hora:</strong> <span id="exito-hora">Cargando...</span></li>
+                <li><strong>Lugar:</strong> <span id="exito-lugar">Cargando...</span></li>
+                <li><strong>Servicios:</strong> <span id="exito-servicios">Cargando...</span></li>
             </ul>
 
             <p>Nos pondremos en contacto contigo para confirmar los detalles.</p>
-
             <p class="boton"><a href="index.html">Volver al inicio</a></p>
+            <p class="boton"><a href="perfil.html">Ver mis reservas</a></p>
         </section>
-
     </main>
 
     <footer class="container">
@@ -82,17 +66,25 @@
             <p>Teléfono: +507 6000-0000</p>
             <p>Correo: festinPanama@gmail.com</p>
         </section>
-        
         <nav aria-label="Enlaces legales" class="legal">
-            <a href="privacidad-y-terminos.html">
-                Política de Privacidad y Términos y Condiciones
-            </a>
+            <a href="privacidad-y-terminos.html">Política de Privacidad y Términos y Condiciones</a>
         </nav>
-
-        <p class="copyright">
-            <small>&copy; 2026 Festín Panamá. Todos los derechos reservados.</small>
-        </p>
+        <p class="copyright"><small>&copy; 2026 Festín Panamá. Todos los derechos reservados.</small></p>
     </footer>
-    
+
+    <script>
+        // Cargar datos de la última reserva guardada
+        document.addEventListener('DOMContentLoaded', () => {
+            const reservas = JSON.parse(localStorage.getItem('festin_reservas') || '[]');
+            const ultima = reservas[reservas.length - 1];
+            if (ultima && ultima.datos) {
+                document.getElementById('exito-nombre').textContent = ultima.datos.nombre;
+                document.getElementById('exito-fecha').textContent = ultima.datos.fechaEvento;
+                document.getElementById('exito-hora').textContent = ultima.datos.horaEvento;
+                document.getElementById('exito-lugar').textContent = ultima.datos.lugar;
+                document.getElementById('exito-servicios').textContent = ultima.datos.servicios.join(', ').toUpperCase();
+            }
+        });
+    </script>
 </body>
 </html>
