@@ -587,20 +587,48 @@ img {
     border-radius: 10px;
 }
 
-@media (max-width: 768px) {
-    .contenedor-productos {
-        flex-wrap: nowrap;
-        overflow-x: auto;
-        scroll-snap-type: x mandatory;
-        justify-content: flex-start;
-        padding-bottom: 10px;
-    }
+/* =========================================
+   PRODUCTOS DESTACADOS - CORRECCIÓN TABLET
+   ========================================= */
 
-    .tarjeta-producto {
-        min-width: 80%;
-        flex: 0 0 auto;
-        scroll-snap-align: center;
-    }
+/* Base móvil ya funciona, corregimos solo el rango intermedio */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .contenedor-productos {
+    /* Evita que flex estire las tarjetas */
+    justify-content: center;
+    gap: 15px;
+    padding: 10px;
+  }
+
+  .tarjeta-producto {
+    /* Ancho flexible pero con límites para evitar estiramiento */
+    width: auto;
+    flex: 0 0 calc(33.333% - 15px); /* 3 columnas con espacio */
+    min-width: 180px;   /* Mínimo para que no colapse */
+    max-width: 240px;   /* Máximo para que no crezca demasiado */
+    
+    /* Asegura que el contenido no fuerce altura */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .tarjeta-producto img {
+    /* Altura flexible con aspecto definido */
+    height: auto;
+    aspect-ratio: 4 / 3; /* Mantiene proporción sin deformar */
+    width: 100%;
+    object-fit: cover;
+  }
+}
+
+/* Ajuste adicional para pantallas muy anchas pero con zoom o ventanas reducidas */
+@media (min-width: 1025px) {
+  .tarjeta-producto {
+    /* Refuerza el ancho fijo solo en desktop real */
+    flex: 0 0 220px;
+    width: 220px;
+  }
 }
 
 /* =========================================
@@ -663,6 +691,7 @@ img {
 }
 
 @media (max-width: 768px) {
+<<<<<<< HEAD
   /* 1. Contenedor en columna con mejor espaciado */
   .contenedor-servicios {
     flex-direction: column;
@@ -736,6 +765,71 @@ img {
     justify-self: center;     /* Lo centra horizontalmente en ese espacio */
     width: fit-content;       /* Se ajusta al contenido sin estirarse al 100% */
     min-width: 150px;         /* Evita que quede demasiado pequeño */
+=======
+.contenedor-servicios {
+  flex-direction: column;
+  gap: 20px;
+  align-items: stretch;
+  padding: 10px 0;
+}
+
+.lista-servicios {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.lista-servicios li {
+  margin-bottom: 0;
+  padding: 14px 10px;
+  font-size: 0.95rem;
+  text-align: center;
+  background: #fff;
+  border: 2px solid #4dd0e1;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.lista-servicios li:hover,
+.lista-servicios li:active {
+  background: #4dd0e1;
+  transform: scale(0.97);
+}
+
+.vista-servicio {
+  background: #fff;
+  padding: 16px;
+  border-radius: 18px;
+  border: 3px solid #ff80ab;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  order: -1; /* Mueve la imagen ARRIBA en móvil */
+}
+
+.vista-servicio img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 12px;
+  margin: 0 auto 12px auto;
+  display: block;
+}
+
+/* Centrar "Música y sonido" */
+.lista-servicios li:last-child {
+  grid-column: 1 / -1;
+  justify-self: center;
+  width: fit-content;
+  min-width: 150px;
+>>>>>>> 80d980e98ec5ff14d9b45002addf0ce7ddefa302
 }
 }
 /* =========================================
