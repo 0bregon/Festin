@@ -755,6 +755,30 @@ img {
   width: fit-content;
   min-width: 150px;
 }
+
+/* Contenedor de la imagen: añade overflow para contenerla */
+.vista-servicio {
+  background: #fff;
+  padding: 16px;
+  border-radius: 18px;
+  border: 3px solid #ff80ab;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  order: -1;
+  overflow: hidden; /* 🔑 CORRECCIÓN: Contiene cualquier desborde */
+}
+
+/* Imagen: ajuste seguro para que nunca se salga */
+.vista-servicio img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 12px;
+  margin: 0 auto 12px auto;
+  display: block;
+  box-sizing: border-box; /* 🔑 Evita que bordes/padding causen scroll horizontal */
+}
 }
 
 /* =========================================
