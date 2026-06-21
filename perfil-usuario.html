@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perfil de Usuario</title>
+    <title>Perfil de Usuario - Festín</title>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link href="estilo.css" rel="stylesheet">
     <script src="script.js" defer></script>
@@ -38,11 +38,8 @@
             <a href="carrito.html">
                 <img src="carrito.png" alt="Ir al carrito" class="icono">
             </a>
-            <a href="perfil.html">
+            <a href="perfil-usuario.html">
                 <img src="usuario.png" alt="Ir al perfil de usuario" class="icono">
-            </a>
-            <a href="#accesibilidad">
-                <img src="accesibilidad.png" alt="Opciones de accesibilidad" class="icono">
             </a>
         </aside>
     </header>
@@ -50,74 +47,99 @@
     <main class="container">
 
         <!-- ✅ ID agregado para que JS lo controle -->
-        <section id="seccion-invitado" class="seccion perfil-invitado">
+        <section id="seccion-invitado" class="perfil-invitado">
             <h2>¡Hola, invitado!</h2>
             <p>Para poder ver tu información de perfil, realizar el seguimiento de tus reservas y acumular puntos para descuentos, necesitas acceder a tu cuenta.</p>
             
             <div class="botones-invitado">
-                <p class="boton"><a href="SignIn.html">Iniciar sesión</a></p>
+                <p class="boton"><a href="login.html">Iniciar sesión</a></p>
                 <p class="boton secundario"><a href="SignUp.html">Crear una cuenta</a></p>
             </div>
         </section>
 
-
         <!-- ✅ ID + display:none para que JS lo muestre al loguearse -->
         <section id="seccion-usuario" class="perfil-usuario-activo" style="display:none;">
             
-            <section class="seccion">
-                <!-- ✅ ID para nombre dinámico -->
-                <h2>¡Hola de nuevo, <span id="perfil-nombre">Usuario</span>! 👋</h2>
-                <p>Aquí tienes el resumen de tu cuenta y el estado de tus alquileres activos.</p>
+            <!-- Tarjeta de bienvenida -->
+            <div class="tarjeta-bienvenida">
+                <div>
+                    <h2>¡Hola de nuevo, <span id="perfil-nombre">Usuario</span>! 👋</h2>
+                    <p>Aquí tienes el resumen de tu cuenta y el estado de tus alquileres activos.</p>
+                </div>
                 <!-- ✅ Botón cerrar sesión -->
-                <button id="btn-cerrar-sesion" class="boton-enviar" style="background:#ff6b6b; border-color:#e55a5a; box-shadow:0 4px 0 #c0392b; margin-top:10px;">Cerrar sesión</button>
-            </section>
+                <button id="btn-cerrar-sesion">Cerrar sesión</button>
+            </div>
 
-            <section class="seccion">
-                <h3>Información personal</h3>
-                <div class="info-usuario">
-                    <!-- ✅ IDs para datos dinámicos -->
-                    <p><strong>Nombre:</strong> <span id="perfil-nombre-completo">Cargando...</span></p>
-                    <p><strong>Correo:</strong> <span id="perfil-email">Cargando...</span></p>
-                    <p><strong>Teléfono:</strong> +507 6000-0000 <small style="color:#666; display:block; margin-top:5px;">(Puedes editarlo en "Editar datos")</small></p>
-                </div>
+            <!-- Grid de tarjetas -->
+            <div class="perfil-grid">
                 
-                <p class="boton"><a href="editar-perfil.html">Editar datos</a></p>
-            </section>
-
-            <section class="seccion">
-                <h3>Estado de tu pedido</h3>
-                <p class="estado-subtitulo">Progreso de tu alquiler para el evento:</p>
-                
-                <ul class="lista-progreso" aria-label="Pasos del estado del pedido">
-                    <li class="paso completado">✓ Reservado</li>
-                    <li class="paso completado">✓ Abonado</li>
-                    <li class="paso pendiente">Pago completo</li>
-                    <li class="paso pendiente">Día del evento</li>
-                    <li class="paso pendiente">Devolución de equipo</li>
-                    <li class="paso pendiente">Finalizado</li>
-                </ul>
-            </section>
-
-            <section class="seccion">
-                <h3>Puntos acumulados</h3>
-                <!-- ✅ ID para puntos dinámicos -->
-                <p class="puntos-destacados"><span id="perfil-puntos">150</span> puntos</p>
-
-                <h4>Tus beneficios activos:</h4>
-                <ul>
-                    <li>¡Tienes un 10% de descuento listo para usar en tu próximo inflable!</li>
-                    <li>Soporte y atención prioritaria para tus eventos.</li>
-                </ul>
-            </section>
-
-            <section class="seccion qr-seccion">
-                <h3>Acceso rápido</h3>
-                <p>Usa este código en tu celular para ingresar rápido en nuestros puntos de retiro:</p>
-                <div class="qr-contenedor">
-                    <img src="qr.png" alt="Código QR de acceso" class="imagen-qr">
+                <!-- INFORMACIÓN PERSONAL -->
+                <div class="tarjeta-perfil">
+                    <h3>Información Personal</h3>
+                    <div class="info-usuario">
+                        <div class="info-item">
+                            <div class="info-item-content">
+                                <div class="info-item-label">Nombre completo</div>
+                                <div class="info-item-value" id="perfil-nombre-completo">Cargando...</div>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-item-content">
+                                <div class="info-item-label">Correo electrónico</div>
+                                <div class="info-item-value" id="perfil-email">Cargando...</div>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-item-content">
+                                <div class="info-item-label">Teléfono</div>
+                                <div class="info-item-value">+507 6000-0000</div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#" class="btn-editar">Editar datos</a>
                 </div>
-            </section>
 
+                <!-- ESTADO DEL PEDIDO -->
+                <div class="tarjeta-perfil">
+                    <h3>Estado de tu Pedido</h3>
+                    <p class="estado-subtitulo">Progreso de tu alquiler para el evento:</p>
+                    
+                    <ul class="lista-progreso" aria-label="Pasos del estado del pedido">
+                        <li class="paso completado">Reservado</li>
+                        <li class="paso completado">Abonado</li>
+                        <li class="paso pendiente">Pago completo</li>
+                        <li class="paso pendiente">Día del evento</li>
+                        <li class="paso pendiente">Devolución de equipo</li>
+                        <li class="paso pendiente">Finalizado</li>
+                    </ul>
+                </div>
+
+                <!-- PUNTOS ACUMULADOS -->
+                <div class="tarjeta-perfil">
+                    <h3>Puntos Acumulados</h3>
+                    <!-- ✅ ID para puntos dinámicos -->
+                    <div class="puntos-destacados">
+                        <span id="perfil-puntos">150</span>
+                        <small>puntos disponibles</small>
+                    </div>
+
+                    <h4>Tus beneficios activos:</h4>
+                    <ul class="beneficios-lista">
+                        <li>¡Tienes un <strong>10% de descuento</strong> listo para usar en tu próximo inflable!</li>
+                        <li>Soporte y atención prioritaria para tus eventos.</li>
+                    </ul>
+                </div>
+
+                <!-- ACCESO RÁPIDO (QR) -->
+                <div class="tarjeta-perfil qr-seccion">
+                    <h3>Acceso Rápido</h3>
+                    <p>Usa este código en tu celular para ingresar rápido en nuestros puntos de retiro:</p>
+                    <div class="qr-contenedor">
+                        <img src="qr.png" alt="Código QR de acceso" class="imagen-qr">
+                    </div>
+                </div>
+
+            </div>
         </section>
 
     </main>
@@ -137,7 +159,8 @@
         </nav>
 
         <p class="copyright">
-            <small>&copy; 2026 Festín Panamá. Todos los derechos reservados.</small></p>
+            <small>&copy; 2026 Festín Panamá. Todos los derechos reservados.</small>
+        </p>
     </footer>
 </body>
 </html>

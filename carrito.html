@@ -3,13 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carrito | Festín</title>
+    <title>Carrito de Compras - Festín</title>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link href="estilo.css" rel="stylesheet">
     <script src="script.js" defer></script>
 </head>
 <body>
-
     <header class="encabezado container">
         <h1>
             <a href="index.html">
@@ -38,32 +37,30 @@
         <aside class="iconos">
             <a href="carrito.html">
                 <img src="carrito.png" alt="Ir al carrito" class="icono">
-                <!-- Contador de items (opcional) -->
-                <span id="carrito-contador" style="position:absolute; top:-5px; right:-5px; background:#ff6b6b; color:white; border-radius:50%; width:18px; height:18px; font-size:11px; display:flex; align-items:center; justify-content:center; display:none;">0</span>
+                <span id="carrito-contador" class="carrito-badge">0</span>
             </a>
-            
-            <a href="perfil.html">
+            <a href="perfil-usuario.html">
                 <img src="usuario.png" alt="Ir al perfil de usuario" class="icono">
-            </a>
-
-            <a href="#accesibilidad">
-                <img src="accesibilidad.png" alt="Opciones de accesibilidad" class="icono">
             </a>
         </aside>
     </header>
 
     <main class="container">
+        <hr>
 
         <section class="seccion">
-            <h2>Carrito de compras</h2>
+            <h2>Carrito de Compras</h2>
             <p>Revisa los productos que agregarás a tu evento</p>
         </section>
 
+        <hr>
+
         <!-- ESTADO VACÍO (se muestra si no hay items) -->
-        <section id="carrito-vacio" class="seccion">
-            <p style="text-align:center; font-size:1.1rem;">Tu carrito está vacío.</p>
-            <p style="text-align:center; color:#666; margin-bottom:20px;">Explora nuestro catálogo y agrega productos para tu evento.</p>
-            <p class="boton" style="text-align:center;">
+        <section id="carrito-vacio" class="seccion carrito-vacio">
+            <div class="carrito-vacio-icono">🛒</div>
+            <h3>Tu carrito está vacío</h3>
+            <p>Explora nuestro catálogo y agrega productos para tu evento.</p>
+            <p class="boton">
                 <a href="catalogo.html">Ver catálogo</a>
             </p>
         </section>
@@ -72,38 +69,37 @@
         <section id="carrito-con-items" class="seccion" style="display:none;">
             
             <!-- Lista de productos -->
-            <div id="lista-carrito" style="display:flex; flex-direction:column; gap:15px; margin-bottom:20px;">
+            <div id="lista-carrito" class="carrito-lista">
                 <!-- Los items se generan con JS -->
             </div>
 
             <!-- Resumen de precios -->
-            <div style="border-top:2px dashed #4dd0e1; padding-top:15px; margin-top:10px;">
-                <div style="display:flex; justify-content:space-between; margin-bottom:8px;">
+            <div class="carrito-resumen">
+                <div class="carrito-resumen-fila">
                     <span>Subtotal:</span>
                     <strong id="subtotal-carrito">$0.00</strong>
                 </div>
-                <div style="display:flex; justify-content:space-between; margin-bottom:8px;">
+                <div class="carrito-resumen-fila">
                     <span>Envío:</span>
-                    <strong style="color:#28a745;">¡Gratis! 🎉</strong>
+                    <strong class="carrito-envio-gratis">¡Gratis! 🎉</strong>
                 </div>
-                <div style="display:flex; justify-content:space-between; font-size:1.2rem; margin-top:10px; padding-top:10px; border-top:2px solid #4dd0e1;">
+                <div class="carrito-resumen-total">
                     <strong>Total:</strong>
-                    <strong id="total-carrito" style="color:#c2185b;">$0.00</strong>
+                    <strong id="total-carrito" class="carrito-total-precio">$0.00</strong>
                 </div>
             </div>
 
             <!-- Botones de acción -->
-            <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:20px; justify-content:center;">
-                <button id="btn-vaciar-carrito" class="boton-enviar" style="background:#ff6b6b; border-color:#e55a5a; box-shadow:0 4px 0 #c0392b;">
-                    Vaciar carrito
+            <div class="carrito-acciones">
+                <button id="btn-vaciar-carrito" class="btn-carrito btn-carrito-secundario">
+                    🗑️ Vaciar carrito
                 </button>
-                <button id="btn-proceder" class="boton-enviar">
+                <button id="btn-proceder" class="btn-carrito btn-carrito-principal">
                     Proceder a reservar →
                 </button>
             </div>
 
         </section>
-
     </main>
 
     <footer class="container">
@@ -124,6 +120,5 @@
             <small>&copy; 2026 Festín Panamá. Todos los derechos reservados.</small>
         </p>
     </footer>
-
 </body>
 </html>

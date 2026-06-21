@@ -3,15 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reserva Confirmada | Festín</title>
+    <title>Reserva Confirmada - Festín</title>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link href="estilo.css" rel="stylesheet">
     <script src="script.js" defer></script>
 </head>
 <body>
-    <!-- HEADER (igual que el resto) -->
     <header class="encabezado container">
-        <h1><a href="index.html"><img src="Logo.png" alt="Festín" class="logo"></a></h1>
+        <h1>
+            <a href="index.html">
+                <img src="Logo.png" alt="Festín" class="logo">
+            </a>
+        </h1> 
+
         <nav aria-label="Menú principal" class="menu">
             <button class="menu-toggle">☰ Menú</button>
             <ul>
@@ -23,22 +27,31 @@
                 <li><a href="contacto.html">Contacto</a></li>
             </ul>
         </nav>
+
         <form class="busqueda">
             <label for="buscar-prod">Buscar productos:</label>
             <input type="search" id="buscar-prod" name="q" placeholder="Ej. Palomitas, sillas...">
             <button type="submit">Buscar</button>
         </form>
+
         <aside class="iconos">
-            <a href="carrito.html"><img src="carrito.png" alt="Ir al carrito" class="icono"></a>
-            <a href="perfil.html"><img src="usuario.png" alt="Ir al perfil" class="icono"></a>
-            <a href="#accesibilidad"><img src="accesibilidad.png" alt="Accesibilidad" class="icono"></a>
+            <a href="carrito.html">
+                <img src="carrito.png" alt="Ir al carrito" class="icono">
+            </a>
+            <a href="perfil-usuario.html">
+                <img src="usuario.png" alt="Ir al perfil de usuario" class="icono">
+            </a>
         </aside>
     </header>
 
     <main class="container">
+        <hr>
+
         <section class="seccion">
             <h2>Estado de tu reserva</h2>
         </section>
+
+        <hr>
 
         <section class="seccion">
             <h3>✅ Reserva confirmada</h3>
@@ -54,8 +67,11 @@
             </ul>
 
             <p>Nos pondremos en contacto contigo para confirmar los detalles.</p>
-            <p class="boton"><a href="index.html">Volver al inicio</a></p>
-            <p class="boton"><a href="perfil.html">Ver mis reservas</a></p>
+            
+            <div class="boton">
+                <p><a href="index.html">Volver al inicio</a></p>
+                <p><a href="perfil-usuario.html">Ver mis reservas</a></p>
+            </div>
         </section>
     </main>
 
@@ -66,10 +82,16 @@
             <p>Teléfono: +507 6000-0000</p>
             <p>Correo: festinPanama@gmail.com</p>
         </section>
+        
         <nav aria-label="Enlaces legales" class="legal">
-            <a href="privacidad-y-terminos.html">Política de Privacidad y Términos y Condiciones</a>
+            <a href="privacidad-y-terminos.html">
+                Política de Privacidad y Términos y Condiciones
+            </a>
         </nav>
-        <p class="copyright"><small>&copy; 2026 Festín Panamá. Todos los derechos reservados.</small></p>
+
+        <p class="copyright">
+            <small>&copy; 2026 Festín Panamá. Todos los derechos reservados.</small>
+        </p>
     </footer>
 
     <script>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Catálogo</title>
+    <title>Catálogo - Festín</title>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link href="estilo.css" rel="stylesheet">
     <script src="script.js" defer></script>
@@ -38,13 +38,8 @@
             <a href="carrito.html">
                 <img src="carrito.png" alt="Ir al carrito" class="icono">
             </a>
-            
             <a href="perfil-usuario.html">
                 <img src="usuario.png" alt="Ir al perfil de usuario" class="icono">
-            </a>
-
-            <a href="">
-                <img src="accesibilidad.png" alt="Opciones de accesibilidad" class="icono">
             </a>
         </aside>
     </header>
@@ -57,31 +52,27 @@
         </section>
 
         <hr>
+        
+        <!-- DECORACIÓN -->
         <section class="seccion">
-            <h3>Decoracion</h3>
+            <h3>Decoración</h3>
 
-            <article class="seccion">
+            <article class="catalogo-producto">
                 <h4>Arco de globos</h4>
 
-                <section class="galeria-contenedor" aria-roledescription="carrusel" aria-label="Galería de fotos de productos">
-
+                <section class="galeria-contenedor">
                     <div class="controles-galeria">
-                        <button class="flecha anterior" aria-label="Imagen anterior">
-                            &#10094;
-                        </button>
-                        <button class="flecha siguiente" aria-label="Siguiente imagen">
-                            &#10095;
-                        </button>
+                        <button class="flecha anterior" aria-label="Imagen anterior">&#10094;</button>
+                        <button class="flecha siguiente" aria-label="Siguiente imagen">&#10095;</button>
                     </div>
-
-                    <ul class="galeria-pantalla" aria-live="polite">
-                        <li class="slide activa" role="group" aria-roledescription="diapositiva" aria-label="1 de 2">
+                    <ul class="galeria-pantalla">
+                        <li class="slide activa">
                             <figure>
                                 <img src="arcodeglobo.webp" alt="Arco de globos decorativo para cumpleaños">
                                 <figcaption class="descripcion-foto">Decoración temática con globos</figcaption>
                             </figure>
                         </li>
-                        <li class="slide" role="group" aria-roledescription="diapositiva" aria-label="2 de 2">
+                        <li class="slide">
                             <figure>
                                 <img src="globos2.webp" alt="Arco de globos coloridos para eventos">
                                 <figcaption class="descripcion-foto">Ideal para cumpleaños y celebraciones</figcaption>
@@ -90,45 +81,44 @@
                     </ul>
                 </section>
 
-                <p>Transforma cualquier espacio en el centro de la fiesta con un arco de globos lleno de color y estilo. Ideal para cumpleaños, baby showers, bautizos, graduaciones y celebraciones especiales. Se adapta a diferentes temáticas y crea un fondo perfecto para fotos y decoración principal.</p>
+                <p>Transforma cualquier espacio en el centro de la fiesta con un arco de globos lleno de color y estilo. Ideal para cumpleaños, baby showers, bautizos, graduaciones y celebraciones especiales.</p>
 
-                <footer>
-                    <p>B/22.00</p>
-<!-- Dentro de cada .tarjeta-producto -->
-                    <button onclick="agregarAlCarrito(1, 'Candy Bar', 45.00, 'candybar1.jpeg')" 
-                            class="boton-carrito" 
-                            style="margin-top:10px; width:100%; padding:10px; background:#4dd0e1; color:white; border:none; border-radius:10px; cursor:pointer; font-weight:bold;">
-                    ➕ Agregar al carrito
-                    </button>       
-            </footer>
+                <div class="catalogo-precio">
+                    <p class="precio">B/22.00</p>
+                    <button onclick="agregarAlCarrito(1, 'Arco de globos', 22.00, 'arcodeglobo.webp')" class="btn-agregar">
+                        ➕ Agregar al carrito
+                    </button>
+                </div>
             </article>
         </section>
 
         <hr>
+        
+        <!-- BASES DECORATIVAS -->
         <section class="seccion">
             <h3>Bases decorativas</h3>
             
-            <article class="seccion">
+            <article class="catalogo-producto">
                 <h4>Candy Bar</h4>
-                <section class="galeria-contenedor" aria-roledescription="carrusel" aria-label="Galería de fotos de productos">
+                <section class="galeria-contenedor">
                     <div class="controles-galeria">
-                        <button class="flecha anterior" aria-label="Imagen anterior">&#10094;</button>
-                        <button class="flecha siguiente" aria-label="Siguiente imagen">&#10095;</button>
+                        <button class="flecha anterior">&#10094;</button>
+                        <button class="flecha siguiente">&#10095;</button>
                     </div>
-                    <ul class="galeria-pantalla" aria-live="polite">
-                        <li class="slide activa" role="group" aria-roledescription="diapositiva" aria-label="1 de 3">
+                    <ul class="galeria-pantalla">
+                        <li class="slide activa">
                             <figure>
                                 <img src="candybar1.jpeg" alt="Candy Bar decoración mesa de cumpleaños">
                                 <figcaption class="descripcion-foto">Primer cumpleaños</figcaption>
                             </figure>
                         </li>
-                        <li class="slide" role="group" aria-roledescription="diapositiva" aria-label="2 de 3">
+                        <li class="slide">
                             <figure>
                                 <img src="candybar2.jpeg" alt="Candy Bar decoración mesa de cumpleaños">
                                 <figcaption class="descripcion-foto">Primer cumpleaños</figcaption>
                             </figure>
                         </li>
-                        <li class="slide" role="group" aria-roledescription="diapositiva" aria-label="3 de 3">
+                        <li class="slide">
                             <figure>
                                 <img src="candybar3.jpeg" alt="Candy Bar decoración mesa de cumpleaños">
                                 <figcaption class="descripcion-foto">Primer cumpleaños</figcaption>
@@ -137,25 +127,23 @@
                     </ul>
                 </section>
                 <p>Un espacio dulce y colorido para sorprender a todos los invitados. Incluye decoración temática y área organizada para colocar golosinas, cupcakes, chocolates y snacks.</p>
-                <footer>
-                    <p>B/0.00</p>
-                    <button onclick="agregarAlCarrito(1, 'Candy Bar', 45.00, 'candybar1.jpeg')" 
-                            class="boton-carrito" 
-                            style="margin-top:10px; width:100%; padding:10px; background:#4dd0e1; color:white; border:none; border-radius:10px; cursor:pointer; font-weight:bold;">
-                    ➕ Agregar al carrito
-                    </button>    
-                </footer>
+                <div class="catalogo-precio">
+                    <p class="precio">B/45.00</p>
+                    <button onclick="agregarAlCarrito(2, 'Candy Bar', 45.00, 'candybar1.jpeg')" class="btn-agregar">
+                        ➕ Agregar al carrito
+                    </button>
+                </div>
             </article>
 
-            <article class="seccion">
+            <article class="catalogo-producto">
                 <h4>Carrusel</h4>
-                <section class="galeria-contenedor" aria-roledescription="carrusel" aria-label="Galería de fotos de productos">
+                <section class="galeria-contenedor">
                     <div class="controles-galeria">
-                        <button class="flecha anterior" aria-label="Imagen anterior">&#10094;</button>
-                        <button class="flecha siguiente" aria-label="Siguiente imagen">&#10095;</button>
+                        <button class="flecha anterior">&#10094;</button>
+                        <button class="flecha siguiente">&#10095;</button>
                     </div>
-                    <ul class="galeria-pantalla" aria-live="polite">
-                        <li class="slide activa" role="group" aria-roledescription="diapositiva" aria-label="1 de 1">
+                    <ul class="galeria-pantalla">
+                        <li class="slide activa">
                             <figure>
                                 <img src="carrusel.jpg" alt="Carrusel decorativo para eventos">
                                 <figcaption class="descripcion-foto">Primer cumpleaños</figcaption>
@@ -163,27 +151,23 @@
                         </li>
                     </ul>
                 </section>
-                <p></p>
-                <footer>
-                    <p>B/.00</p>
-                    <button onclick="agregarAlCarrito(1, 'Candy Bar', 45.00, 'candybar1.jpeg')" 
-                            class="boton-carrito" 
-                            style="margin-top:10px; width:100%; padding:10px; background:#4dd0e1; color:white; border:none; border-radius:10px; cursor:pointer; font-weight:bold;">
-                    ➕ Agregar al carrito
-                    </button>    
-                    
-                </footer>
+                <div class="catalogo-precio">
+                    <p class="precio">B/0.00</p>
+                    <button onclick="agregarAlCarrito(3, 'Carrusel', 0.00, 'carrusel.jpg')" class="btn-agregar">
+                        ➕ Agregar al carrito
+                    </button>
+                </div>
             </article>
 
-            <article class="seccion">
+            <article class="catalogo-producto">
                 <h4>Bases para pasteles</h4>
-                <section class="galeria-contenedor" aria-roledescription="carrusel" aria-label="Galería de fotos de productos">
+                <section class="galeria-contenedor">
                     <div class="controles-galeria">
-                        <button class="flecha anterior" aria-label="Imagen anterior">&#10094;</button>
-                        <button class="flecha siguiente" aria-label="Siguiente imagen">&#10095;</button>
+                        <button class="flecha anterior">&#10094;</button>
+                        <button class="flecha siguiente">&#10095;</button>
                     </div>
-                    <ul class="galeria-pantalla" aria-live="polite">
-                        <li class="slide activa" role="group" aria-roledescription="diapositiva" aria-label="1 de 1">
+                    <ul class="galeria-pantalla">
+                        <li class="slide activa">
                             <figure>
                                 <img src="baseDulce.jpeg" alt="Base decorativa para pasteles de cumpleaños">
                                 <figcaption class="descripcion-foto">Primer cumpleaños</figcaption>
@@ -191,26 +175,23 @@
                         </li>
                     </ul>
                 </section>
-                <p></p>
-                <footer>
-                    <p>B/.00</p>
-<button onclick="agregarAlCarrito(1, 'Candy Bar', 45.00, 'candybar1.jpeg')" 
-                            class="boton-carrito" 
-                            style="margin-top:10px; width:100%; padding:10px; background:#4dd0e1; color:white; border:none; border-radius:10px; cursor:pointer; font-weight:bold;">
-                    ➕ Agregar al carrito
-                    </button>    
-                </footer>
+                <div class="catalogo-precio">
+                    <p class="precio">B/0.00</p>
+                    <button onclick="agregarAlCarrito(4, 'Bases para pasteles', 0.00, 'baseDulce.jpeg')" class="btn-agregar">
+                        ➕ Agregar al carrito
+                    </button>
+                </div>
             </article>
 
-            <article class="seccion">
+            <article class="catalogo-producto">
                 <h4>Bases para pastillas</h4>
-                <section class="galeria-contenedor" aria-roledescription="carrusel" aria-label="Galería de fotos de productos">
+                <section class="galeria-contenedor">
                     <div class="controles-galeria">
-                        <button class="flecha anterior" aria-label="Imagen anterior">&#10094;</button>
-                        <button class="flecha siguiente" aria-label="Siguiente imagen">&#10095;</button>
+                        <button class="flecha anterior">&#10094;</button>
+                        <button class="flecha siguiente">&#10095;</button>
                     </div>
-                    <ul class="galeria-pantalla" aria-live="polite">
-                        <li class="slide activa" role="group" aria-roledescription="diapositiva" aria-label="1 de 1">
+                    <ul class="galeria-pantalla">
+                        <li class="slide activa">
                             <figure>
                                 <img src="baseP.jpeg" alt="Base decorativa para pastillas de eventos">
                                 <figcaption class="descripcion-foto">Primer cumpleaños</figcaption>
@@ -218,43 +199,41 @@
                         </li>
                     </ul>
                 </section>
-                <p></p>
-                <footer>
-                    <p>B/.00</p>
-<button onclick="agregarAlCarrito(1, 'Candy Bar', 45.00, 'candybar1.jpeg')" 
-                            class="boton-carrito" 
-                            style="margin-top:10px; width:100%; padding:10px; background:#4dd0e1; color:white; border:none; border-radius:10px; cursor:pointer; font-weight:bold;">
-                    ➕ Agregar al carrito
-                    </button>                    </footer>
+                <div class="catalogo-precio">
+                    <p class="precio">B/0.00</p>
+                    <button onclick="agregarAlCarrito(5, 'Bases para pastillas', 0.00, 'baseP.jpeg')" class="btn-agregar">
+                        ➕ Agregar al carrito
+                    </button>
+                </div>
             </article>
 
-            <article class="seccion">
+            <article class="catalogo-producto">
                 <h4>Bases para cupcakes</h4>
-                <section class="galeria-contenedor" aria-roledescription="carrusel" aria-label="Galería de fotos de productos">
+                <section class="galeria-contenedor">
                     <div class="controles-galeria">
-                        <button class="flecha anterior" aria-label="Imagen anterior">&#10094;</button>
-                        <button class="flecha siguiente" aria-label="Siguiente imagen">&#10095;</button>
+                        <button class="flecha anterior">&#10094;</button>
+                        <button class="flecha siguiente">&#10095;</button>
                     </div>
-                    <ul class="galeria-pantalla" aria-live="polite">
-                        <li class="slide activa" role="group" aria-roledescription="diapositiva" aria-label="1 de 4">
+                    <ul class="galeria-pantalla">
+                        <li class="slide activa">
                             <figure>
                                 <img src="cupcake1.jpeg" alt="Base decorativa para cupcakes de cumpleaños">
                                 <figcaption class="descripcion-foto">Primer cumpleaños</figcaption>
                             </figure>
                         </li>
-                        <li class="slide" role="group" aria-roledescription="diapositiva" aria-label="2 de 4">
+                        <li class="slide">
                             <figure>
                                 <img src="cupcake2.jpeg" alt="Base decorativa para cupcakes de cumpleaños">
                                 <figcaption class="descripcion-foto">Primer cumpleaños</figcaption>
                             </figure>
                         </li>
-                        <li class="slide" role="group" aria-roledescription="diapositiva" aria-label="3 de 4">
+                        <li class="slide">
                             <figure>
                                 <img src="cupcake3.jpeg" alt="Base decorativa para cupcakes de cumpleaños">
                                 <figcaption class="descripcion-foto">Primer cumpleaños</figcaption>
                             </figure>
                         </li>
-                        <li class="slide" role="group" aria-roledescription="diapositiva" aria-label="4 de 4">
+                        <li class="slide">
                             <figure>
                                 <img src="cupcake4.jpeg" alt="Base decorativa para cupcakes de cumpleaños">
                                 <figcaption class="descripcion-foto">Primer cumpleaños</figcaption>
@@ -262,25 +241,23 @@
                         </li>
                     </ul>
                 </section>
-                <p></p>
-                <footer>
-                    <p>B/.00</p>
-<button onclick="agregarAlCarrito(1, 'Candy Bar', 45.00, 'candybar1.jpeg')" 
-                            class="boton-carrito" 
-                            style="margin-top:10px; width:100%; padding:10px; background:#4dd0e1; color:white; border:none; border-radius:10px; cursor:pointer; font-weight:bold;">
-                    ➕ Agregar al carrito
-                    </button>                    </footer>
+                <div class="catalogo-precio">
+                    <p class="precio">B/0.00</p>
+                    <button onclick="agregarAlCarrito(6, 'Bases para cupcakes', 0.00, 'cupcake1.jpeg')" class="btn-agregar">
+                        ➕ Agregar al carrito
+                    </button>
+                </div>
             </article>
 
-            <article class="seccion">
+            <article class="catalogo-producto">
                 <h4>Pedestales decorativos</h4>
-                <section class="galeria-contenedor" aria-roledescription="carrusel" aria-label="Galería de fotos de productos">
+                <section class="galeria-contenedor">
                     <div class="controles-galeria">
-                        <button class="flecha anterior" aria-label="Imagen anterior">&#10094;</button>
-                        <button class="flecha siguiente" aria-label="Siguiente imagen">&#10095;</button>
+                        <button class="flecha anterior">&#10094;</button>
+                        <button class="flecha siguiente">&#10095;</button>
                     </div>
-                    <ul class="galeria-pantalla" aria-live="polite">
-                        <li class="slide activa" role="group" aria-roledescription="diapositiva" aria-label="1 de 1">
+                    <ul class="galeria-pantalla">
+                        <li class="slide activa">
                             <figure>
                                 <img src="pedestales.jpg" alt="Pedestales decorativos para eventos">
                                 <figcaption class="descripcion-foto">Primer cumpleaños</figcaption>
@@ -288,25 +265,23 @@
                         </li>
                     </ul>
                 </section>
-                <p></p>
-                <footer>
-                    <p>B/.00</p>
-<button onclick="agregarAlCarrito(1, 'Candy Bar', 45.00, 'candybar1.jpeg')" 
-                            class="boton-carrito" 
-                            style="margin-top:10px; width:100%; padding:10px; background:#4dd0e1; color:white; border:none; border-radius:10px; cursor:pointer; font-weight:bold;">
-                    ➕ Agregar al carrito
-                    </button>                    </footer>
+                <div class="catalogo-precio">
+                    <p class="precio">B/0.00</p>
+                    <button onclick="agregarAlCarrito(7, 'Pedestales decorativos', 0.00, 'pedestales.jpg')" class="btn-agregar">
+                        ➕ Agregar al carrito
+                    </button>
+                </div>
             </article>
 
-            <article class="seccion">
+            <article class="catalogo-producto">
                 <h4>Bandejas decorativas</h4>
-                <section class="galeria-contenedor" aria-roledescription="carrusel" aria-label="Galería de fotos de productos">
+                <section class="galeria-contenedor">
                     <div class="controles-galeria">
-                        <button class="flecha anterior" aria-label="Imagen anterior">&#10094;</button>
-                        <button class="flecha siguiente" aria-label="Siguiente imagen">&#10095;</button>
+                        <button class="flecha anterior">&#10094;</button>
+                        <button class="flecha siguiente">&#10095;</button>
                     </div>
-                    <ul class="galeria-pantalla" aria-live="polite">
-                        <li class="slide activa" role="group" aria-roledescription="diapositiva" aria-label="1 de 1">
+                    <ul class="galeria-pantalla">
+                        <li class="slide activa">
                             <figure>
                                 <img src="basesblancas.jpg" alt="Bandejas decorativas para eventos">
                                 <figcaption class="descripcion-foto">Primer cumpleaños</figcaption>
@@ -314,25 +289,23 @@
                         </li>
                     </ul>
                 </section>
-                <p></p>
-                <footer>
-                    <p>B/.00</p>
-<button onclick="agregarAlCarrito(1, 'Candy Bar', 45.00, 'candybar1.jpeg')" 
-                            class="boton-carrito" 
-                            style="margin-top:10px; width:100%; padding:10px; background:#4dd0e1; color:white; border:none; border-radius:10px; cursor:pointer; font-weight:bold;">
-                    ➕ Agregar al carrito
-                    </button>                    </footer>
+                <div class="catalogo-precio">
+                    <p class="precio">B/0.00</p>
+                    <button onclick="agregarAlCarrito(8, 'Bandejas decorativas', 0.00, 'basesblancas.jpg')" class="btn-agregar">
+                        ➕ Agregar al carrito
+                    </button>
+                </div>
             </article>
 
-            <article class="seccion">
+            <article class="catalogo-producto">
                 <h4>Caballetes</h4>
-                <section class="galeria-contenedor" aria-roledescription="carrusel" aria-label="Galería de fotos de productos">
+                <section class="galeria-contenedor">
                     <div class="controles-galeria">
-                        <button class="flecha anterior" aria-label="Imagen anterior">&#10094;</button>
-                        <button class="flecha siguiente" aria-label="Siguiente imagen">&#10095;</button>
+                        <button class="flecha anterior">&#10094;</button>
+                        <button class="flecha siguiente">&#10095;</button>
                     </div>
-                    <ul class="galeria-pantalla" aria-live="polite">
-                        <li class="slide activa" role="group" aria-roledescription="diapositiva" aria-label="1 de 1">
+                    <ul class="galeria-pantalla">
+                        <li class="slide activa">
                             <figure>
                                 <img src="caballete.jpeg" alt="Caballetes decorativos para eventos">
                                 <figcaption class="descripcion-foto">Primer cumpleaños</figcaption>
@@ -340,25 +313,23 @@
                         </li>
                     </ul>
                 </section>
-                <p></p>
-                <footer>
-                    <p>B/.00</p>
-<button onclick="agregarAlCarrito(1, 'Candy Bar', 45.00, 'candybar1.jpeg')" 
-                            class="boton-carrito" 
-                            style="margin-top:10px; width:100%; padding:10px; background:#4dd0e1; color:white; border:none; border-radius:10px; cursor:pointer; font-weight:bold;">
-                    ➕ Agregar al carrito
-                    </button>                    </footer>
+                <div class="catalogo-precio">
+                    <p class="precio">B/0.00</p>
+                    <button onclick="agregarAlCarrito(9, 'Caballetes', 0.00, 'caballete.jpeg')" class="btn-agregar">
+                        ➕ Agregar al carrito
+                    </button>
+                </div>
             </article>
 
-            <article class="seccion">
+            <article class="catalogo-producto">
                 <h4>Letras de madera pequeñas</h4>
-                <section class="galeria-contenedor" aria-roledescription="carrusel" aria-label="Galería de fotos de productos">
+                <section class="galeria-contenedor">
                     <div class="controles-galeria">
-                        <button class="flecha anterior" aria-label="Imagen anterior">&#10094;</button>
-                        <button class="flecha siguiente" aria-label="Siguiente imagen">&#10095;</button>
+                        <button class="flecha anterior">&#10094;</button>
+                        <button class="flecha siguiente">&#10095;</button>
                     </div>
-                    <ul class="galeria-pantalla" aria-live="polite">
-                        <li class="slide activa" role="group" aria-roledescription="diapositiva" aria-label="1 de 1">
+                    <ul class="galeria-pantalla">
+                        <li class="slide activa">
                             <figure>
                                 <img src="letras.jpeg" alt="Letras de madera pequeñas para decoración">
                                 <figcaption class="descripcion-foto">Letras de madera</figcaption>
@@ -366,29 +337,30 @@
                         </li>
                     </ul>
                 </section>
-                <p></p>
-                <footer>
-                    <p>B/.00</p>
-<button onclick="agregarAlCarrito(1, 'Candy Bar', 45.00, 'candybar1.jpeg')" 
-                            class="boton-carrito" 
-                            style="margin-top:10px; width:100%; padding:10px; background:#4dd0e1; color:white; border:none; border-radius:10px; cursor:pointer; font-weight:bold;">
-                    ➕ Agregar al carrito
-                    </button>                    </footer>
+                <div class="catalogo-precio">
+                    <p class="precio">B/0.00</p>
+                    <button onclick="agregarAlCarrito(10, 'Letras de madera pequeñas', 0.00, 'letras.jpeg')" class="btn-agregar">
+                        ➕ Agregar al carrito
+                    </button>
+                </div>
             </article>
         </section>
 
         <hr>
+        
+        <!-- EQUIPOS DE ALIMENTOS -->
         <section id="equipos-alimentos" class="seccion">
             <h3>Equipos de alimentos</h3>
-            <article class="seccion">
-                <h4>Maquina de palomitas</h4>
-                <section class="galeria-contenedor" aria-roledescription="carrusel" aria-label="Galería de fotos de productos">
+            
+            <article class="catalogo-producto">
+                <h4>Máquina de palomitas</h4>
+                <section class="galeria-contenedor">
                     <div class="controles-galeria">
-                        <button class="flecha anterior" aria-label="Imagen anterior">&#10094;</button>
-                        <button class="flecha siguiente" aria-label="Siguiente imagen">&#10095;</button>
+                        <button class="flecha anterior">&#10094;</button>
+                        <button class="flecha siguiente">&#10095;</button>
                     </div>
-                    <ul class="galeria-pantalla" aria-live="polite">
-                        <li class="slide activa" role="group" aria-roledescription="diapositiva" aria-label="1 de 1">
+                    <ul class="galeria-pantalla">
+                        <li class="slide activa">
                             <figure>
                                 <img src="palomitas.jpg" alt="Máquina de palomitas para eventos">
                                 <figcaption class="descripcion-foto">Primer cumpleaños</figcaption>
@@ -396,25 +368,24 @@
                         </li>
                     </ul>
                 </section>
-                <p>Disfruta palomitas frescas, calientes y listas en pocos minutos. Perfecta para cumpleaños, eventos infantiles, ferias o reuniones familiares. Su diseño llamativo le da un toque divertido al ambiente mientras llena el lugar con ese aroma clásico de cine que despierta sonrisas apenas llega.</p>
-                <footer>
-                    <p>B/18.00</p>
-<button onclick="agregarAlCarrito(1, 'Candy Bar', 45.00, 'candybar1.jpeg')" 
-                            class="boton-carrito" 
-                            style="margin-top:10px; width:100%; padding:10px; background:#4dd0e1; color:white; border:none; border-radius:10px; cursor:pointer; font-weight:bold;">
-                    ➕ Agregar al carrito
-                    </button>                    </footer>
+                <p>Disfruta palomitas frescas, calientes y listas en pocos minutos. Perfecta para cumpleaños, eventos infantiles, ferias o reuniones familiares.</p>
+                <div class="catalogo-precio">
+                    <p class="precio">B/18.00</p>
+                    <button onclick="agregarAlCarrito(11, 'Máquina de palomitas', 18.00, 'palomitas.jpg')" class="btn-agregar">
+                        ➕ Agregar al carrito
+                    </button>
+                </div>
             </article>
 
-            <article class="seccion">
-                <h4>Máquina de algodón de azucar</h4>
-                <section class="galeria-contenedor" aria-roledescription="carrusel" aria-label="Galería de fotos de productos">
+            <article class="catalogo-producto">
+                <h4>Máquina de algodón de azúcar</h4>
+                <section class="galeria-contenedor">
                     <div class="controles-galeria">
-                        <button class="flecha anterior" aria-label="Imagen anterior">&#10094;</button>
-                        <button class="flecha siguiente" aria-label="Siguiente imagen">&#10095;</button>
+                        <button class="flecha anterior">&#10094;</button>
+                        <button class="flecha siguiente">&#10095;</button>
                     </div>
-                    <ul class="galeria-pantalla" aria-live="polite">
-                        <li class="slide activa" role="group" aria-roledescription="diapositiva" aria-label="1 de 1">
+                    <ul class="galeria-pantalla">
+                        <li class="slide activa">
                             <figure>
                                 <img src="algodon.jpg" alt="Máquina de algodón de azúcar para eventos">
                                 <figcaption class="descripcion-foto">Primer cumpleaños</figcaption>
@@ -423,24 +394,23 @@
                     </ul>
                 </section>
                 <p>Llena la fiesta de color y dulzura con algodón de azúcar recién preparado. Perfecta para cumpleaños infantiles, ferias y celebraciones divertidas.</p>
-                <footer>
-                    <p>B/.00</p>
-<button onclick="agregarAlCarrito(1, 'Candy Bar', 45.00, 'candybar1.jpeg')" 
-                            class="boton-carrito" 
-                            style="margin-top:10px; width:100%; padding:10px; background:#4dd0e1; color:white; border:none; border-radius:10px; cursor:pointer; font-weight:bold;">
-                    ➕ Agregar al carrito
-                    </button>                    </footer>
+                <div class="catalogo-precio">
+                    <p class="precio">B/0.00</p>
+                    <button onclick="agregarAlCarrito(12, 'Máquina de algodón de azúcar', 0.00, 'algodon.jpg')" class="btn-agregar">
+                        ➕ Agregar al carrito
+                    </button>
+                </div>
             </article>
 
-            <article class="seccion">
-                <h4>Máquina de HotDogs</h4>
-                <section class="galeria-contenedor" aria-roledescription="carrusel" aria-label="Galería de fotos de productos">
+            <article class="catalogo-producto">
+                <h4>Máquina de Hot Dogs</h4>
+                <section class="galeria-contenedor">
                     <div class="controles-galeria">
-                        <button class="flecha anterior" aria-label="Imagen anterior">&#10094;</button>
-                        <button class="flecha siguiente" aria-label="Siguiente imagen">&#10095;</button>
+                        <button class="flecha anterior">&#10094;</button>
+                        <button class="flecha siguiente">&#10095;</button>
                     </div>
-                    <ul class="galeria-pantalla" aria-live="polite">
-                        <li class="slide activa" role="group" aria-roledescription="diapositiva" aria-label="1 de 1">
+                    <ul class="galeria-pantalla">
+                        <li class="slide activa">
                             <figure>
                                 <img src="hotdog.jpg" alt="Máquina de Hot Dogs para eventos">
                                 <figcaption class="descripcion-foto">Primer cumpleaños</figcaption>
@@ -449,24 +419,23 @@
                     </ul>
                 </section>
                 <p>Prepara deliciosos hot dogs de manera rápida y práctica para consentir a todos tus invitados durante el evento.</p>
-                <footer>
-                    <p>B/.00</p>
-<button onclick="agregarAlCarrito(1, 'Candy Bar', 45.00, 'candybar1.jpeg')" 
-                            class="boton-carrito" 
-                            style="margin-top:10px; width:100%; padding:10px; background:#4dd0e1; color:white; border:none; border-radius:10px; cursor:pointer; font-weight:bold;">
-                    ➕ Agregar al carrito
-                    </button>                    </footer>
+                <div class="catalogo-precio">
+                    <p class="precio">B/0.00</p>
+                    <button onclick="agregarAlCarrito(13, 'Máquina de Hot Dogs', 0.00, 'hotdog.jpg')" class="btn-agregar">
+                        ➕ Agregar al carrito
+                    </button>
+                </div>
             </article>
 
-            <article class="seccion">
+            <article class="catalogo-producto">
                 <h4>Máquina de raspados</h4>
-                <section class="galeria-contenedor" aria-roledescription="carrusel" aria-label="Galería de fotos de productos">
+                <section class="galeria-contenedor">
                     <div class="controles-galeria">
-                        <button class="flecha anterior" aria-label="Imagen anterior">&#10094;</button>
-                        <button class="flecha siguiente" aria-label="Siguiente imagen">&#10095;</button>
+                        <button class="flecha anterior">&#10094;</button>
+                        <button class="flecha siguiente">&#10095;</button>
                     </div>
-                    <ul class="galeria-pantalla" aria-live="polite">
-                        <li class="slide activa" role="group" aria-roledescription="diapositiva" aria-label="1 de 1">
+                    <ul class="galeria-pantalla">
+                        <li class="slide activa">
                             <figure>
                                 <img src="raspados.webp" alt="Máquina de raspados para eventos">
                                 <figcaption class="descripcion-foto">Primer cumpleaños</figcaption>
@@ -475,24 +444,23 @@
                     </ul>
                 </section>
                 <p>Refresca cualquier celebración con deliciosos raspados preparados al instante. Ideal para eventos al aire libre y días calurosos.</p>
-                <footer>
-                    <p>B/.00</p>
-<button onclick="agregarAlCarrito(1, 'Candy Bar', 45.00, 'candybar1.jpeg')" 
-                            class="boton-carrito" 
-                            style="margin-top:10px; width:100%; padding:10px; background:#4dd0e1; color:white; border:none; border-radius:10px; cursor:pointer; font-weight:bold;">
-                    ➕ Agregar al carrito
-                    </button>                    </footer>
+                <div class="catalogo-precio">
+                    <p class="precio">B/0.00</p>
+                    <button onclick="agregarAlCarrito(14, 'Máquina de raspados', 0.00, 'raspados.webp')" class="btn-agregar">
+                        ➕ Agregar al carrito
+                    </button>
+                </div>
             </article>
 
-            <article class="seccion">
+            <article class="catalogo-producto">
                 <h4>Fuente de chocolate</h4>
-                <section class="galeria-contenedor" aria-roledescription="carrusel" aria-label="Galería de fotos de productos">
+                <section class="galeria-contenedor">
                     <div class="controles-galeria">
-                        <button class="flecha anterior" aria-label="Imagen anterior">&#10094;</button>
-                        <button class="flecha siguiente" aria-label="Siguiente imagen">&#10095;</button>
+                        <button class="flecha anterior">&#10094;</button>
+                        <button class="flecha siguiente">&#10095;</button>
                     </div>
-                    <ul class="galeria-pantalla" aria-live="polite">
-                        <li class="slide activa" role="group" aria-roledescription="diapositiva" aria-label="1 de 1">
+                    <ul class="galeria-pantalla">
+                        <li class="slide activa">
                             <figure>
                                 <img src="chocolate.jpg" alt="Fuente de chocolate para eventos">
                                 <figcaption class="descripcion-foto">Primer cumpleaños</figcaption>
@@ -500,31 +468,31 @@
                         </li>
                     </ul>
                 </section>
-                <p>Añade un toque divertido y delicioso a tu evento con una fuente de chocolate perfecta para frutas, malvaviscos y snacks dulces. Un detalle que siempre roba miradas.</p>
-                <footer>
-                    <p>B/.00</p>
-<button onclick="agregarAlCarrito(1, 'Candy Bar', 45.00, 'candybar1.jpeg')" 
-                            class="boton-carrito" 
-                            style="margin-top:10px; width:100%; padding:10px; background:#4dd0e1; color:white; border:none; border-radius:10px; cursor:pointer; font-weight:bold;">
-                    ➕ Agregar al carrito
-                    </button>                    </footer>
-            </article>
-
+                <p>Añade un toque divertido y delicioso a tu evento con una fuente de chocolate perfecta para frutas, malvaviscos y snacks dulces.</p>
+                <div class="catalogo-precio">
+                    <p class="precio">B/0.00</p>
+                    <button onclick="agregarAlCarrito(15, 'Fuente de chocolate', 0.00, 'chocolate.jpg')" class="btn-agregar">
+                        ➕ Agregar al carrito
+                    </button>
+                </div>
             </article>
         </section>
         
         <hr>
+        
+        <!-- MOBILIARIO -->
         <section id="mobiliario" class="seccion">
-            <h3>Mobiliarios</h3>
-            <article class="seccion">
+            <h3>Mobiliario</h3>
+            
+            <article class="catalogo-producto">
                 <h4>Sillas plegables</h4>
-                <section class="galeria-contenedor" aria-roledescription="carrusel" aria-label="Galería de fotos de productos">
+                <section class="galeria-contenedor">
                     <div class="controles-galeria">
-                        <button class="flecha anterior" aria-label="Imagen anterior">&#10094;</button>
-                        <button class="flecha siguiente" aria-label="Siguiente imagen">&#10095;</button>
+                        <button class="flecha anterior">&#10094;</button>
+                        <button class="flecha siguiente">&#10095;</button>
                     </div>
-                    <ul class="galeria-pantalla" aria-live="polite">
-                        <li class="slide activa" role="group" aria-roledescription="diapositiva" aria-label="1 de 1">
+                    <ul class="galeria-pantalla">
+                        <li class="slide activa">
                             <figure>
                                 <img src="sillas.webp" alt="Sillas plegables para eventos">
                                 <figcaption class="descripcion-foto">Sillas plegables</figcaption>
@@ -532,25 +500,24 @@
                         </li>
                     </ul>
                 </section>
-                <p>Sillas cómodas y prácticas para todo tipo de eventos. Ideales para cumpleaños, reuniones, actividades escolares, celebraciones familiares y más. Fáciles de acomodar y combinar con cualquier decoración, ayudando a mantener a todos tus invitados cómodos durante la fiesta.</p>
-                <footer>
-                    <p>B/1.50</p>
-<button onclick="agregarAlCarrito(1, 'Candy Bar', 45.00, 'candybar1.jpeg')" 
-                            class="boton-carrito" 
-                            style="margin-top:10px; width:100%; padding:10px; background:#4dd0e1; color:white; border:none; border-radius:10px; cursor:pointer; font-weight:bold;">
-                    ➕ Agregar al carrito
-                    </button>                    </footer>
+                <p>Sillas cómodas y prácticas para todo tipo de eventos. Ideales para cumpleaños, reuniones, actividades escolares, celebraciones familiares y más.</p>
+                <div class="catalogo-precio">
+                    <p class="precio">B/1.50</p>
+                    <button onclick="agregarAlCarrito(16, 'Sillas plegables', 1.50, 'sillas.webp')" class="btn-agregar">
+                        ➕ Agregar al carrito
+                    </button>
+                </div>
             </article>
 
-            <article class="seccion">
+            <article class="catalogo-producto">
                 <h4>Mesas redondas</h4>
-                <section class="galeria-contenedor" aria-roledescription="carrusel" aria-label="Galería de fotos de productos">
+                <section class="galeria-contenedor">
                     <div class="controles-galeria">
-                        <button class="flecha anterior" aria-label="Imagen anterior">&#10094;</button>
-                        <button class="flecha siguiente" aria-label="Siguiente imagen">&#10095;</button>
+                        <button class="flecha anterior">&#10094;</button>
+                        <button class="flecha siguiente">&#10095;</button>
                     </div>
-                    <ul class="galeria-pantalla" aria-live="polite">
-                        <li class="slide activa" role="group" aria-roledescription="diapositiva" aria-label="1 de 1">
+                    <ul class="galeria-pantalla">
+                        <li class="slide activa">
                             <figure>
                                 <img src="mesaC.webp" alt="Mesas redondas para eventos">
                                 <figcaption class="descripcion-foto">Mesa redonda plegable</figcaption>
@@ -559,24 +526,23 @@
                     </ul>
                 </section>
                 <p>Perfectas para reuniones familiares, cumpleaños y eventos sociales. Brindan comodidad y mejor distribución para los invitados.</p>
-                <footer>
-                    <p>B/.00</p>
-<button onclick="agregarAlCarrito(1, 'Candy Bar', 45.00, 'candybar1.jpeg')" 
-                            class="boton-carrito" 
-                            style="margin-top:10px; width:100%; padding:10px; background:#4dd0e1; color:white; border:none; border-radius:10px; cursor:pointer; font-weight:bold;">
-                    ➕ Agregar al carrito
-                    </button>                    </footer>
+                <div class="catalogo-precio">
+                    <p class="precio">B/0.00</p>
+                    <button onclick="agregarAlCarrito(17, 'Mesas redondas', 0.00, 'mesaC.webp')" class="btn-agregar">
+                        ➕ Agregar al carrito
+                    </button>
+                </div>
             </article>
 
-            <article class="seccion">
+            <article class="catalogo-producto">
                 <h4>Mesas rectangulares</h4>
-                <section class="galeria-contenedor" aria-roledescription="carrusel" aria-label="Galería de fotos de productos">
+                <section class="galeria-contenedor">
                     <div class="controles-galeria">
-                        <button class="flecha anterior" aria-label="Imagen anterior">&#10094;</button>
-                        <button class="flecha siguiente" aria-label="Siguiente imagen">&#10095;</button>
+                        <button class="flecha anterior">&#10094;</button>
+                        <button class="flecha siguiente">&#10095;</button>
                     </div>
-                    <ul class="galeria-pantalla" aria-live="polite">
-                        <li class="slide activa" role="group" aria-roledescription="diapositiva" aria-label="1 de 1">
+                    <ul class="galeria-pantalla">
+                        <li class="slide activa">
                             <figure>
                                 <img src="mesaR.webp" alt="Mesas rectangulares para eventos">
                                 <figcaption class="descripcion-foto">Mesa rectangular plegable</figcaption>
@@ -585,24 +551,23 @@
                     </ul>
                 </section>
                 <p>Ideales para buffets, mesas principales, regalos o acomodar invitados de manera práctica y organizada.</p>
-                <footer>
-                    <p>B/.00</p>
-<button onclick="agregarAlCarrito(1, 'Candy Bar', 45.00, 'candybar1.jpeg')" 
-                            class="boton-carrito" 
-                            style="margin-top:10px; width:100%; padding:10px; background:#4dd0e1; color:white; border:none; border-radius:10px; cursor:pointer; font-weight:bold;">
-                    ➕ Agregar al carrito
-                    </button>                    </footer>
+                <div class="catalogo-precio">
+                    <p class="precio">B/0.00</p>
+                    <button onclick="agregarAlCarrito(18, 'Mesas rectangulares', 0.00, 'mesaR.webp')" class="btn-agregar">
+                        ➕ Agregar al carrito
+                    </button>
+                </div>
             </article>
 
-            <article class="seccion">
+            <article class="catalogo-producto">
                 <h4>Manteles</h4>
-                <section class="galeria-contenedor" aria-roledescription="carrusel" aria-label="Galería de fotos de productos">
+                <section class="galeria-contenedor">
                     <div class="controles-galeria">
-                        <button class="flecha anterior" aria-label="Imagen anterior">&#10094;</button>
-                        <button class="flecha siguiente" aria-label="Siguiente imagen">&#10095;</button>
+                        <button class="flecha anterior">&#10094;</button>
+                        <button class="flecha siguiente">&#10095;</button>
                     </div>
-                    <ul class="galeria-pantalla" aria-live="polite">
-                        <li class="slide activa" role="group" aria-roledescription="diapositiva" aria-label="1 de 1">
+                    <ul class="galeria-pantalla">
+                        <li class="slide activa">
                             <figure>
                                 <img src="mantel4.jpg" alt="Manteles decorativos para eventos">
                                 <figcaption class="descripcion-foto">Primer cumpleaños</figcaption>
@@ -611,24 +576,23 @@
                     </ul>
                 </section>
                 <p>Añade elegancia y color a las mesas con manteles que combinan perfectamente con cualquier temática o decoración.</p>
-                <footer>
-                    <p>B/.00</p>
-<button onclick="agregarAlCarrito(1, 'Candy Bar', 45.00, 'candybar1.jpeg')" 
-                            class="boton-carrito" 
-                            style="margin-top:10px; width:100%; padding:10px; background:#4dd0e1; color:white; border:none; border-radius:10px; cursor:pointer; font-weight:bold;">
-                    ➕ Agregar al carrito
-                    </button>                    </footer>
+                <div class="catalogo-precio">
+                    <p class="precio">B/0.00</p>
+                    <button onclick="agregarAlCarrito(19, 'Manteles', 0.00, 'mantel4.jpg')" class="btn-agregar">
+                        ➕ Agregar al carrito
+                    </button>
+                </div>
             </article>
 
-            <article class="seccion">
+            <article class="catalogo-producto">
                 <h4>Carpas</h4>
-                <section class="galeria-contenedor" aria-roledescription="carrusel" aria-label="Galería de fotos de productos">
+                <section class="galeria-contenedor">
                     <div class="controles-galeria">
-                        <button class="flecha anterior" aria-label="Imagen anterior">&#10094;</button>
-                        <button class="flecha siguiente" aria-label="Siguiente imagen">&#10095;</button>
+                        <button class="flecha anterior">&#10094;</button>
+                        <button class="flecha siguiente">&#10095;</button>
                     </div>
-                    <ul class="galeria-pantalla" aria-live="polite">
-                        <li class="slide activa" role="group" aria-roledescription="diapositiva" aria-label="1 de 1">
+                    <ul class="galeria-pantalla">
+                        <li class="slide activa">
                             <figure>
                                 <img src="carpa2.webp" alt="Carpas para eventos al aire libre">
                                 <figcaption class="descripcion-foto">Primer cumpleaños</figcaption>
@@ -637,31 +601,30 @@
                     </ul>
                 </section>
                 <p>Protege a tus invitados del sol o la lluvia con carpas amplias y resistentes, ideales para eventos al aire libre.</p>
-                <footer>
-                    <p>B/.00</p>
-                    <button type="<button onclick="agregarAlCarrito(1, 'Candy Bar', 45.00, 'candybar1.jpeg')" 
-                            class="boton-carrito" 
-                            style="margin-top:10px; width:100%; padding:10px; background:#4dd0e1; color:white; border:none; border-radius:10px; cursor:pointer; font-weight:bold;">
-                    ➕ Agregar al carrito
-                    </button>    " class="boton-carrito">Agregar al carrito</button>
-                </footer>
+                <div class="catalogo-precio">
+                    <p class="precio">B/0.00</p>
+                    <button onclick="agregarAlCarrito(20, 'Carpas', 0.00, 'carpa2.webp')" class="btn-agregar">
+                        ➕ Agregar al carrito
+                    </button>
+                </div>
             </article>
-
-           
         </section>
 
         <hr>
+        
+        <!-- SONIDO E ILUMINACIÓN -->
         <section id="sonido-iluminacion" class="seccion">
-            <h3>Sonido e iluminacion</h3>
-            <article class="seccion">
+            <h3>Sonido e iluminación</h3>
+            
+            <article class="catalogo-producto">
                 <h4>Bocinas</h4>
-                <section class="galeria-contenedor" aria-roledescription="carrusel" aria-label="Galería de fotos de productos">
+                <section class="galeria-contenedor">
                     <div class="controles-galeria">
-                        <button class="flecha anterior" aria-label="Imagen anterior">&#10094;</button>
-                        <button class="flecha siguiente" aria-label="Siguiente imagen">&#10095;</button>
+                        <button class="flecha anterior">&#10094;</button>
+                        <button class="flecha siguiente">&#10095;</button>
                     </div>
-                    <ul class="galeria-pantalla" aria-live="polite">
-                        <li class="slide activa" role="group" aria-roledescription="diapositiva" aria-label="1 de 1">
+                    <ul class="galeria-pantalla">
+                        <li class="slide activa">
                             <figure>
                                 <img src="bocinas.webp" alt="Bocinas para eventos">
                                 <figcaption class="descripcion-foto">Primer cumpleaños</figcaption>
@@ -669,25 +632,24 @@
                         </li>
                     </ul>
                 </section>
-                <p>Haz que la música se sienta en toda la celebración con bocinas potentes y de excelente calidad de sonido. Perfectas para cumpleaños, karaoke, reuniones y eventos al aire libre. Ideales para ambientar desde una tarde tranquila hasta una pista de baile improvisada bajo luces y risas.</p>
-                <footer>
-                    <p>B/20.00</p>
-<button onclick="agregarAlCarrito(1, 'Candy Bar', 45.00, 'candybar1.jpeg')" 
-                            class="boton-carrito" 
-                            style="margin-top:10px; width:100%; padding:10px; background:#4dd0e1; color:white; border:none; border-radius:10px; cursor:pointer; font-weight:bold;">
-                    ➕ Agregar al carrito
-                    </button>                    </footer>
+                <p>Haz que la música se sienta en toda la celebración con bocinas potentes y de excelente calidad de sonido. Perfectas para cumpleaños, karaoke, reuniones y eventos al aire libre.</p>
+                <div class="catalogo-precio">
+                    <p class="precio">B/20.00</p>
+                    <button onclick="agregarAlCarrito(21, 'Bocinas', 20.00, 'bocinas.webp')" class="btn-agregar">
+                        ➕ Agregar al carrito
+                    </button>
+                </div>
             </article>
 
-            <article class="seccion">
+            <article class="catalogo-producto">
                 <h4>Micrófonos</h4>
-                <section class="galeria-contenedor" aria-roledescription="carrusel" aria-label="Galería de fotos de productos">
+                <section class="galeria-contenedor">
                     <div class="controles-galeria">
-                        <button class="flecha anterior" aria-label="Imagen anterior">&#10094;</button>
-                        <button class="flecha siguiente" aria-label="Siguiente imagen">&#10095;</button>
+                        <button class="flecha anterior">&#10094;</button>
+                        <button class="flecha siguiente">&#10095;</button>
                     </div>
-                    <ul class="galeria-pantalla" aria-live="polite">
-                        <li class="slide activa" role="group" aria-roledescription="diapositiva" aria-label="1 de 1">
+                    <ul class="galeria-pantalla">
+                        <li class="slide activa">
                             <figure>
                                 <img src="mic.webp" alt="Micrófonos para eventos">
                                 <figcaption class="descripcion-foto">Primer cumpleaños</figcaption>
@@ -696,36 +658,35 @@
                     </ul>
                 </section>
                 <p>Ideales para karaoke, animación, presentaciones o actividades especiales durante el evento. Excelente calidad de sonido y fácil uso.</p>
-                <footer>
-                    <p>B/.00</p>
-<button onclick="agregarAlCarrito(1, 'Candy Bar', 45.00, 'candybar1.jpeg')" 
-                            class="boton-carrito" 
-                            style="margin-top:10px; width:100%; padding:10px; background:#4dd0e1; color:white; border:none; border-radius:10px; cursor:pointer; font-weight:bold;">
-                    ➕ Agregar al carrito
-                    </button>                    </footer>
+                <div class="catalogo-precio">
+                    <p class="precio">B/0.00</p>
+                    <button onclick="agregarAlCarrito(22, 'Micrófonos', 0.00, 'mic.webp')" class="btn-agregar">
+                        ➕ Agregar al carrito
+                    </button>
+                </div>
             </article>
 
-            <article class="seccion">
+            <article class="catalogo-producto">
                 <h4>Luces LED</h4>
-                <section class="galeria-contenedor" aria-roledescription="carrusel" aria-label="Galería de fotos de productos">
+                <section class="galeria-contenedor">
                     <div class="controles-galeria">
-                        <button class="flecha anterior" aria-label="Imagen anterior">&#10094;</button>
-                        <button class="flecha siguiente" aria-label="Siguiente imagen">&#10095;</button>
+                        <button class="flecha anterior">&#10094;</button>
+                        <button class="flecha siguiente">&#10095;</button>
                     </div>
-                    <ul class="galeria-pantalla" aria-live="polite">
-                        <li class="slide activa" role="group" aria-roledescription="diapositiva" aria-label="1 de 3">
+                    <ul class="galeria-pantalla">
+                        <li class="slide activa">
                             <figure>
                                 <img src="luces0.jpg" alt="Luces LED para eventos">
                                 <figcaption class="descripcion-foto">Primer cumpleaños</figcaption>
                             </figure>
                         </li>
-                        <li class="slide" role="group" aria-roledescription="diapositiva" aria-label="2 de 3">
+                        <li class="slide">
                             <figure>
                                 <img src="luces1.jpg" alt="Luces LED para eventos">
                                 <figcaption class="descripcion-foto">Primer cumpleaños</figcaption>
                             </figure>
                         </li>
-                        <li class="slide" role="group" aria-roledescription="diapositiva" aria-label="3 de 3">
+                        <li class="slide">
                             <figure>
                                 <img src="luces2.jpg" alt="Luces LED para eventos">
                                 <figcaption class="descripcion-foto">Primer cumpleaños</figcaption>
@@ -734,24 +695,23 @@
                     </ul>
                 </section>
                 <p>Dale un toque moderno y dinámico a la fiesta con iluminación LED de colores que transforma cualquier espacio en un ambiente más divertido.</p>
-                <footer>
-                    <p>B/.00</p>
-<button onclick="agregarAlCarrito(1, 'Candy Bar', 45.00, 'candybar1.jpeg')" 
-                            class="boton-carrito" 
-                            style="margin-top:10px; width:100%; padding:10px; background:#4dd0e1; color:white; border:none; border-radius:10px; cursor:pointer; font-weight:bold;">
-                    ➕ Agregar al carrito
-                    </button>                    </footer>
+                <div class="catalogo-precio">
+                    <p class="precio">B/0.00</p>
+                    <button onclick="agregarAlCarrito(23, 'Luces LED', 0.00, 'luces0.jpg')" class="btn-agregar">
+                        ➕ Agregar al carrito
+                    </button>
+                </div>
             </article>
 
-            <article class="seccion">
+            <article class="catalogo-producto">
                 <h4>Máquina de humo</h4>
-                <section class="galeria-contenedor" aria-roledescription="carrusel" aria-label="Galería de fotos de productos">
+                <section class="galeria-contenedor">
                     <div class="controles-galeria">
-                        <button class="flecha anterior" aria-label="Imagen anterior">&#10094;</button>
-                        <button class="flecha siguiente" aria-label="Siguiente imagen">&#10095;</button>
+                        <button class="flecha anterior">&#10094;</button>
+                        <button class="flecha siguiente">&#10095;</button>
                     </div>
-                    <ul class="galeria-pantalla" aria-live="polite">
-                        <li class="slide activa" role="group" aria-roledescription="diapositiva" aria-label="1 de 1">
+                    <ul class="galeria-pantalla">
+                        <li class="slide activa">
                             <figure>
                                 <img src="humo.jpg" alt="Máquina de humo para eventos">
                                 <figcaption class="descripcion-foto">Primer cumpleaños</figcaption>
@@ -760,24 +720,23 @@
                     </ul>
                 </section>
                 <p>Crea una atmósfera espectacular para bailes, entradas especiales y fiestas nocturnas con efectos visuales increíbles.</p>
-                <footer>
-                    <p>B/.00</p>
-<button onclick="agregarAlCarrito(1, 'Candy Bar', 45.00, 'candybar1.jpeg')" 
-                            class="boton-carrito" 
-                            style="margin-top:10px; width:100%; padding:10px; background:#4dd0e1; color:white; border:none; border-radius:10px; cursor:pointer; font-weight:bold;">
-                    ➕ Agregar al carrito
-                    </button>                    </footer>
+                <div class="catalogo-precio">
+                    <p class="precio">B/0.00</p>
+                    <button onclick="agregarAlCarrito(24, 'Máquina de humo', 0.00, 'humo.jpg')" class="btn-agregar">
+                        ➕ Agregar al carrito
+                    </button>
+                </div>
             </article>
 
-            <article class="seccion">
+            <article class="catalogo-producto">
                 <h4>Máquina de Karaoke</h4>
-                <section class="galeria-contenedor" aria-roledescription="carrusel" aria-label="Galería de fotos de productos">
+                <section class="galeria-contenedor">
                     <div class="controles-galeria">
-                        <button class="flecha anterior" aria-label="Imagen anterior">&#10094;</button>
-                        <button class="flecha siguiente" aria-label="Siguiente imagen">&#10095;</button>
+                        <button class="flecha anterior">&#10094;</button>
+                        <button class="flecha siguiente">&#10095;</button>
                     </div>
-                    <ul class="galeria-pantalla" aria-live="polite">
-                        <li class="slide activa" role="group" aria-roledescription="diapositiva" aria-label="1 de 1">
+                    <ul class="galeria-pantalla">
+                        <li class="slide activa">
                             <figure>
                                 <img src="karaoke.jpg" alt="Máquina de Karaoke para eventos">
                                 <figcaption class="descripcion-foto">Primer cumpleaños</figcaption>
@@ -786,13 +745,12 @@
                     </ul>
                 </section>
                 <p>Haz que todos participen y se diviertan cantando sus canciones favoritas. Perfecto para reuniones familiares, cumpleaños y eventos juveniles.</p>
-                <footer>
-                    <p>B/.00</p>
-<button onclick="agregarAlCarrito(1, 'Candy Bar', 45.00, 'candybar1.jpeg')" 
-                            class="boton-carrito" 
-                            style="margin-top:10px; width:100%; padding:10px; background:#4dd0e1; color:white; border:none; border-radius:10px; cursor:pointer; font-weight:bold;">
-                    ➕ Agregar al carrito
-                    </button>                    </footer>
+                <div class="catalogo-precio">
+                    <p class="precio">B/0.00</p>
+                    <button onclick="agregarAlCarrito(25, 'Máquina de Karaoke', 0.00, 'karaoke.jpg')" class="btn-agregar">
+                        ➕ Agregar al carrito
+                    </button>
+                </div>
             </article>
         </section>
     </main>
@@ -811,7 +769,9 @@
             </a>
         </nav>
 
-        <p class="copyright"><small>&copy; 2026 Festín Panamá. Todos los derechos reservados.</small></p>
+        <p class="copyright">
+            <small>&copy; 2026 Festín Panamá. Todos los derechos reservados.</small>
+        </p>
     </footer>
 </body>
 </html>

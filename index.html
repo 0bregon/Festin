@@ -3,24 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Festín</title>
-    <!-- Enlace a Google Fonts si es necesario para 'Fredoka', o asumiendo que está local -->
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link href="estilo.css" rel="stylesheet">
-    <script src="script.js" defer></script>
+    <title>Festín - Alquiler de Artículos para Fiestas en La Chorrera</title>
+    <meta name="description" content="Alquiler de artículos para fiestas en Panamá. Arcos de globos, mobiliario, equipos de sonido y más. ¡Organiza tu evento inolvidable!">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="estilo.css">
+    <link rel="icon" href="Logo.png" type="image/png">
 </head>
 <body>
-    <header class="encabezado">
+    <!-- HEADER -->
+    <header class="encabezado container">
         <h1>
             <a href="index.html">
-                <img src="Logo.png" alt="Festín" class="logo">
+                <img src="Logo.png" alt="Festín - Artículos para Fiestas" class="logo">
             </a>
-        </h1> 
+        </h1>
 
         <nav aria-label="Menú principal" class="menu">
-            <button class="menu-toggle" aria-expanded="false" aria-controls="menu-lista">☰ Menú</button>
-
-            <ul id="menu-lista">
+            <button class="menu-toggle" aria-label="Abrir menú">☰ Menú</button>
+            <ul>
                 <li><a href="index.html">Inicio</a></li>
                 <li><a href="catalogo.html">Catálogo</a></li>
                 <li><a href="servicios.html">Servicios</a></li>
@@ -30,210 +32,190 @@
             </ul>
         </nav>
 
-        <form class="busqueda">
+        <form class="busqueda" action="catalogo.html" method="GET">
             <label for="buscar-prod">Buscar productos:</label>
             <input type="search" id="buscar-prod" name="q" placeholder="Buscar...">
-            <button type="submit">🔍</button>
+            <button type="submit" aria-label="Buscar">🔍</button>
         </form>
 
-        <aside>
-            <a href="carrito.html">
-                <img src="carrito.png" alt="Ir al carrito" class="icono">
+        <aside class="iconos">
+            <a href="carrito.html" aria-label="Ver carrito">
+                <img src="carrito.png" alt="Carrito" class="icono">
+                <span id="carrito-contador" class="carrito-badge">0</span>
             </a>
-            
-            <a href="perfil-usuario.html">
-                <img src="usuario.png" alt="Ir al perfil de usuario" class="icono">
-            </a>
-            <a href="#" aria-label="Opciones de accesibilidad">
-                <img src="accesibilidad.png" alt="" class="icono">
+            <a href="perfil-usuario.html" aria-label="Mi perfil">
+                <img src="usuario.png" alt="Usuario" class="icono">
             </a>
         </aside>
     </header>
 
-    <main>
-    <section class="seccion">
-        <h2>Haz de tu evento un festín inolvidable</h2>
-        <p>Somos especialistas en el alquiler de equipos y servicios para eventos en Panamá Oeste. 
-            Desde celebraciones infantiles hasta grandes ocasiones, ofrecemos inflables, animadores, 
-            máquinas de comida, decoración y mucho más para crear experiencias únicas.</p>
+    <!-- HERO BANNER -->
+    <section class="hero">
+        <div class="hero-content">
+            <h2>ORGANIZA TU FIESTA INOLVIDABLE</h2>
+            <p>EN LA CHORRERA - PANAMÁ</p>
+        </div>
+    </section>
 
-        <!-- CARRUSEL CORREGIDO -->
-        <section class="galeria-contenedor" aria-roledescription="carrusel" aria-label="Galería de fotos de productos">
-            <div class="controles-galeria">
-                <button class="flecha anterior" aria-label="Imagen anterior">&#10094;</button>
-                <button class="flecha siguiente" aria-label="Siguiente imagen">&#10095;</button>
+    <!-- CATEGORÍAS POPULARES -->
+    <section class="seccion">
+        <h2>CATEGORÍAS POPULARES</h2>
+        <div class="categorias-grid">
+            <article class="categoria-card">
+                <img src="arcodeglobo.webp" alt="Arco de Globos Multicolor" class="categoria-img">
+                <div class="categoria-content">
+                    <h3>Arco de Globos Multicolor</h3>
+                    <a href="catalogo.html#decoracion" class="btn-ver-mas">Ver más</a>
+                </div>
+            </article>
+
+            <article class="categoria-card">
+                <img src="sillas.webp" alt="Sillas y Mesas de Colores" class="categoria-img">
+                <div class="categoria-content">
+                    <h3>Sillas y Mesas de Colores</h3>
+                    <a href="catalogo.html#mobiliario" class="btn-ver-mas">Ver más</a>
+                </div>
+            </article>
+
+            <article class="categoria-card">
+                <img src="tobogan.jpg" alt="Toboganes Inflables" class="categoria-img">
+                <div class="categoria-content">
+                    <h3>Toboganes Inflables</h3>
+                    <a href="catalogo.html#inflables" class="btn-ver-mas">Ver más</a>
+                </div>
+            </article>
+
+            <article class="categoria-card">
+                <img src="candybar1.jpeg" alt="Mobiliario Candy Bar" class="categoria-img">
+                <div class="categoria-content">
+                    <h3>Mobiliario Candy Bar</h3>
+                    <a href="catalogo.html#candy" class="btn-ver-mas">Ver más</a>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- PRODUCTOS DESTACADOS -->
+    <section class="seccion">
+        <h2>PRODUCTOS DESTACADOS</h2>
+        <div class="productos-grid">
+            <article class="producto-card">
+                <img src="arcodeglobo.webp" alt="Arco de Globos Panamá" class="producto-img">
+                <div class="producto-content">
+                    <h3>Arco de Globos Panamá</h3>
+                    <p class="producto-precio">$250/evento</p>
+                    <button class="btn-agregar" onclick="agregarAlCarrito(1, 'Arco de Globos Panamá', 250, 'arcodeglobo.webp')">
+                        AÑADIR AL CARRITO
+                    </button>
+                </div>
+            </article>
+
+            <article class="producto-card">
+                <img src="sillas.webp" alt="Set de Sillas Coloridas" class="producto-img">
+                <div class="producto-content">
+                    <h3>Set de Sillas Coloridas</h3>
+                    <p class="producto-precio">$65/set</p>
+                    <button class="btn-agregar" onclick="agregarAlCarrito(16, 'Set de Sillas Coloridas', 65, 'sillas.webp')">
+                        AÑADIR AL CARRITO
+                    </button>
+                </div>
+            </article>
+
+            <article class="producto-card">
+                <img src="tobogan.jpg" alt="Tobogán Inflable Gigante" class="producto-img">
+                <div class="producto-content">
+                    <h3>Tobogán Inflable Gigante</h3>
+                    <p class="producto-precio">$180/día</p>
+                    <button class="btn-agregar" onclick="agregarAlCarrito(26, 'Tobogán Inflable Gigante', 180, 'tobogan.jpg')">
+                        AÑADIR AL CARRITO
+                    </button>
+                </div>
+            </article>
+
+            <article class="producto-card">
+                <img src="palomitas.jpg" alt="Máquina de Palomitas" class="producto-img">
+                <div class="producto-content">
+                    <h3>Máquina de Palomitas</h3>
+                    <p class="producto-precio">$18/día</p>
+                    <button class="btn-agregar" onclick="agregarAlCarrito(11, 'Máquina de Palomitas', 18, 'palomitas.jpg')">
+                        AÑADIR AL CARRITO
+                    </button>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- SECCIÓN INFORMATIVA -->
+    <section class="seccion por-que-elegirnos">
+        <h2>¿POR QUÉ ELEGIRNOS?</h2>
+        <div class="features-grid">
+            <div class="feature-item">
+                <div class="feature-icon">🎈</div>
+                <h3>Calidad Garantizada</h3>
+                <p>Artículos en excelente estado y limpios para tu evento</p>
             </div>
-
-            <ul class="galeria-pantalla" aria-live="polite">
-                
-                <!-- Slide 1: Activa -->
-                <li class="slide activa" role="group" aria-roledescription="diapositiva" aria-label="1 de 2">
-                    <figure>
-                        <img src="https://saketos.es/wp-content/uploads/2025/03/ninas-de-un-ano-3-1-jpg.webp" alt="Mesa de cumpleaños infantil">
-                        <figcaption class="descripcion-foto">Primer cumpleaños</figcaption>
-                    </figure>
-                </li>
-
-                <!-- Slide 2: Inactiva -->
-                <li class="slide" role="group" aria-roledescription="diapositiva" aria-label="2 de 2">
-                    <figure>
-                        <img src="https://img1.elyerromenu.com/images/lisy-decoraciones/decoracion-cumpleanos-nina/img.webp" alt="Fiesta de cumpleaños con temática de Moana">
-                        <figcaption class="descripcion-foto">Decoración de Moana</figcaption>
-                    </figure>
-                </li>
-            </ul>
-        </section>
-        <!-- FIN CARRUSEL -->
-
-        <p class="boton"><a href="reserva.html">Realizar una reserva</a></p>
-    </section>
-    
-    <section class="seccion">
-        <h3>Especialistas en toda clase de eventos</h3>
-        <ul>
-            <li>Eventos infantiles</li>
-            <li>Eventos formales (Bodas, XV años)</li>
-            <li>Eventos juveniles</li>
-            <li>Eventos familiares</li>
-            <li>Eventos corporativos</li>
-            <li>Otros eventos</li>
-        </ul>
-    </section>
-    
-    <section class="seccion">
-        <section class="productos-destacados">
-            <h3>Productos destacados del catálogo</h3>
-
-            <div class="contenedor-productos">
-
-                <article class="tarjeta-producto">
-                    <h4>Candy Bar</h4>
-                    <img src="candybar1.jpeg" alt="Candy Bar colorido">
-                </article>
-
-                <article class="tarjeta-producto">
-                    <h4>Sillas</h4>
-                    <img src="sillas.webp" alt="Sillas blancas Tiffany">
-                </article>
-
-                <article class="tarjeta-producto">
-                    <h4>Máquina de palomitas</h4>
-                    <img src="palomitas.jpg" alt="Máquina de palomitas roja">
-                </article>
-
+            <div class="feature-item">
+                <div class="feature-icon">🚚</div>
+                <h3>Entrega Puntual</h3>
+                <p>Llegamos a tiempo a La Chorrera y áreas cercanas</p>
             </div>
-
-            <p class="boton">
-                <a href="catalogo.html">Ver catálogo completo</a>
-            </p>
-
-        </section>
+            <div class="feature-item">
+                <div class="feature-icon">💰</div>
+                <h3>Mejores Precios</h3>
+                <p>Precios competitivos y paquetes especiales</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">🎉</div>
+                <h3>+500 Eventos</h3>
+                <p>Experiencia respaldada por clientes felices</p>
+            </div>
+        </div>
     </section>
-    
-    <section class="seccion">
-        <section class="servicios">
-            <h3>Servicios que ofrecemos</h3>
-            <div class="contenedor-servicios">
-                <ul class="lista-servicios">
-                    <li onclick="cambiarServicio('payasos.webp', 'Animadores y payasos')">
-                        Animadores y payasos
-                    </li>
 
-                    <li onclick="cambiarServicio('pintacaritas.jpg', 'Pintacaritas')">
-                        Pintacaritas
-                    </li>
-
-                    <li onclick="cambiarServicio('sesionFotos.jpg', 'Fotografía y video')">
-                        Fotografía y video
-                    </li>
-
-                    <li onclick="cambiarServicio('decoracion1.webp', 'Decoración temática')">
-                        Decoración temática
-                    </li>
-
-                    <li onclick="cambiarServicio('dj.webp', 'Música y sonido')">
-                        Música y sonido
-                    </li>
-                </ul>
-
-                <div class="vista-servicio">
-                    <img 
-                        id="imagen-servicio"
-                        src="payasos.webp"
-                        alt="Animador vestido de payaso">
-
-                    <h4 id="titulo-servicio">
-                        Animadores y payasos
-                    </h4>
+    <!-- FOOTER -->
+    <footer class="container">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contacto</h3>
+                <p>📍 Panamá Oeste, La Chorrera</p>
+                <p>📞 +507 6000-0000</p>
+                <p>✉️ festinPanama@gmail.com</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
                 </div>
             </div>
-            <h4>¿Quieres un paquete personalizado?</h4>
-            <p class="boton">
-                <a href="servicios.html">Ver servicios</a>
-            </p>
-        </section>
-    </section>
 
-    <section class="seccion">
-        <h3>Instrucciones y Cuidados</h3>
-        <p>La seguridad es nuestra prioridad. Consulta nuestras guías sobre el uso correcto de los equipos alquilados.</p>
-        <p class="boton"><a href="manual.html">Leer manual de seguridad</a></p>
-    </section>
+            <div class="footer-section">
+                <h3>Enlaces Rápidos</h3>
+                <a href="index.html">Inicio</a>
+                <a href="catalogo.html">Catálogo</a>
+                <a href="servicios.html">Servicios</a>
+                <a href="faq.html">Preguntas Frecuentes</a>
+                <a href="contacto.html">Contacto</a>
+            </div>
 
-    <section class="seccion">
-        <h3>Déjanos tu opinión</h3>
-        <p>Cuéntanos cómo fue tu experiencia con Festín. ¡Tu opinión nos ayuda a mejorar!</p>
+            <div class="footer-section">
+                <h3>Legal</h3>
+                <a href="privacidad-y-terminos.html">Política de Privacidad</a>
+                <a href="privacidad-y-terminos.html">Términos y Condiciones</a>
+            </div>
 
-        <form action="procesar-comentario.php" method="POST" class="formulario-comentarios formulario-login">
-            <fieldset>
-                <legend class="sr-only">Formulario para redactar tu comentario</legend>
+            <div class="footer-section">
+                <h3>Horario</h3>
+                <p>Lunes a Viernes: 8:00 AM - 6:00 PM</p>
+                <p>Sábados: 9:00 AM - 2:00 PM</p>
+                <p>Domingos: Cerrado</p>
+            </div>
+        </div>
 
-                <div class="grupo-campo">
-                    <label for="nombre-usuario">Nombre:</label>
-                    <input 
-                        type="text" 
-                        id="nombre-usuario" 
-                        name="usuario" 
-                        placeholder="Tu nombre completo" 
-                        autocomplete="name"
-                        required
-                    >
-                </div>
-                
-                <div class="grupo-campo">
-                    <label for="mensaje-usuario">Comentario:</label>
-                    <textarea 
-                        id="mensaje-usuario" 
-                        name="comentario" 
-                        rows="5" 
-                        placeholder="Cuéntanos cómo fue tu evento..." 
-                        required
-                    ></textarea>
-                </div>
-            </fieldset>
-
-            <button type="submit" class="boton-enviar">Publicar comentario</button>
-        </form>
-    </section>
-
-    </main>
-
-    <footer>
-        <section>
-            <h3>Contacto</h3>
-            <p>Ubicación: Panamá Oeste, La Chorrera</p>
-            <p>Teléfono: +507 6000-0000</p>
-            <p>Correo: festinPanama@gmail.com</p>
-        </section>
-        
-        <nav aria-label="Enlaces legales">
-            <a href="privacidad-y-terminos.html">
-                Política de Privacidad y Términos y Condiciones
-            </a>
-        </nav>
-
-        <p><small>&copy; 2026 Festín Panamá. Todos los derechos reservados.</small></p>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Festín Panamá. Todos los derechos reservados.</p>
+        </div>
     </footer>
 
+    <script src="script.js" defer></script>
 </body>
 </html>

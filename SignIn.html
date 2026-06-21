@@ -3,76 +3,165 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Iniciar Sesión</title>
+    <title>Iniciar Sesión - Festín</title>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link href="estilo.css" rel="stylesheet">
     <script src="script.js" defer></script>
 </head>
 <body>
-
-    <header class="encabezado">
+    <header class="encabezado container">
         <h1>
             <a href="index.html">
                 <img src="Logo.png" alt="Festín" class="logo">
             </a>
         </h1> 
+
+        <nav aria-label="Menú principal" class="menu">
+            <button class="menu-toggle">☰ Menú</button>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="catalogo.html">Catálogo</a></li>
+                <li><a href="servicios.html">Servicios</a></li>
+                <li><a href="paquetes.html">Paquetes</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+
+        <form class="busqueda">
+            <label for="buscar-prod">Buscar productos:</label>
+            <input type="search" id="buscar-prod" name="q" placeholder="Ej. Palomitas, sillas...">
+            <button type="submit">Buscar</button>
+        </form>
+
+        <aside class="iconos">
+            <a href="carrito.html">
+                <img src="carrito.png" alt="Ir al carrito" class="icono">
+            </a>
+            <a href="perfil-usuario.html">
+                <img src="usuario.png" alt="Ir al perfil de usuario" class="icono">
+            </a>
+        </aside>
     </header>
 
-    <main class="contenedor-login">
-
-        <section class="seccion">
-            <h2>Iniciar Sesión</h2>
-            <p>Accede a tu cuenta para gestionar tus reservas y pedidos en Festín.</p>
+    <main class="login-wrapper">
+        <div class="login-card">
             
-            <!-- ✅ FORMULARIO CORREGIDO: sin action, con IDs correctos -->
-            <form id="form-login" class="formulario-login">
-
-                <div class="grupo-campo">
-                    <label for="login-email">Correo electrónico</label>
-                    <input 
-                        type="email" 
-                        id="login-email" 
-                        name="email" 
-                        placeholder="ejemplo@email.com" 
-                        autocomplete="email" 
-                        required
-                    >
+            <!-- PANEL IZQUIERDO: VISUAL -->
+            <div class="login-visual">
+                <div class="login-visual-content">
+                    <div class="icono-grande">🎉</div>
+                    <h2>¡Bienvenido de vuelta!</h2>
+                    <p>Accede a tu cuenta para gestionar tus eventos y disfrutar de beneficios exclusivos.</p>
+                    
+                    <div class="login-features">
+                        <div>
+                            <span>📅</span>
+                            <span>Historial de reservas</span>
+                        </div>
+                        <div>
+                            <span>🎁</span>
+                            <span>Puntos y recompensas</span>
+                        </div>
+                        <div>
+                            <span>⚡</span>
+                            <span>Reserva más rápido</span>
+                        </div>
+                    </div>
                 </div>
-
-                <div class="grupo-campo">
-                    <label for="login-pass">Contraseña</label>
-                    <input 
-                        type="password" 
-                        id="login-pass" 
-                        name="password" 
-                        autocomplete="current-password" 
-                        required
-                        minlength="6"
-                    >
-                </div>
-
-                <button type="submit" class="boton-enviar">Ingresar</button>
-
-            </form>
-
-            <p class="registro-link">
-                ¿No tienes cuenta? <a href="SignUp.html">Crear una cuenta</a>
-            </p>
-
-            <!-- Panel de usuario logueado (se muestra después del login) -->
-            <div id="panel-usuario" style="display:none; margin-top:20px; text-align:center; padding:15px; background:#e1f5fe; border-radius:10px; border:2px solid #4dd0e1;">
-                <p style="margin-bottom:10px;">👤 <strong id="nombre-usuario"></strong></p>
-                <p style="font-size:0.9rem; color:#666; margin-bottom:15px;" id="email-usuario"></p>
-                <button id="btn-cerrar-sesion" class="boton-enviar" style="background:#ff6b6b; border-color:#e55a5a; box-shadow:0 4px 0 #c0392b;">Cerrar sesión</button>
             </div>
 
-        </section>
+            <!-- PANEL DERECHO: FORMULARIO -->
+            <div class="login-formulario">
+                <section>
+                    <h2>Iniciar Sesión</h2>
+                    <p>Ingresa tus credenciales para continuar</p>
 
+                    <!-- FORMULARIO DE LOGIN (IDs intactos para script.js) -->
+                    <form id="form-login" class="formulario-login">
+                        <div class="grupo-campo">
+                            <label for="login-email">Correo electrónico</label>
+                            <div class="input-wrapper">
+                                <span>📧</span>
+                                <input 
+                                    type="email" 
+                                    id="login-email" 
+                                    name="email" 
+                                    placeholder="ejemplo@email.com" 
+                                    autocomplete="email" 
+                                    required
+                                >
+                            </div>
+                        </div>
+
+                        <div class="grupo-campo">
+                            <label for="login-pass">Contraseña</label>
+                            <div class="input-wrapper">
+                                <span>🔒</span>
+                                <input 
+                                    type="password" 
+                                    id="login-pass" 
+                                    name="password" 
+                                    placeholder="••••••••" 
+                                    autocomplete="current-password" 
+                                    required
+                                    minlength="6"
+                                >
+                            </div>
+                        </div>
+
+                        <div class="opciones-login">
+                            <label>
+                                <input type="checkbox" name="recordar">
+                                Recordarme
+                            </label>
+                            <a href="#">¿Olvidaste tu contraseña?</a>
+                        </div>
+
+                        <button type="submit" class="boton-enviar">INGRESAR</button>
+                    </form>
+
+                    <div class="separador">o</div>
+
+                    <p class="registro-link">
+                        ¿No tienes cuenta? <a href="SignUp.html">Crear una cuenta</a>
+                    </p>
+
+                    <!-- PANEL DE USUARIO LOGUEADO (IDs intactos para script.js) -->
+                    <div id="panel-usuario" style="display:none;">
+                        <div class="avatar">
+                            👤
+                        </div>
+                        <h3 id="nombre-usuario"></h3>
+                        <p id="email-usuario"></p>
+                        <div class="acciones-usuario">
+                            <a href="perfil-usuario.html">Mi Perfil</a>
+                            <button id="btn-cerrar-sesion">Cerrar sesión</button>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+        </div>
     </main>
 
-    <footer>
-        <p><small>&copy; 2026 Festín Panamá. Todos los derechos reservados.</small></p>
-    </footer>
+    <footer class="container">
+        <section>
+            <h3>Contacto</h3>
+            <p>Ubicación: Panamá Oeste, La Chorrera</p>
+            <p>Teléfono: +507 6000-0000</p>
+            <p>Correo: festinPanama@gmail.com</p>
+        </section>
+        
+        <nav aria-label="Enlaces legales" class="legal">
+            <a href="privacidad-y-terminos.html">
+                Política de Privacidad y Términos y Condiciones
+            </a>
+        </nav>
 
+        <p class="copyright">
+            <small>&copy; 2026 Festín Panamá. Todos los derechos reservados.</small>
+        </p>
+    </footer>
 </body>
 </html>

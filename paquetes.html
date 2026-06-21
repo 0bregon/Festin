@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Paquetes</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link href="estilo.css" rel="stylesheet">
-
     <script src="script.js" defer></script>
 </head>
 <body>
@@ -38,13 +38,8 @@
             <a href="carrito.html">
                 <img src="carrito.png" alt="Ir al carrito" class="icono">
             </a>
-            
             <a href="perfil-usuario.html">
                 <img src="usuario.png" alt="Ir al perfil de usuario" class="icono">
-            </a>
-
-            <a href="">
-                <img src="accesibilidad.png" alt="Opciones de accesibilidad" class="icono">
             </a>
         </aside>
     </header>
@@ -60,96 +55,99 @@
         <hr>
 
         <section class="seccion">
-            <h3>Paquetes para toda ocasion</h3>
+            <h3>Paquetes para toda ocasión</h3>
 
-            <article class="seccion">
-                <h4>Paquete basico</h4>
-                <img src="paqueteBasico.png" alt="descripción">
-                <ul>
-                    <li>Decoración sencilla</li>
-                    <li>Mesa principal</li>
-                    <li>15 sillas</li>
-                    <li>Arco de globos</li>
-                </ul>
-                <footer>
-                    <p>B/.60.00</p>
-                    <button type="button" class="boton-enviar" onclick="agregarAlCarrito(15, 'Paquete basico', 60.00, 'imagen.webp')">Agregar al carrito</button>
-                </footer>
-            </article>
+            <div class="paquetes-grid">
+                <article class="paquete-card">
+                    <img src="paqueteBasico.png" alt="Paquete básico" class="paquete-img">
+                    <div class="paquete-content">
+                        <h4>Paquete básico</h4>
+                        <ul class="paquete-features">
+                            <li>Decoración sencilla</li>
+                            <li>Mesa principal</li>
+                            <li>15 sillas</li>
+                            <li>Arco de globos</li>
+                        </ul>
+                        <p class="paquete-precio">B/.60.00</p>
+                        <button type="button" class="btn-agregar" onclick="agregarAlCarrito(15, 'Paquete básico', 60.00, 'paqueteBasico.png')">Agregar al carrito</button>
+                    </div>
+                </article>
 
-            <article class="seccion">
-                <h4>Paquete intermedio</h4>
-                <img src="paqueteIntermedio.png" alt="descripción">
-                <ul>
-                    <li>Decoración completa</li>
-                    <li>Mesa principal</li>
-                    <li>30 sillas de plástico</li>
-                    <li>Arco de globos</li>
-                    <li>Centros de mesa</li>
-                    <li>2 Maquinas de snacks</li>
-                </ul>
-                <footer>
-                    <p>B/.120.00</p>
-                    <button type="button" class="boton-enviar" onclick="agregarAlCarrito(16, 'Paquete intermedio', 120.00, 'imagen.webp')">Agregar al carrito</button>
-                </footer>
-            </article>
+                <article class="paquete-card">
+                    <img src="paqueteIntermedio.png" alt="Paquete intermedio" class="paquete-img">
+                    <div class="paquete-content">
+                        <h4>Paquete intermedio</h4>
+                        <ul class="paquete-features">
+                            <li>Decoración completa</li>
+                            <li>Mesa principal</li>
+                            <li>30 sillas de plástico</li>
+                            <li>Arco de globos</li>
+                            <li>Centros de mesa</li>
+                            <li>2 Máquinas de snacks</li>
+                        </ul>
+                        <p class="paquete-precio">B/.120.00</p>
+                        <button type="button" class="btn-agregar" onclick="agregarAlCarrito(16, 'Paquete intermedio', 120.00, 'paqueteIntermedio.png')">Agregar al carrito</button>
+                    </div>
+                </article>
 
-            <article class="seccion">
-                <h4>Paquete premium</h4>
-                <img src="paquetePremium.png" alt="descripción">
-                <ul>
-                    <li>Decoración personalizada</li>
-                    <li>Mobiliario completo</li>
-                    <li>Pintacaritas</li>
-                    <li>Animador de fiestas</li>
-                    <li>4 máquinas de snacks</li>
-                    <li>Candy bar</li>
-                </ul>
-                <footer>
-                    <p>B/.250.00</p>
-                    <button type="button" class="boton-enviar" onclick="agregarAlCarrito(17, 'Paquete premium', 250.00, 'imagen.webp')">Agregar al carrito</button>
-                </footer>
-            </article>
-            
-            <article class="seccion">
-                <h4>Paquete de bodas</h4>
-                <img src="paqueteBodas.png" alt="descripción">
-                <ul>
-                    <li>Decoración elegante</li>
-                    <li>Sillas y mesas</li>
-                    <li>Iluminación led</li>
-                    <li>Dj</li>
-                    <li>Equipo de sonido</li>
-                    <li>Montaje de evento</li>
-                </ul>
-                <footer>
-                    <p>B/.300.00</p>
-                    <button type="button" class="boton-enviar" onclick="agregarAlCarrito(18, 'Paquete de bodas', 300.00, 'imagen.webp')">Agregar al carrito</button>
-                </footer>
-            </article>
-            
-            <article class="seccion">
-                <h4>Paquete completo</h4>
-                <img src="paqueteCompleto.png" alt="descripción">
-                <ul>
-                    <li>Decoración personalizada</li>
-                    <li>DJ + sonido</li>
-                    <li>Sesión fotográfica</li>
-                    <li>Animación</li>
-                    <li>Estaciones de comida</li>
-                    <li>Candy bar</li>
-                    <li>Arreglos personalizados</li>
-                    <li>Mobiliario completo</li>
-                    <li>Entrega</li>
-                    <li>Montaje</li>
-                </ul>
-                <footer>
-                    <p>B/.500.00</p>
-                    <button type="button" class="boton-enviar" onclick="agregarAlCarrito(19, 'Paquete completo', 500.00, 'imagen.webp')">Agregar al carrito</button>
-                </footer>
-            </article>
+                <article class="paquete-card destacado">
+                    <span class="paquete-badge premium">Más popular</span>
+                    <img src="paquetePremium.png" alt="Paquete premium" class="paquete-img">
+                    <div class="paquete-content">
+                        <h4>Paquete premium</h4>
+                        <ul class="paquete-features">
+                            <li>Decoración personalizada</li>
+                            <li>Mobiliario completo</li>
+                            <li>Pintacaritas</li>
+                            <li>Animador de fiestas</li>
+                            <li>4 máquinas de snacks</li>
+                            <li>Candy bar</li>
+                        </ul>
+                        <p class="paquete-precio">B/.250.00</p>
+                        <button type="button" class="btn-agregar" onclick="agregarAlCarrito(17, 'Paquete premium', 250.00, 'paquetePremium.png')">Agregar al carrito</button>
+                    </div>
+                </article>
+                
+                <article class="paquete-card">
+                    <img src="paqueteBodas.png" alt="Paquete de bodas" class="paquete-img">
+                    <div class="paquete-content">
+                        <h4>Paquete de bodas</h4>
+                        <ul class="paquete-features">
+                            <li>Decoración elegante</li>
+                            <li>Sillas y mesas</li>
+                            <li>Iluminación led</li>
+                            <li>DJ</li>
+                            <li>Equipo de sonido</li>
+                            <li>Montaje de evento</li>
+                        </ul>
+                        <p class="paquete-precio">B/.300.00</p>
+                        <button type="button" class="btn-agregar" onclick="agregarAlCarrito(18, 'Paquete de bodas', 300.00, 'paqueteBodas.png')">Agregar al carrito</button>
+                    </div>
+                </article>
+                
+                <article class="paquete-card destacado">
+                    <span class="paquete-badge todo-incluido">Todo incluido</span>
+                    <img src="paqueteCompleto.png" alt="Paquete completo" class="paquete-img">
+                    <div class="paquete-content">
+                        <h4>Paquete completo</h4>
+                        <ul class="paquete-features">
+                            <li>Decoración personalizada</li>
+                            <li>DJ + sonido</li>
+                            <li>Sesión fotográfica</li>
+                            <li>Animación</li>
+                            <li>Estaciones de comida</li>
+                            <li>Candy bar</li>
+                            <li>Arreglos personalizados</li>
+                            <li>Mobiliario completo</li>
+                            <li>Entrega</li>
+                            <li>Montaje</li>
+                        </ul>
+                        <p class="paquete-precio">B/.500.00</p>
+                        <button type="button" class="btn-agregar" onclick="agregarAlCarrito(19, 'Paquete completo', 500.00, 'paqueteCompleto.png')">Agregar al carrito</button>
+                    </div>
+                </article>
+            </div>
         </section>
-
     </main>
 
     <footer class="container">
@@ -170,6 +168,5 @@
             <small>&copy; 2026 Festín Panamá. Todos los derechos reservados.</small>
         </p>
     </footer>
-
 </body>
 </html>

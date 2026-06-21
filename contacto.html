@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contactanos</title>
+    <title>Contáctanos - Festín</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link href="estilo.css" rel="stylesheet">
-
     <script src="script.js" defer></script>
 </head>
 <body>
@@ -38,13 +38,8 @@
             <a href="carrito.html">
                 <img src="carrito.png" alt="Ir al carrito" class="icono">
             </a>
-            
             <a href="perfil-usuario.html">
                 <img src="usuario.png" alt="Ir al perfil de usuario" class="icono">
-            </a>
-
-            <a href="">
-                <img src="accesibilidad.png" alt="Opciones de accesibilidad" class="icono">
             </a>
         </aside>
     </header>
@@ -56,62 +51,97 @@
             <p>Estamos listos para ayudarte con tu evento</p>
         </section>
 
-        <section class="seccion">
-            <h2>Formulario de Contacto</h2>
-
-            <form action="procesar.php" method="POST">
-                <label for="nombre">Nombre:</label>
-                <input type="text" id="nombre" name="nombre" required>
-
-                <br><br>
-
-                <label for="correo">Correo electrónico:</label>
-                <input type="email" id="correo" name="correo" required>
-
-                <br><br>
-
-                <label for="motivo">Motivo de contacto:</label>
-                <select id="motivo" name="motivo" required>
-                    <option value="">Seleccione...</option>
-                    <option value="consulta">Consulta</option>
-                    <option value="soporte">Soporte</option>
-                    <option value="otro">Otro</option>
-                </select>
-
-                <br><br>
-
-                <label for="mensaje">Mensaje:</label><br>
-                <textarea id="mensaje" name="mensaje" rows="4" cols="40" required></textarea>
-
-                <br><br>
-
-                <button type="submit">Enviar</button>
-            </form>
-        </section>
-
         <hr>
+
         <section class="seccion">
-            <h3>Siguenos en nuestras redes sociales</h3>
-            <ul>
-                <li>
-                    <a href="https://instagram.com/festin_panama" target="_blank">
-                        <img src="instagram-icon.png" alt="Instagram" width="20">
-                        FestinFiestas
-                    </a>  
-                </li>
-                <li>
-                    <a href="https://facebook.com/festinpanama" target="_blank">
-                        <img src="facebook-icon.png" alt="Facebook" width="20">
-                        FestinPanama
-                    </a>
-                </li>
-                <li>
-                    <a href="https://youtube.com/@festinpanama" target="_blank">
-                        <img src="youtube-icon.png" alt="YouTube" width="20">
-                        Festin
-                    </a>
-                </li>
-            </ul>
+            <div class="contacto-grid">
+                
+                <!-- COLUMNA IZQUIERDA: INFO -->
+                <div class="contacto-info">
+                    <h3>Información de Contacto</h3>
+                    
+                    <div class="info-item">
+                        <div class="info-icon">📍</div>
+                        <div class="info-content">
+                            <h4>Ubicación</h4>
+                            <p>Panamá Oeste, La Chorrera</p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="info-icon">📞</div>
+                        <div class="info-content">
+                            <h4>Teléfono</h4>
+                            <p>+507 6000-0000</p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="info-icon">✉️</div>
+                        <div class="info-content">
+                            <h4>Correo Electrónico</h4>
+                            <p>festinPanama@gmail.com</p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="info-icon">🕐</div>
+                        <div class="info-content">
+                            <h4>Horario de Atención</h4>
+                            <p>Lun - Vie: 8:00 AM - 6:00 PM</p>
+                            <p>Sábados: 9:00 AM - 2:00 PM</p>
+                            <p>Domingos: Cerrado</p>
+                        </div>
+                    </div>
+
+                    <div class="redes-sociales">
+                        <h4>Síguenos en redes</h4>
+                        <div class="redes-links">
+                            <a href="https://instagram.com/festin_panama" target="_blank" class="red-social" aria-label="Instagram">📷</a>
+                            <a href="https://facebook.com/festinpanama" target="_blank" class="red-social" aria-label="Facebook">👍</a>
+                            <a href="https://youtube.com/@festinpanama" target="_blank" class="red-social" aria-label="YouTube">▶️</a>
+                            <a href="https://wa.me/50760000000" target="_blank" class="red-social" aria-label="WhatsApp">💬</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- COLUMNA DERECHA: FORMULARIO -->
+                <div class="formulario-contacto">
+                    <h3>Envíanos un Mensaje</h3>
+                    <p>Completa el formulario y te contactaremos pronto.</p>
+
+                    <form id="form-contacto" onsubmit="enviarFormulario(event)">
+                        <div class="campo-form">
+                            <label for="nombre">Nombre completo</label>
+                            <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
+                        </div>
+
+                        <div class="campo-form">
+                            <label for="correo">Correo electrónico</label>
+                            <input type="email" id="correo" name="correo" placeholder="tu@email.com" required>
+                        </div>
+
+                        <div class="campo-form">
+                            <label for="motivo">Motivo de contacto</label>
+                            <select id="motivo" name="motivo" required>
+                                <option value="">Seleccione...</option>
+                                <option value="cotizacion">Cotización de evento</option>
+                                <option value="consulta">Consulta general</option>
+                                <option value="reserva">Información sobre reserva</option>
+                                <option value="soporte">Soporte técnico</option>
+                                <option value="otro">Otro</option>
+                            </select>
+                        </div>
+
+                        <div class="campo-form">
+                            <label for="mensaje">Mensaje</label>
+                            <textarea id="mensaje" name="mensaje" rows="5" placeholder="Cuéntanos sobre tu evento..." required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn-enviar-form">ENVIAR MENSAJE</button>
+                    </form>
+                </div>
+            </div>
         </section>
     </main>
 
@@ -134,5 +164,25 @@
         </p>
     </footer>
 
+    <script>
+        function enviarFormulario(e) {
+            e.preventDefault();
+            
+            const datos = {
+                nombre: document.getElementById('nombre').value,
+                correo: document.getElementById('correo').value,
+                motivo: document.getElementById('motivo').value,
+                mensaje: document.getElementById('mensaje').value,
+                fecha: new Date().toISOString()
+            };
+            
+            const mensajes = JSON.parse(localStorage.getItem('festin_mensajes') || '[]');
+            mensajes.push(datos);
+            localStorage.setItem('festin_mensajes', JSON.stringify(mensajes));
+            
+            alert('✅ ¡Mensaje enviado con éxito! Te responderemos pronto.');
+            document.getElementById('form-contacto').reset();
+        }
+    </script>
 </body>
 </html>
