@@ -850,7 +850,7 @@ aside {
 
 .contacto-info {
   background: linear-gradient(135deg, #9696fd 0%, #96fdc9 100%);
-  color: white;
+  color: rgb(0, 0, 0);
   padding: 40px 30px;
   border-radius: 20px;
   box-shadow: 0 10px 30px rgba(150, 150, 253, 0.3);
@@ -896,7 +896,7 @@ aside {
 }
 
 .info-content p, .info-content a {
-  color: white;
+  color: rgb(0, 0, 0);
   font-size: 15px;
   text-decoration: none;
   line-height: 1.5;
