@@ -1,50 +1,116 @@
-// auth.js - SIN EXPORTS, FUNCIONES GLOBALES
-const DB_KEY = 'festin_db_usuarios';
-const SESION_KEY = 'festin_sesion_activa';
+// auth.js - VERSIÓN SUPABASE (FUNCIONES GLOBALES)
+// Ya no usa localStorage, ahora usa Supabase Auth
 
-function obtenerDB() {
-    const data = localStorage.getItem(DB_KEY);
-    return data ? JSON.parse(data) : [];
-}
+// 🔹 REGISTRO (global) - AHORA ES ASYNC
+window.registrarUsuario = async function(nombre, email, password) {
+    try {
+        // 1. Crear usuario en Supabase Auth
+        const { data, error } = await supabase.auth.signUp({
+            email: email,
+            password: password,
+            options: {
+                data: {
+                    nombre: nombre
+                }
+            }
+        });
 
-function guardarDB(db) {
-    localStorage.setItem(DB_KEY, JSON.stringify(db));
-}
+        if (error) {
+            if (error.message.includes('already registered')) {
+                return { ok: false, msg: '❌ Este correo ya está registrado.' };
+            }
+            return { ok: false, msg: '❌ ' + error.message };
+        }
 
-// 🔹 REGISTRO (global)
-window.registrarUsuario = function(nombre, email, password) {
-    const db = obtenerDB();
-    if (db.find(u => u.email === email)) {
-        return { ok: false, msg: '❌ Este correo ya está registrado.' };
+        // 2. Guardar perfil en la tabla 'usuarios'
+        if (data.user) {
+            const { error: errorPerfil } = await supabase
+                .from('usuarios')
+                .insert([
+                    { 
+                        id: data.user.id, 
+                        nombre: nombre, 
+                        email: email,
+                        puntos: 0
+                    }
+                ]);
+
+            if (errorPerfil) {
+                console.error('Error guardando perfil:', errorPerfil);
+            }
+        }
+
+        return { ok: true, msg: '✅ Cuenta creada. ¡Ahora inicia sesión!' };
+
+    } catch (err) {
+        console.error('Error:', err);
+        return { ok: false, msg: '❌ Error al registrar' };
     }
-    const nuevo = { id: Date.now(), nombre, email, password, fecha: new Date().toISOString() };
-    db.push(nuevo);
-    guardarDB(db);
-    return { ok: true, msg: '✅ Cuenta creada. ¡Ahora inicia sesión!' };
 }
 
-// 🔹 LOGIN (global)
-window.iniciarSesion = function(email, password) {
-    const db = obtenerDB();
-    const usuario = db.find(u => u.email === email && u.password === password);
-    if (!usuario) return { ok: false, msg: '❌ Correo o contraseña incorrectos.' };
-    
-    localStorage.setItem(SESION_KEY, JSON.stringify({
-        id: usuario.id,
-        nombre: usuario.nombre,
-        email: usuario.email
-    }));
-    return { ok: true, msg: `👋 ¡Bienvenido, ${usuario.nombre}!` };
+// 🔹 LOGIN (global) - AHORA ES ASYNC
+window.iniciarSesion = async function(email, password) {
+    try {
+        const { data, error } = await supabase.auth.signInWithPassword({
+            email: email,
+            password: password
+        });
+
+        if (error) {
+            return { ok: false, msg: '❌ Correo o contraseña incorrectos.' };
+        }
+
+        // Obtener datos del usuario desde la tabla
+        const { data: userData } = await supabase
+            .from('usuarios')
+            .select('*')
+            .eq('id', data.user.id)
+            .single();
+
+        return { 
+            ok: true, 
+            msg: `👋 ¡Bienvenido, ${userData?.nombre || email.split('@')[0]}!`,
+            usuario: userData || { id: data.user.id, email: email }
+        };
+
+    } catch (err) {
+        console.error('Error:', err);
+        return { ok: false, msg: '❌ Error al iniciar sesión' };
+    }
 }
 
-// 🔹 CERRAR SESIÓN (global)
-window.cerrarSesion = function() {
-    localStorage.removeItem(SESION_KEY);
-    window.location.reload();
+// 🔹 CERRAR SESIÓN (global) - AHORA ES ASYNC
+window.cerrarSesion = async function() {
+    try {
+        await supabase.auth.signOut();
+        window.location.href = 'index.html';
+    } catch (err) {
+        console.error('Error:', err);
+        alert('❌ Error al cerrar sesión');
+    }
 }
 
-// 🔹 OBTENER SESIÓN (global)
-window.obtenerSesion = function() {
-    const sesion = localStorage.getItem(SESION_KEY);
-    return sesion ? JSON.parse(sesion) : null;
+// 🔹 OBTENER SESIÓN (global) - AHORA ES ASYNC
+window.obtenerSesion = async function() {
+    try {
+        const { data: { session } } = await supabase.auth.getSession();
+        
+        if (!session) return null;
+
+        // Obtener datos completos del usuario
+        const { data: userData } = await supabase
+            .from('usuarios')
+            .select('*')
+            .eq('id', session.user.id)
+            .single();
+
+        return userData || {
+            id: session.user.id,
+            email: session.user.email,
+            nombre: session.user.user_metadata?.nombre || 'Usuario'
+        };
+    } catch (err) {
+        console.error('Error:', err);
+        return null;
+    }
 }
