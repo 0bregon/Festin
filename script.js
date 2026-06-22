@@ -1,6 +1,8 @@
-// script.js - VERSIÓN SUPABASE (TODO INTEGRADO)
+// script.js - VERSIÓN SUPABASE (TODO INTEGRADO) CON DEBUG
 
 document.addEventListener('DOMContentLoaded', async () => {
+    
+    console.log('🚀 DOMContentLoaded ejecutándose');
     
     // ============================================
     // 📱 MENÚ MÓVIL
@@ -82,15 +84,27 @@ document.addEventListener('DOMContentLoaded', async () => {
     const formRegistro = document.getElementById('form-registro');
     const panelUsuario = document.getElementById('panel-usuario');
 
+    console.log('🔍 Verificando elementos de autenticación...');
+    console.log('🔍 formLogin:', formLogin);
+    console.log('🔍 formRegistro:', formRegistro);
+    console.log('🔍 registrarUsuario:', typeof window.registrarUsuario);
+    console.log('🔍 iniciarSesion:', typeof window.iniciarSesion);
+    console.log('🔍 supabase:', typeof supabase);
+
     // REGISTRO
     if (formRegistro && typeof window.registrarUsuario === 'function') {
-        formRegistro.addEventListener('submit', async (e) => {  // ← async
+        console.log('✅ Event listener de REGISTRO registrado correctamente');
+        
+        formRegistro.addEventListener('submit', async (e) => {
+            console.log('🚀 Formulario de REGISTRO enviado, interceptando...');
             e.preventDefault();
             
             const nombre = document.getElementById('reg-nombre')?.value.trim() || '';
             const email = document.getElementById('reg-email')?.value.trim().toLowerCase() || '';
             const password = document.getElementById('reg-pass')?.value || '';
             const confirmar = document.getElementById('reg-confirmar')?.value || '';
+            
+            console.log('📝 Datos del formulario:', { nombre, email, password: '***', confirmar: '***' });
             
             if (password !== confirmar) {
                 alert('❌ Las contraseñas no coinciden');
@@ -102,8 +116,13 @@ document.addEventListener('DOMContentLoaded', async () => {
                 return;
             }
             
+            console.log('🔄 Llamando a registrarUsuario...');
+            
             // ← await aquí
             const res = await window.registrarUsuario(nombre, email, password);
+            
+            console.log('📬 Respuesta de registrarUsuario:', res);
+            
             alert(res.msg);
             
             if (res.ok) {
@@ -111,18 +130,32 @@ document.addEventListener('DOMContentLoaded', async () => {
                 window.location.href = 'login.html';
             }
         });
+    } else {
+        console.warn('⚠️ NO se pudo registrar el event listener de REGISTRO');
+        console.warn('⚠️ formRegistro:', formRegistro);
+        console.warn('⚠️ typeof window.registrarUsuario:', typeof window.registrarUsuario);
     }
 
     // LOGIN
     if (formLogin && typeof window.iniciarSesion === 'function') {
-        formLogin.addEventListener('submit', async (e) => {  // ← async
+        console.log('✅ Event listener de LOGIN registrado correctamente');
+        
+        formLogin.addEventListener('submit', async (e) => {
+            console.log('🚀 Formulario de LOGIN enviado, interceptando...');
             e.preventDefault();
             
             const email = document.getElementById('login-email')?.value.trim().toLowerCase() || '';
             const password = document.getElementById('login-pass')?.value || '';
             
+            console.log('📝 Datos del login:', { email, password: '***' });
+            
+            console.log('🔄 Llamando a iniciarSesion...');
+            
             // ← await aquí
             const res = await window.iniciarSesion(email, password);
+            
+            console.log('📬 Respuesta de iniciarSesion:', res);
+            
             alert(res.msg);
             
             if (res.ok) {
@@ -142,12 +175,16 @@ document.addEventListener('DOMContentLoaded', async () => {
                 }
             }
         });
+    } else {
+        console.warn('⚠️ NO se pudo registrar el event listener de LOGIN');
+        console.warn('⚠️ formLogin:', formLogin);
+        console.warn('⚠️ typeof window.iniciarSesion:', typeof window.iniciarSesion);
     }
 
     // CERRAR SESIÓN
     const btnCerrar = document.getElementById('btn-cerrar-sesion');
     if (btnCerrar && typeof window.cerrarSesion === 'function') {
-        btnCerrar.addEventListener('click', async (e) => {  // ← async
+        btnCerrar.addEventListener('click', async (e) => {
             e.preventDefault();
             if (confirm('¿Cerrar sesión?')) {
                 await window.cerrarSesion();
@@ -162,7 +199,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     const seccionUsuario = document.getElementById('seccion-usuario');
     
     if ((seccionInvitado || seccionUsuario) && typeof window.obtenerSesion === 'function') {
-        // ← await aquí porque ahora es async
         const sesion = await window.obtenerSesion();
         
         if (sesion) {
@@ -194,12 +230,10 @@ document.addEventListener('DOMContentLoaded', async () => {
         const btnEnviar = document.getElementById('btn-enviar-reserva');
         const fechaEl = document.getElementById('reserva-fecha');
         
-        // Fecha mínima = hoy
         if (fechaEl && !fechaEl.min) {
             fechaEl.min = new Date().toISOString().split('T')[0];
         }
         
-        // Pre-llenar si hay sesión
         if (typeof window.obtenerSesion === 'function') {
             const sesion = await window.obtenerSesion();
             if (sesion) {
@@ -210,7 +244,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             }
         }
         
-        formReserva.addEventListener('submit', async (e) => {  // ← async
+        formReserva.addEventListener('submit', async (e) => {
             e.preventDefault();
             
             const servicios = document.querySelectorAll('input[name="servicios[]"]:checked');
@@ -241,7 +275,6 @@ document.addEventListener('DOMContentLoaded', async () => {
                 estado: 'pendiente'
             };
             
-            // ← GUARDAR EN SUPABASE
             const { data, error } = await supabase
                 .from('reservas')
                 .insert([nuevaReserva])
@@ -257,7 +290,6 @@ document.addEventListener('DOMContentLoaded', async () => {
                 return;
             }
             
-            // Éxito
             mostrarMensaje('✅ Reserva enviada. Redirigiendo...', 'success');
             
             setTimeout(() => {
@@ -390,7 +422,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     }
 
-    // Botón proceder a reservar
     const btnProceder = document.getElementById('btn-proceder');
     if (btnProceder) {
         btnProceder.addEventListener('click', () => {
@@ -404,17 +435,16 @@ document.addEventListener('DOMContentLoaded', async () => {
         });
     }
 
-    // Botón vaciar carrito
     const btnVaciar = document.getElementById('btn-vaciar-carrito');
     if (btnVaciar) {
         btnVaciar.addEventListener('click', () => window.vaciarCarrito());
     }
 
-    // Inicializar carrito si estamos en carrito.html
     if (document.getElementById('lista-carrito')) {
         renderizarCarrito();
     }
 
-    // Actualizar contador en todas las páginas
     actualizarContadorCarrito();
+    
+    console.log('✅ DOMContentLoaded completado');
 });
