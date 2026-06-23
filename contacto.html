@@ -112,7 +112,10 @@
                     <h3>Envíanos un Mensaje</h3>
                     <p>Completa el formulario y te contactaremos pronto.</p>
 
-                    <form id="form-contacto" onsubmit="enviarFormulario(event)">
+                    <!-- Mensaje de éxito/error -->
+                    <div id="mensaje-contacto" style="display:none; padding:15px; border-radius:10px; margin-bottom:20px;"></div>
+
+                    <form id="form-contacto">
                         <div class="campo-form">
                             <label for="nombre">Nombre completo</label>
                             <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
@@ -121,6 +124,11 @@
                         <div class="campo-form">
                             <label for="correo">Correo electrónico</label>
                             <input type="email" id="correo" name="correo" placeholder="tu@email.com" required>
+                        </div>
+
+                        <div class="campo-form">
+                            <label for="telefono">Teléfono (opcional)</label>
+                            <input type="tel" id="telefono" name="telefono" placeholder="+507 6000-0000">
                         </div>
 
                         <div class="campo-form">
@@ -140,51 +148,138 @@
                             <textarea id="mensaje" name="mensaje" rows="5" placeholder="Cuéntanos sobre tu evento..." required></textarea>
                         </div>
 
-                        <button type="submit" class="btn-enviar-form">ENVIAR MENSAJE</button>
+                        <button type="submit" id="btn-enviar-contacto" class="btn-enviar-form">
+                            📨 ENVIAR MENSAJE
+                        </button>
                     </form>
                 </div>
             </div>
         </section>
     </main>
 
+    <!-- FOOTER -->
     <footer class="container">
-        <section>
-            <h3>Contacto</h3>
-            <p>Ubicación: Panamá Oeste, La Chorrera</p>
-            <p>Teléfono: +507 6000-0000</p>
-            <p>Correo: festinPanama@gmail.com</p>
-        </section>
-        
-        <nav aria-label="Enlaces legales" class="legal">
-            <a href="privacidad-y-terminos.html">
-                Política de Privacidad y Términos y Condiciones
-            </a>
-        </nav>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contacto</h3>
+                <p>📍 Panamá Oeste, La Chorrera</p>
+                <p>📞 +507 6000-0000</p>
+                <p>✉️ festin.contacto.pa@gmail.com
+</p>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/profile.php?id=100009119315097" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/fiestasfestin?igsh=MXIxcG94Yzh6MTdncg==" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.youtube.com/@festinfiestasymas" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
 
-        <p class="copyright">
-            <small>&copy; 2026 Festín Panamá. Todos los derechos reservados.</small>
-        </p>
+            <div class="footer-section">
+                <h3>Enlaces Rápidos</h3>
+                <a href="index.html">Inicio</a>
+                <a href="catalogo.html">Catálogo</a>
+                <a href="servicios.html">Servicios</a>
+                <a href="faq.html">Preguntas Frecuentes</a>
+                <a href="contacto.html">Contacto</a>
+            </div>
+
+            <div class="footer-section">
+                <h3>Legal</h3>
+                <a href="privacidad-y-terminos.html">Política de Privacidad, Términos y Condiciones</a>
+            </div>
+
+            <div class="footer-section">
+                <h3>Atención al Cliente</h3>
+                <p>Lunes a Viernes: 8:00 AM - 6:00 PM</p>
+                <p>Sábados y Domingos: 10:00 AM - 2:00 PM</p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Festín Panamá. Todos los derechos reservados.</p>
+        </div>
     </footer>
 
     <script>
-        function enviarFormulario(e) {
-            e.preventDefault();
-            
-            const datos = {
-                nombre: document.getElementById('nombre').value,
-                correo: document.getElementById('correo').value,
-                motivo: document.getElementById('motivo').value,
-                mensaje: document.getElementById('mensaje').value,
-                fecha: new Date().toISOString()
-            };
-            
-            const mensajes = JSON.parse(localStorage.getItem('festin_mensajes') || '[]');
-            mensajes.push(datos);
-            localStorage.setItem('festin_mensajes', JSON.stringify(mensajes));
-            
-            alert('✅ ¡Mensaje enviado con éxito! Te responderemos pronto.');
-            document.getElementById('form-contacto').reset();
-        }
+        document.addEventListener('DOMContentLoaded', async () => {
+            const form = document.getElementById('form-contacto');
+            const btnEnviar = document.getElementById('btn-enviar-contacto');
+            const mensajeDiv = document.getElementById('mensaje-contacto');
+
+            // Autollenar si hay sesión
+            if (typeof window.obtenerSesion === 'function') {
+                const sesion = await window.obtenerSesion();
+                if (sesion) {
+                    const nombreInput = document.getElementById('nombre');
+                    const correoInput = document.getElementById('correo');
+                    if (nombreInput && !nombreInput.value) nombreInput.value = sesion.nombre || '';
+                    if (correoInput && !correoInput.value) correoInput.value = sesion.email || '';
+                }
+            }
+
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+
+                // Deshabilitar botón mientras envía
+                btnEnviar.disabled = true;
+                btnEnviar.textContent = '🔄 Enviando...';
+
+                const datos = {
+                    nombre: document.getElementById('nombre').value.trim(),
+                    email: document.getElementById('correo').value.trim().toLowerCase(),
+                    telefono: document.getElementById('telefono').value.trim() || null,
+                    asunto: document.getElementById('motivo').value,
+                    mensaje: document.getElementById('mensaje').value.trim()
+                };
+
+                try {
+                    const { data, error } = await supabase
+                        .from('mensajes_contacto')
+                        .insert([datos])
+                        .select();
+
+                    if (error) {
+                        console.error('❌ Error al enviar:', error);
+                        mostrarMensaje('❌ Error al enviar el mensaje. Intenta de nuevo.', 'error');
+                        btnEnviar.disabled = false;
+                        btnEnviar.textContent = '📨 ENVIAR MENSAJE';
+                        return;
+                    }
+
+                    console.log('✅ Mensaje enviado:', data);
+                    mostrarMensaje('✅ ¡Mensaje enviado con éxito! Te responderemos pronto.', 'success');
+                    form.reset();
+
+                    // Rehabilitar botón después de 3 segundos
+                    setTimeout(() => {
+                        btnEnviar.disabled = false;
+                        btnEnviar.textContent = '📨 ENVIAR MENSAJE';
+                    }, 3000);
+
+                } catch (err) {
+                    console.error('❌ Error inesperado:', err);
+                    mostrarMensaje('❌ Ocurrió un error. Intenta de nuevo.', 'error');
+                    btnEnviar.disabled = false;
+                    btnEnviar.textContent = '📨 ENVIAR MENSAJE';
+                }
+            });
+
+            function mostrarMensaje(texto, tipo) {
+                mensajeDiv.textContent = texto;
+                mensajeDiv.style.display = 'block';
+                
+                if (tipo === 'success') {
+                    mensajeDiv.style.background = '#d4edda';
+                    mensajeDiv.style.border = '2px solid #28a745';
+                    mensajeDiv.style.color = '#155724';
+                } else {
+                    mensajeDiv.style.background = '#f8d7da';
+                    mensajeDiv.style.border = '2px solid #dc3545';
+                    mensajeDiv.style.color = '#721c24';
+                }
+                
+                mensajeDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        });
     </script>
 </body>
 </html>

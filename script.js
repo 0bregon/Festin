@@ -787,3 +787,13 @@ if (btnEditar) {
     
     console.log('✅ DOMContentLoaded completado');
 });
+
+
+// 🔍 Búsqueda global - funciona en todas las páginas
+document.addEventListener('DOMContentLoaded', () => {
+    // Hacer que TODOS los formularios de búsqueda envíen a catalogo.html
+    document.querySelectorAll('form.busqueda').forEach(form => {
+        form.setAttribute('action', 'catalogo.html');
+        form.setAttribute('method', 'GET');
+    });
+});

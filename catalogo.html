@@ -59,40 +59,19 @@
         <!-- DECORACIÓN -->
         <section class="seccion">
             <h3>Decoración</h3>
-
-            <article class="catalogo-producto">
-                <h4>Arco de globos</h4>
-
-                <section class="galeria-contenedor">
-                    <div class="controles-galeria">
-                        <button class="flecha anterior" aria-label="Imagen anterior">&#10094;</button>
-                        <button class="flecha siguiente" aria-label="Siguiente imagen">&#10095;</button>
+            <div class="productos-grid">
+                <article class="producto-card">
+                    <img src="arcodeglobo.webp" alt="Arco de globos decorativo para cumpleaños" class="producto-img">
+                    <div class="producto-content">
+                        <h4>Arco de globos</h4>
+                        <p>Transforma cualquier espacio en el centro de la fiesta con un arco de globos lleno de color y estilo. Ideal para cumpleaños, baby showers, bautizos, graduaciones y celebraciones especiales.</p>
+                        <p class="producto-precio">B/22.00</p>
+                        <button onclick="agregarAlCarrito(1, 'Arco de globos', 22.00, 'arcodeglobo.webp')" class="btn-agregar">
+                            ➕ Agregar al carrito
+                        </button>
                     </div>
-                    <ul class="galeria-pantalla">
-                        <li class="slide activa">
-                            <figure>
-                                <img src="arcodeglobo.webp" alt="Arco de globos decorativo para cumpleaños">
-                                <figcaption class="descripcion-foto">Decoración temática con globos</figcaption>
-                            </figure>
-                        </li>
-                        <li class="slide">
-                            <figure>
-                                <img src="globos2.webp" alt="Arco de globos coloridos para eventos">
-                                <figcaption class="descripcion-foto">Ideal para cumpleaños y celebraciones</figcaption>
-                            </figure>
-                        </li>
-                    </ul>
-                </section>
-
-                <p>Transforma cualquier espacio en el centro de la fiesta con un arco de globos lleno de color y estilo. Ideal para cumpleaños, baby showers, bautizos, graduaciones y celebraciones especiales.</p>
-
-                <div class="catalogo-precio">
-                    <p class="precio">B/22.00</p>
-                    <button onclick="agregarAlCarrito(1, 'Arco de globos', 22.00, 'arcodeglobo.webp')" class="btn-agregar">
-                        ➕ Agregar al carrito
-                    </button>
-                </div>
-            </article>
+                </article>
+            </div>
         </section>
 
         <hr>
@@ -100,253 +79,107 @@
         <!-- BASES DECORATIVAS -->
         <section class="seccion">
             <h3>Bases decorativas</h3>
-            
-            <article class="catalogo-producto">
-                <h4>Candy Bar</h4>
-                <section class="galeria-contenedor">
-                    <div class="controles-galeria">
-                        <button class="flecha anterior">&#10094;</button>
-                        <button class="flecha siguiente">&#10095;</button>
+            <div class="productos-grid">
+                <article class="producto-card">
+                    <img src="candybar1.jpeg" alt="Candy Bar decoración mesa de cumpleaños" class="producto-img">
+                    <div class="producto-content">
+                        <h4>Candy Bar</h4>
+                        <p>Un espacio dulce y colorido para sorprender a todos los invitados. Incluye decoración temática y área organizada para colocar golosinas, cupcakes, chocolates y snacks.</p>
+                        <p class="producto-precio">B/45.00</p>
+                        <button onclick="agregarAlCarrito(2, 'Candy Bar', 45.00, 'candybar1.jpeg')" class="btn-agregar">
+                            ➕ Agregar al carrito
+                        </button>
                     </div>
-                    <ul class="galeria-pantalla">
-                        <li class="slide activa">
-                            <figure>
-                                <img src="candybar1.jpeg" alt="Candy Bar decoración mesa de cumpleaños">
-                                <figcaption class="descripcion-foto">Primer cumpleaños</figcaption>
-                            </figure>
-                        </li>
-                        <li class="slide">
-                            <figure>
-                                <img src="candybar2.jpeg" alt="Candy Bar decoración mesa de cumpleaños">
-                                <figcaption class="descripcion-foto">Primer cumpleaños</figcaption>
-                            </figure>
-                        </li>
-                        <li class="slide">
-                            <figure>
-                                <img src="candybar3.jpeg" alt="Candy Bar decoración mesa de cumpleaños">
-                                <figcaption class="descripcion-foto">Primer cumpleaños</figcaption>
-                            </figure>
-                        </li>
-                    </ul>
-                </section>
-                <p>Un espacio dulce y colorido para sorprender a todos los invitados. Incluye decoración temática y área organizada para colocar golosinas, cupcakes, chocolates y snacks.</p>
-                <div class="catalogo-precio">
-                    <p class="precio">B/45.00</p>
-                    <button onclick="agregarAlCarrito(2, 'Candy Bar', 45.00, 'candybar1.jpeg')" class="btn-agregar">
-                        ➕ Agregar al carrito
-                    </button>
-                </div>
-            </article>
+                </article>
 
-            <article class="catalogo-producto">
-                <h4>Carrusel</h4>
-                <section class="galeria-contenedor">
-                    <div class="controles-galeria">
-                        <button class="flecha anterior">&#10094;</button>
-                        <button class="flecha siguiente">&#10095;</button>
+                <article class="producto-card">
+                    <img src="carrusel.jpg" alt="Carrusel decorativo para eventos" class="producto-img">
+                    <div class="producto-content">
+                        <h4>Carrusel</h4>
+                        <p class="producto-precio">B/5.00</p>
+                        <button onclick="agregarAlCarrito(3, 'Carrusel', 5.00, 'carrusel.jpg')" class="btn-agregar">
+                            ➕ Agregar al carrito
+                        </button>
                     </div>
-                    <ul class="galeria-pantalla">
-                        <li class="slide activa">
-                            <figure>
-                                <img src="carrusel.jpg" alt="Carrusel decorativo para eventos">
-                                <figcaption class="descripcion-foto">Primer cumpleaños</figcaption>
-                            </figure>
-                        </li>
-                    </ul>
-                </section>
-                <div class="catalogo-precio">
-                    <p class="precio">B/5.00</p>
-                    <button onclick="agregarAlCarrito(3, 'Carrusel', 0.00, 'carrusel.jpg')" class="btn-agregar">
-                        ➕ Agregar al carrito
-                    </button>
-                </div>
-            </article>
+                </article>
 
-            <article class="catalogo-producto">
-                <h4>Bases para pasteles</h4>
-                <section class="galeria-contenedor">
-                    <div class="controles-galeria">
-                        <button class="flecha anterior">&#10094;</button>
-                        <button class="flecha siguiente">&#10095;</button>
+                <article class="producto-card">
+                    <img src="baseDulce.jpeg" alt="Base decorativa para pasteles de cumpleaños" class="producto-img">
+                    <div class="producto-content">
+                        <h4>Bases para pasteles</h4>
+                        <p class="producto-precio">B/3.00</p>
+                        <button onclick="agregarAlCarrito(4, 'Bases para pasteles', 3.00, 'baseDulce.jpeg')" class="btn-agregar">
+                            ➕ Agregar al carrito
+                        </button>
                     </div>
-                    <ul class="galeria-pantalla">
-                        <li class="slide activa">
-                            <figure>
-                                <img src="baseDulce.jpeg" alt="Base decorativa para pasteles de cumpleaños">
-                                <figcaption class="descripcion-foto">Primer cumpleaños</figcaption>
-                            </figure>
-                        </li>
-                    </ul>
-                </section>
-                <div class="catalogo-precio">
-                    <p class="precio">B/3.00</p>
-                    <button onclick="agregarAlCarrito(4, 'Bases para pasteles', 0.00, 'baseDulce.jpeg')" class="btn-agregar">
-                        ➕ Agregar al carrito
-                    </button>
-                </div>
-            </article>
+                </article>
 
-            <article class="catalogo-producto">
-                <h4>Bases para pastillas</h4>
-                <section class="galeria-contenedor">
-                    <div class="controles-galeria">
-                        <button class="flecha anterior">&#10094;</button>
-                        <button class="flecha siguiente">&#10095;</button>
+                <article class="producto-card">
+                    <img src="baseP.jpeg" alt="Base decorativa para pastillas de eventos" class="producto-img">
+                    <div class="producto-content">
+                        <h4>Bases para pastillas</h4>
+                        <p class="producto-precio">B/3.00</p>
+                        <button onclick="agregarAlCarrito(5, 'Bases para pastillas', 3.00, 'baseP.jpeg')" class="btn-agregar">
+                            ➕ Agregar al carrito
+                        </button>
                     </div>
-                    <ul class="galeria-pantalla">
-                        <li class="slide activa">
-                            <figure>
-                                <img src="baseP.jpeg" alt="Base decorativa para pastillas de eventos">
-                                <figcaption class="descripcion-foto">Primer cumpleaños</figcaption>
-                            </figure>
-                        </li>
-                    </ul>
-                </section>
-                <div class="catalogo-precio">
-                    <p class="precio">B/3.00</p>
-                    <button onclick="agregarAlCarrito(5, 'Bases para pastillas', 0.00, 'baseP.jpeg')" class="btn-agregar">
-                        ➕ Agregar al carrito
-                    </button>
-                </div>
-            </article>
+                </article>
 
-            <article class="catalogo-producto">
-                <h4>Bases para cupcakes</h4>
-                <section class="galeria-contenedor">
-                    <div class="controles-galeria">
-                        <button class="flecha anterior">&#10094;</button>
-                        <button class="flecha siguiente">&#10095;</button>
+                <article class="producto-card">
+                    <img src="cupcake1.jpeg" alt="Base decorativa para cupcakes de cumpleaños" class="producto-img">
+                    <div class="producto-content">
+                        <h4>Bases para cupcakes</h4>
+                        <p class="producto-precio">B/5.00</p>
+                        <button onclick="agregarAlCarrito(6, 'Bases para cupcakes', 5.00, 'cupcake1.jpeg')" class="btn-agregar">
+                            ➕ Agregar al carrito
+                        </button>
                     </div>
-                    <ul class="galeria-pantalla">
-                        <li class="slide activa">
-                            <figure>
-                                <img src="cupcake1.jpeg" alt="Base decorativa para cupcakes de cumpleaños">
-                                <figcaption class="descripcion-foto">Primer cumpleaños</figcaption>
-                            </figure>
-                        </li>
-                        <li class="slide">
-                            <figure>
-                                <img src="cupcake2.jpeg" alt="Base decorativa para cupcakes de cumpleaños">
-                                <figcaption class="descripcion-foto">Primer cumpleaños</figcaption>
-                            </figure>
-                        </li>
-                        <li class="slide">
-                            <figure>
-                                <img src="cupcake3.jpeg" alt="Base decorativa para cupcakes de cumpleaños">
-                                <figcaption class="descripcion-foto">Primer cumpleaños</figcaption>
-                            </figure>
-                        </li>
-                        <li class="slide">
-                            <figure>
-                                <img src="cupcake4.jpeg" alt="Base decorativa para cupcakes de cumpleaños">
-                                <figcaption class="descripcion-foto">Primer cumpleaños</figcaption>
-                            </figure>
-                        </li>
-                    </ul>
-                </section>
-                <div class="catalogo-precio">
-                    <p class="precio">B/5.00</p>
-                    <button onclick="agregarAlCarrito(6, 'Bases para cupcakes', 0.00, 'cupcake1.jpeg')" class="btn-agregar">
-                        ➕ Agregar al carrito
-                    </button>
-                </div>
-            </article>
+                </article>
 
-            <article class="catalogo-producto">
-                <h4>Pedestales decorativos</h4>
-                <section class="galeria-contenedor">
-                    <div class="controles-galeria">
-                        <button class="flecha anterior">&#10094;</button>
-                        <button class="flecha siguiente">&#10095;</button>
+                <article class="producto-card">
+                    <img src="pedestales.jpg" alt="Pedestales decorativos para eventos" class="producto-img">
+                    <div class="producto-content">
+                        <h4>Pedestales decorativos</h4>
+                        <p class="producto-precio">B/7.00</p>
+                        <button onclick="agregarAlCarrito(7, 'Pedestales decorativos', 7.00, 'pedestales.jpg')" class="btn-agregar">
+                            ➕ Agregar al carrito
+                        </button>
                     </div>
-                    <ul class="galeria-pantalla">
-                        <li class="slide activa">
-                            <figure>
-                                <img src="pedestales.jpg" alt="Pedestales decorativos para eventos">
-                                <figcaption class="descripcion-foto">Primer cumpleaños</figcaption>
-                            </figure>
-                        </li>
-                    </ul>
-                </section>
-                <div class="catalogo-precio">
-                    <p class="precio">B/7.00</p>
-                    <button onclick="agregarAlCarrito(7, 'Pedestales decorativos', 0.00, 'pedestales.jpg')" class="btn-agregar">
-                        ➕ Agregar al carrito
-                    </button>
-                </div>
-            </article>
+                </article>
 
-            <article class="catalogo-producto">
-                <h4>Bandejas decorativas</h4>
-                <section class="galeria-contenedor">
-                    <div class="controles-galeria">
-                        <button class="flecha anterior">&#10094;</button>
-                        <button class="flecha siguiente">&#10095;</button>
+                <article class="producto-card">
+                    <img src="basesblancas.jpg" alt="Bandejas decorativas para eventos" class="producto-img">
+                    <div class="producto-content">
+                        <h4>Bandejas decorativas</h4>
+                        <p class="producto-precio">B/10.00</p>
+                        <button onclick="agregarAlCarrito(8, 'Bandejas decorativas', 10.00, 'basesblancas.jpg')" class="btn-agregar">
+                            ➕ Agregar al carrito
+                        </button>
                     </div>
-                    <ul class="galeria-pantalla">
-                        <li class="slide activa">
-                            <figure>
-                                <img src="basesblancas.jpg" alt="Bandejas decorativas para eventos">
-                                <figcaption class="descripcion-foto">Primer cumpleaños</figcaption>
-                            </figure>
-                        </li>
-                    </ul>
-                </section>
-                <div class="catalogo-precio">
-                    <p class="precio">B/10.00</p>
-                    <button onclick="agregarAlCarrito(8, 'Bandejas decorativas', 0.00, 'basesblancas.jpg')" class="btn-agregar">
-                        ➕ Agregar al carrito
-                    </button>
-                </div>
-            </article>
+                </article>
 
-            <article class="catalogo-producto">
-                <h4>Caballetes</h4>
-                <section class="galeria-contenedor">
-                    <div class="controles-galeria">
-                        <button class="flecha anterior">&#10094;</button>
-                        <button class="flecha siguiente">&#10095;</button>
+                <article class="producto-card">
+                    <img src="caballete.jpeg" alt="Caballetes decorativos para eventos" class="producto-img">
+                    <div class="producto-content">
+                        <h4>Caballetes</h4>
+                        <p class="producto-precio">B/7.00</p>
+                        <button onclick="agregarAlCarrito(9, 'Caballetes', 7.00, 'caballete.jpeg')" class="btn-agregar">
+                            ➕ Agregar al carrito
+                        </button>
                     </div>
-                    <ul class="galeria-pantalla">
-                        <li class="slide activa">
-                            <figure>
-                                <img src="caballete.jpeg" alt="Caballetes decorativos para eventos">
-                                <figcaption class="descripcion-foto">Primer cumpleaños</figcaption>
-                            </figure>
-                        </li>
-                    </ul>
-                </section>
-                <div class="catalogo-precio">
-                    <p class="precio">B/7.00</p>
-                    <button onclick="agregarAlCarrito(9, 'Caballetes', 0.00, 'caballete.jpeg')" class="btn-agregar">
-                        ➕ Agregar al carrito
-                    </button>
-                </div>
-            </article>
+                </article>
 
-            <article class="catalogo-producto">
-                <h4>Letras de madera pequeñas</h4>
-                <section class="galeria-contenedor">
-                    <div class="controles-galeria">
-                        <button class="flecha anterior">&#10094;</button>
-                        <button class="flecha siguiente">&#10095;</button>
+                <article class="producto-card">
+                    <img src="letras.jpeg" alt="Letras de madera pequeñas para decoración" class="producto-img">
+                    <div class="producto-content">
+                        <h4>Letras de madera pequeñas</h4>
+                        <p class="producto-precio">B/1.00</p>
+                        <button onclick="agregarAlCarrito(10, 'Letras de madera pequeñas', 1.00, 'letras.jpeg')" class="btn-agregar">
+                            ➕ Agregar al carrito
+                        </button>
                     </div>
-                    <ul class="galeria-pantalla">
-                        <li class="slide activa">
-                            <figure>
-                                <img src="letras.jpeg" alt="Letras de madera pequeñas para decoración">
-                                <figcaption class="descripcion-foto">Letras de madera</figcaption>
-                            </figure>
-                        </li>
-                    </ul>
-                </section>
-                <div class="catalogo-precio">
-                    <p class="precio">B/1.00</p>
-                    <button onclick="agregarAlCarrito(10, 'Letras de madera pequeñas', 0.00, 'letras.jpeg')" class="btn-agregar">
-                        ➕ Agregar al carrito
-                    </button>
-                </div>
-            </article>
+                </article>
+            </div>
         </section>
 
         <hr>
@@ -354,131 +187,67 @@
         <!-- EQUIPOS DE ALIMENTOS -->
         <section id="equipos-alimentos" class="seccion">
             <h3>Equipos de alimentos</h3>
-            
-            <article class="catalogo-producto">
-                <h4>Máquina de palomitas</h4>
-                <section class="galeria-contenedor">
-                    <div class="controles-galeria">
-                        <button class="flecha anterior">&#10094;</button>
-                        <button class="flecha siguiente">&#10095;</button>
+            <div class="productos-grid">
+                <article class="producto-card">
+                    <img src="palomitas.jpg" alt="Máquina de palomitas para eventos" class="producto-img">
+                    <div class="producto-content">
+                        <h4>Máquina de palomitas</h4>
+                        <p>Disfruta palomitas frescas, calientes y listas en pocos minutos. Perfecta para cumpleaños, eventos infantiles, ferias o reuniones familiares.</p>
+                        <p class="producto-precio">B/18.00</p>
+                        <button onclick="agregarAlCarrito(11, 'Máquina de palomitas', 18.00, 'palomitas.jpg')" class="btn-agregar">
+                            ➕ Agregar al carrito
+                        </button>
                     </div>
-                    <ul class="galeria-pantalla">
-                        <li class="slide activa">
-                            <figure>
-                                <img src="palomitas.jpg" alt="Máquina de palomitas para eventos">
-                                <figcaption class="descripcion-foto">Primer cumpleaños</figcaption>
-                            </figure>
-                        </li>
-                    </ul>
-                </section>
-                <p>Disfruta palomitas frescas, calientes y listas en pocos minutos. Perfecta para cumpleaños, eventos infantiles, ferias o reuniones familiares.</p>
-                <div class="catalogo-precio">
-                    <p class="precio">B/18.00</p>
-                    <button onclick="agregarAlCarrito(11, 'Máquina de palomitas', 18.00, 'palomitas.jpg')" class="btn-agregar">
-                        ➕ Agregar al carrito
-                    </button>
-                </div>
-            </article>
+                </article>
 
-            <article class="catalogo-producto">
-                <h4>Máquina de algodón de azúcar</h4>
-                <section class="galeria-contenedor">
-                    <div class="controles-galeria">
-                        <button class="flecha anterior">&#10094;</button>
-                        <button class="flecha siguiente">&#10095;</button>
+                <article class="producto-card">
+                    <img src="algodon.jpg" alt="Máquina de algodón de azúcar para eventos" class="producto-img">
+                    <div class="producto-content">
+                        <h4>Máquina de algodón de azúcar</h4>
+                        <p>Llena la fiesta de color y dulzura con algodón de azúcar recién preparado. Perfecta para cumpleaños infantiles, ferias y celebraciones divertidas.</p>
+                        <p class="producto-precio">B/18.00</p>
+                        <button onclick="agregarAlCarrito(12, 'Máquina de algodón de azúcar', 18.00, 'algodon.jpg')" class="btn-agregar">
+                            ➕ Agregar al carrito
+                        </button>
                     </div>
-                    <ul class="galeria-pantalla">
-                        <li class="slide activa">
-                            <figure>
-                                <img src="algodon.jpg" alt="Máquina de algodón de azúcar para eventos">
-                                <figcaption class="descripcion-foto">Primer cumpleaños</figcaption>
-                            </figure>
-                        </li>
-                    </ul>
-                </section>
-                <p>Llena la fiesta de color y dulzura con algodón de azúcar recién preparado. Perfecta para cumpleaños infantiles, ferias y celebraciones divertidas.</p>
-                <div class="catalogo-precio">
-                    <p class="precio">B/18.00</p>
-                    <button onclick="agregarAlCarrito(12, 'Máquina de algodón de azúcar', 0.00, 'algodon.jpg')" class="btn-agregar">
-                        ➕ Agregar al carrito
-                    </button>
-                </div>
-            </article>
+                </article>
 
-            <article class="catalogo-producto">
-                <h4>Máquina de Hot Dogs</h4>
-                <section class="galeria-contenedor">
-                    <div class="controles-galeria">
-                        <button class="flecha anterior">&#10094;</button>
-                        <button class="flecha siguiente">&#10095;</button>
+                <article class="producto-card">
+                    <img src="hotdog.jpg" alt="Máquina de Hot Dogs para eventos" class="producto-img">
+                    <div class="producto-content">
+                        <h4>Máquina de Hot Dogs</h4>
+                        <p>Prepara deliciosos hot dogs de manera rápida y práctica para consentir a todos tus invitados durante el evento.</p>
+                        <p class="producto-precio">B/10.00</p>
+                        <button onclick="agregarAlCarrito(13, 'Máquina de Hot Dogs', 10.00, 'hotdog.jpg')" class="btn-agregar">
+                            ➕ Agregar al carrito
+                        </button>
                     </div>
-                    <ul class="galeria-pantalla">
-                        <li class="slide activa">
-                            <figure>
-                                <img src="hotdog.jpg" alt="Máquina de Hot Dogs para eventos">
-                                <figcaption class="descripcion-foto">Primer cumpleaños</figcaption>
-                            </figure>
-                        </li>
-                    </ul>
-                </section>
-                <p>Prepara deliciosos hot dogs de manera rápida y práctica para consentir a todos tus invitados durante el evento.</p>
-                <div class="catalogo-precio">
-                    <p class="precio">B/10.00</p>
-                    <button onclick="agregarAlCarrito(13, 'Máquina de Hot Dogs', 0.00, 'hotdog.jpg')" class="btn-agregar">
-                        ➕ Agregar al carrito
-                    </button>
-                </div>
-            </article>
+                </article>
 
-            <article class="catalogo-producto">
-                <h4>Máquina de raspados</h4>
-                <section class="galeria-contenedor">
-                    <div class="controles-galeria">
-                        <button class="flecha anterior">&#10094;</button>
-                        <button class="flecha siguiente">&#10095;</button>
+                <article class="producto-card">
+                    <img src="raspados.webp" alt="Máquina de raspados para eventos" class="producto-img">
+                    <div class="producto-content">
+                        <h4>Máquina de raspados</h4>
+                        <p>Refresca cualquier celebración con deliciosos raspados preparados al instante. Ideal para eventos al aire libre y días calurosos.</p>
+                        <p class="producto-precio">B/18.00</p>
+                        <button onclick="agregarAlCarrito(14, 'Máquina de raspados', 18.00, 'raspados.webp')" class="btn-agregar">
+                            ➕ Agregar al carrito
+                        </button>
                     </div>
-                    <ul class="galeria-pantalla">
-                        <li class="slide activa">
-                            <figure>
-                                <img src="raspados.webp" alt="Máquina de raspados para eventos">
-                                <figcaption class="descripcion-foto">Primer cumpleaños</figcaption>
-                            </figure>
-                        </li>
-                    </ul>
-                </section>
-                <p>Refresca cualquier celebración con deliciosos raspados preparados al instante. Ideal para eventos al aire libre y días calurosos.</p>
-                <div class="catalogo-precio">
-                    <p class="precio">B/18.00</p>
-                    <button onclick="agregarAlCarrito(14, 'Máquina de raspados', 0.00, 'raspados.webp')" class="btn-agregar">
-                        ➕ Agregar al carrito
-                    </button>
-                </div>
-            </article>
+                </article>
 
-            <article class="catalogo-producto">
-                <h4>Fuente de chocolate</h4>
-                <section class="galeria-contenedor">
-                    <div class="controles-galeria">
-                        <button class="flecha anterior">&#10094;</button>
-                        <button class="flecha siguiente">&#10095;</button>
+                <article class="producto-card">
+                    <img src="chocolate.jpg" alt="Fuente de chocolate para eventos" class="producto-img">
+                    <div class="producto-content">
+                        <h4>Fuente de chocolate</h4>
+                        <p>Añade un toque divertido y delicioso a tu evento con una fuente de chocolate perfecta para frutas, malvaviscos y snacks dulces.</p>
+                        <p class="producto-precio">B/12.00</p>
+                        <button onclick="agregarAlCarrito(15, 'Fuente de chocolate', 12.00, 'chocolate.jpg')" class="btn-agregar">
+                            ➕ Agregar al carrito
+                        </button>
                     </div>
-                    <ul class="galeria-pantalla">
-                        <li class="slide activa">
-                            <figure>
-                                <img src="chocolate.jpg" alt="Fuente de chocolate para eventos">
-                                <figcaption class="descripcion-foto">Primer cumpleaños</figcaption>
-                            </figure>
-                        </li>
-                    </ul>
-                </section>
-                <p>Añade un toque divertido y delicioso a tu evento con una fuente de chocolate perfecta para frutas, malvaviscos y snacks dulces.</p>
-                <div class="catalogo-precio">
-                    <p class="precio">B/12.00</p>
-                    <button onclick="agregarAlCarrito(15, 'Fuente de chocolate', 0.00, 'chocolate.jpg')" class="btn-agregar">
-                        ➕ Agregar al carrito
-                    </button>
-                </div>
-            </article>
+                </article>
+            </div>
         </section>
         
         <hr>
@@ -486,131 +255,67 @@
         <!-- MOBILIARIO -->
         <section id="mobiliario" class="seccion">
             <h3>Mobiliario</h3>
-            
-            <article class="catalogo-producto">
-                <h4>Sillas plegables</h4>
-                <section class="galeria-contenedor">
-                    <div class="controles-galeria">
-                        <button class="flecha anterior">&#10094;</button>
-                        <button class="flecha siguiente">&#10095;</button>
+            <div class="productos-grid">
+                <article class="producto-card">
+                    <img src="sillas.webp" alt="Sillas plegables para eventos" class="producto-img">
+                    <div class="producto-content">
+                        <h4>Sillas plegables</h4>
+                        <p>Sillas cómodas y prácticas para todo tipo de eventos. Ideales para cumpleaños, reuniones, actividades escolares, celebraciones familiares y más.</p>
+                        <p class="producto-precio">B/1.50</p>
+                        <button onclick="agregarAlCarrito(16, 'Sillas plegables', 1.50, 'sillas.webp')" class="btn-agregar">
+                            ➕ Agregar al carrito
+                        </button>
                     </div>
-                    <ul class="galeria-pantalla">
-                        <li class="slide activa">
-                            <figure>
-                                <img src="sillas.webp" alt="Sillas plegables para eventos">
-                                <figcaption class="descripcion-foto">Sillas plegables</figcaption>
-                            </figure>
-                        </li>
-                    </ul>
-                </section>
-                <p>Sillas cómodas y prácticas para todo tipo de eventos. Ideales para cumpleaños, reuniones, actividades escolares, celebraciones familiares y más.</p>
-                <div class="catalogo-precio">
-                    <p class="precio">B/1.50</p>
-                    <button onclick="agregarAlCarrito(16, 'Sillas plegables', 1.50, 'sillas.webp')" class="btn-agregar">
-                        ➕ Agregar al carrito
-                    </button>
-                </div>
-            </article>
+                </article>
 
-            <article class="catalogo-producto">
-                <h4>Mesas redondas</h4>
-                <section class="galeria-contenedor">
-                    <div class="controles-galeria">
-                        <button class="flecha anterior">&#10094;</button>
-                        <button class="flecha siguiente">&#10095;</button>
+                <article class="producto-card">
+                    <img src="mesaC.webp" alt="Mesas redondas para eventos" class="producto-img">
+                    <div class="producto-content">
+                        <h4>Mesas redondas</h4>
+                        <p>Perfectas para reuniones familiares, cumpleaños y eventos sociales. Brindan comodidad y mejor distribución para los invitados.</p>
+                        <p class="producto-precio">B/4.00</p>
+                        <button onclick="agregarAlCarrito(17, 'Mesas redondas', 4.00, 'mesaC.webp')" class="btn-agregar">
+                            ➕ Agregar al carrito
+                        </button>
                     </div>
-                    <ul class="galeria-pantalla">
-                        <li class="slide activa">
-                            <figure>
-                                <img src="mesaC.webp" alt="Mesas redondas para eventos">
-                                <figcaption class="descripcion-foto">Mesa redonda plegable</figcaption>
-                            </figure>
-                        </li>
-                    </ul>
-                </section>
-                <p>Perfectas para reuniones familiares, cumpleaños y eventos sociales. Brindan comodidad y mejor distribución para los invitados.</p>
-                <div class="catalogo-precio">
-                    <p class="precio">B/4.00</p>
-                    <button onclick="agregarAlCarrito(17, 'Mesas redondas', 0.00, 'mesaC.webp')" class="btn-agregar">
-                        ➕ Agregar al carrito
-                    </button>
-                </div>
-            </article>
+                </article>
 
-            <article class="catalogo-producto">
-                <h4>Mesas rectangulares</h4>
-                <section class="galeria-contenedor">
-                    <div class="controles-galeria">
-                        <button class="flecha anterior">&#10094;</button>
-                        <button class="flecha siguiente">&#10095;</button>
+                <article class="producto-card">
+                    <img src="mesaR.webp" alt="Mesas rectangulares para eventos" class="producto-img">
+                    <div class="producto-content">
+                        <h4>Mesas rectangulares</h4>
+                        <p>Ideales para buffets, mesas principales, regalos o acomodar invitados de manera práctica y organizada.</p>
+                        <p class="producto-precio">B/4.00</p>
+                        <button onclick="agregarAlCarrito(18, 'Mesas rectangulares', 4.00, 'mesaR.webp')" class="btn-agregar">
+                            ➕ Agregar al carrito
+                        </button>
                     </div>
-                    <ul class="galeria-pantalla">
-                        <li class="slide activa">
-                            <figure>
-                                <img src="mesaR.webp" alt="Mesas rectangulares para eventos">
-                                <figcaption class="descripcion-foto">Mesa rectangular plegable</figcaption>
-                            </figure>
-                        </li>
-                    </ul>
-                </section>
-                <p>Ideales para buffets, mesas principales, regalos o acomodar invitados de manera práctica y organizada.</p>
-                <div class="catalogo-precio">
-                    <p class="precio">B/4.00</p>
-                    <button onclick="agregarAlCarrito(18, 'Mesas rectangulares', 0.00, 'mesaR.webp')" class="btn-agregar">
-                        ➕ Agregar al carrito
-                    </button>
-                </div>
-            </article>
+                </article>
 
-            <article class="catalogo-producto">
-                <h4>Manteles</h4>
-                <section class="galeria-contenedor">
-                    <div class="controles-galeria">
-                        <button class="flecha anterior">&#10094;</button>
-                        <button class="flecha siguiente">&#10095;</button>
+                <article class="producto-card">
+                    <img src="mantel4.jpg" alt="Manteles decorativos para eventos" class="producto-img">
+                    <div class="producto-content">
+                        <h4>Manteles</h4>
+                        <p>Añade elegancia y color a las mesas con manteles que combinan perfectamente con cualquier temática o decoración.</p>
+                        <p class="producto-precio">B/2.50</p>
+                        <button onclick="agregarAlCarrito(19, 'Manteles', 2.50, 'mantel4.jpg')" class="btn-agregar">
+                            ➕ Agregar al carrito
+                        </button>
                     </div>
-                    <ul class="galeria-pantalla">
-                        <li class="slide activa">
-                            <figure>
-                                <img src="mantel4.jpg" alt="Manteles decorativos para eventos">
-                                <figcaption class="descripcion-foto">Primer cumpleaños</figcaption>
-                            </figure>
-                        </li>
-                    </ul>
-                </section>
-                <p>Añade elegancia y color a las mesas con manteles que combinan perfectamente con cualquier temática o decoración.</p>
-                <div class="catalogo-precio">
-                    <p class="precio">B/2.50</p>
-                    <button onclick="agregarAlCarrito(19, 'Manteles', 0.00, 'mantel4.jpg')" class="btn-agregar">
-                        ➕ Agregar al carrito
-                    </button>
-                </div>
-            </article>
+                </article>
 
-            <article class="catalogo-producto">
-                <h4>Carpas</h4>
-                <section class="galeria-contenedor">
-                    <div class="controles-galeria">
-                        <button class="flecha anterior">&#10094;</button>
-                        <button class="flecha siguiente">&#10095;</button>
+                <article class="producto-card">
+                    <img src="carpa2.webp" alt="Carpas para eventos al aire libre" class="producto-img">
+                    <div class="producto-content">
+                        <h4>Carpas</h4>
+                        <p>Protege a tus invitados del sol o la lluvia con carpas amplias y resistentes, ideales para eventos al aire libre.</p>
+                        <p class="producto-precio">B/25.00</p>
+                        <button onclick="agregarAlCarrito(20, 'Carpas', 25.00, 'carpa2.webp')" class="btn-agregar">
+                            ➕ Agregar al carrito
+                        </button>
                     </div>
-                    <ul class="galeria-pantalla">
-                        <li class="slide activa">
-                            <figure>
-                                <img src="carpa2.webp" alt="Carpas para eventos al aire libre">
-                                <figcaption class="descripcion-foto">Primer cumpleaños</figcaption>
-                            </figure>
-                        </li>
-                    </ul>
-                </section>
-                <p>Protege a tus invitados del sol o la lluvia con carpas amplias y resistentes, ideales para eventos al aire libre.</p>
-                <div class="catalogo-precio">
-                    <p class="precio">B/25.00</p>
-                    <button onclick="agregarAlCarrito(20, 'Carpas', 0.00, 'carpa2.webp')" class="btn-agregar">
-                        ➕ Agregar al carrito
-                    </button>
-                </div>
-            </article>
+                </article>
+            </div>
         </section>
 
         <hr>
@@ -618,163 +323,162 @@
         <!-- SONIDO E ILUMINACIÓN -->
         <section id="sonido-iluminacion" class="seccion">
             <h3>Sonido e iluminación</h3>
-            
-            <article class="catalogo-producto">
-                <h4>Bocinas</h4>
-                <section class="galeria-contenedor">
-                    <div class="controles-galeria">
-                        <button class="flecha anterior">&#10094;</button>
-                        <button class="flecha siguiente">&#10095;</button>
+            <div class="productos-grid">
+                <article class="producto-card">
+                    <img src="bocinas.webp" alt="Bocinas para eventos" class="producto-img">
+                    <div class="producto-content">
+                        <h4>Bocinas</h4>
+                        <p>Haz que la música se sienta en toda la celebración con bocinas potentes y de excelente calidad de sonido. Perfectas para cumpleaños, karaoke, reuniones y eventos al aire libre.</p>
+                        <p class="producto-precio">B/20.00</p>
+                        <button onclick="agregarAlCarrito(21, 'Bocinas', 20.00, 'bocinas.webp')" class="btn-agregar">
+                            ➕ Agregar al carrito
+                        </button>
                     </div>
-                    <ul class="galeria-pantalla">
-                        <li class="slide activa">
-                            <figure>
-                                <img src="bocinas.webp" alt="Bocinas para eventos">
-                                <figcaption class="descripcion-foto">Primer cumpleaños</figcaption>
-                            </figure>
-                        </li>
-                    </ul>
-                </section>
-                <p>Haz que la música se sienta en toda la celebración con bocinas potentes y de excelente calidad de sonido. Perfectas para cumpleaños, karaoke, reuniones y eventos al aire libre.</p>
-                <div class="catalogo-precio">
-                    <p class="precio">B/20.00</p>
-                    <button onclick="agregarAlCarrito(21, 'Bocinas', 20.00, 'bocinas.webp')" class="btn-agregar">
-                        ➕ Agregar al carrito
-                    </button>
-                </div>
-            </article>
+                </article>
 
-            <article class="catalogo-producto">
-                <h4>Micrófonos</h4>
-                <section class="galeria-contenedor">
-                    <div class="controles-galeria">
-                        <button class="flecha anterior">&#10094;</button>
-                        <button class="flecha siguiente">&#10095;</button>
+                <article class="producto-card">
+                    <img src="mic.webp" alt="Micrófonos para eventos" class="producto-img">
+                    <div class="producto-content">
+                        <h4>Micrófonos</h4>
+                        <p>Ideales para karaoke, animación, presentaciones o actividades especiales durante el evento. Excelente calidad de sonido y fácil uso.</p>
+                        <p class="producto-precio">B/10.00</p>
+                        <button onclick="agregarAlCarrito(22, 'Micrófonos', 10.00, 'mic.webp')" class="btn-agregar">
+                            ➕ Agregar al carrito
+                        </button>
                     </div>
-                    <ul class="galeria-pantalla">
-                        <li class="slide activa">
-                            <figure>
-                                <img src="mic.webp" alt="Micrófonos para eventos">
-                                <figcaption class="descripcion-foto">Primer cumpleaños</figcaption>
-                            </figure>
-                        </li>
-                    </ul>
-                </section>
-                <p>Ideales para karaoke, animación, presentaciones o actividades especiales durante el evento. Excelente calidad de sonido y fácil uso.</p>
-                <div class="catalogo-precio">
-                    <p class="precio">B/10.00</p>
-                    <button onclick="agregarAlCarrito(22, 'Micrófonos', 0.00, 'mic.webp')" class="btn-agregar">
-                        ➕ Agregar al carrito
-                    </button>
-                </div>
-            </article>
+                </article>
 
-            <article class="catalogo-producto">
-                <h4>Luces LED</h4>
-                <section class="galeria-contenedor">
-                    <div class="controles-galeria">
-                        <button class="flecha anterior">&#10094;</button>
-                        <button class="flecha siguiente">&#10095;</button>
+                <article class="producto-card">
+                    <img src="luces0.jpg" alt="Luces LED para eventos" class="producto-img">
+                    <div class="producto-content">
+                        <h4>Luces LED</h4>
+                        <p>Dale un toque moderno y dinámico a la fiesta con iluminación LED de colores que transforma cualquier espacio en un ambiente más divertido.</p>
+                        <p class="producto-precio">B/7.00</p>
+                        <button onclick="agregarAlCarrito(23, 'Luces LED', 7.00, 'luces0.jpg')" class="btn-agregar">
+                            ➕ Agregar al carrito
+                        </button>
                     </div>
-                    <ul class="galeria-pantalla">
-                        <li class="slide activa">
-                            <figure>
-                                <img src="luces0.jpg" alt="Luces LED para eventos">
-                                <figcaption class="descripcion-foto">Primer cumpleaños</figcaption>
-                            </figure>
-                        </li>
-                        <li class="slide">
-                            <figure>
-                                <img src="luces1.jpg" alt="Luces LED para eventos">
-                                <figcaption class="descripcion-foto">Primer cumpleaños</figcaption>
-                            </figure>
-                        </li>
-                        <li class="slide">
-                            <figure>
-                                <img src="luces2.jpg" alt="Luces LED para eventos">
-                                <figcaption class="descripcion-foto">Primer cumpleaños</figcaption>
-                            </figure>
-                        </li>
-                    </ul>
-                </section>
-                <p>Dale un toque moderno y dinámico a la fiesta con iluminación LED de colores que transforma cualquier espacio en un ambiente más divertido.</p>
-                <div class="catalogo-precio">
-                    <p class="precio">B/7.00</p>
-                    <button onclick="agregarAlCarrito(23, 'Luces LED', 0.00, 'luces0.jpg')" class="btn-agregar">
-                        ➕ Agregar al carrito
-                    </button>
-                </div>
-            </article>
+                </article>
 
-            <article class="catalogo-producto">
-                <h4>Máquina de humo</h4>
-                <section class="galeria-contenedor">
-                    <div class="controles-galeria">
-                        <button class="flecha anterior">&#10094;</button>
-                        <button class="flecha siguiente">&#10095;</button>
+                <article class="producto-card">
+                    <img src="humo.jpg" alt="Máquina de humo para eventos" class="producto-img">
+                    <div class="producto-content">
+                        <h4>Máquina de humo</h4>
+                        <p>Crea una atmósfera espectacular para bailes, entradas especiales y fiestas nocturnas con efectos visuales increíbles.</p>
+                        <p class="producto-precio">B/10.00</p>
+                        <button onclick="agregarAlCarrito(24, 'Máquina de humo', 10.00, 'humo.jpg')" class="btn-agregar">
+                            ➕ Agregar al carrito
+                        </button>
                     </div>
-                    <ul class="galeria-pantalla">
-                        <li class="slide activa">
-                            <figure>
-                                <img src="humo.jpg" alt="Máquina de humo para eventos">
-                                <figcaption class="descripcion-foto">Primer cumpleaños</figcaption>
-                            </figure>
-                        </li>
-                    </ul>
-                </section>
-                <p>Crea una atmósfera espectacular para bailes, entradas especiales y fiestas nocturnas con efectos visuales increíbles.</p>
-                <div class="catalogo-precio">
-                    <p class="precio">B/10.00</p>
-                    <button onclick="agregarAlCarrito(24, 'Máquina de humo', 0.00, 'humo.jpg')" class="btn-agregar">
-                        ➕ Agregar al carrito
-                    </button>
-                </div>
-            </article>
+                </article>
 
-            <article class="catalogo-producto">
-                <h4>Máquina de Karaoke</h4>
-                <section class="galeria-contenedor">
-                    <div class="controles-galeria">
-                        <button class="flecha anterior">&#10094;</button>
-                        <button class="flecha siguiente">&#10095;</button>
+                <article class="producto-card">
+                    <img src="karaoke.jpg" alt="Máquina de Karaoke para eventos" class="producto-img">
+                    <div class="producto-content">
+                        <h4>Máquina de Karaoke</h4>
+                        <p>Haz que todos participen y se diviertan cantando sus canciones favoritas. Perfecto para reuniones familiares, cumpleaños y eventos juveniles.</p>
+                        <p class="producto-precio">B/18.00</p>
+                        <button onclick="agregarAlCarrito(25, 'Máquina de Karaoke', 18.00, 'karaoke.jpg')" class="btn-agregar">
+                            ➕ Agregar al carrito
+                        </button>
                     </div>
-                    <ul class="galeria-pantalla">
-                        <li class="slide activa">
-                            <figure>
-                                <img src="karaoke.jpg" alt="Máquina de Karaoke para eventos">
-                                <figcaption class="descripcion-foto">Primer cumpleaños</figcaption>
-                            </figure>
-                        </li>
-                    </ul>
-                </section>
-                <p>Haz que todos participen y se diviertan cantando sus canciones favoritas. Perfecto para reuniones familiares, cumpleaños y eventos juveniles.</p>
-                <div class="catalogo-precio">
-                    <p class="precio">B/18.00</p>
-                    <button onclick="agregarAlCarrito(25, 'Máquina de Karaoke', 0.00, 'karaoke.jpg')" class="btn-agregar">
-                        ➕ Agregar al carrito
-                    </button>
-                </div>
-            </article>
+                </article>
+            </div>
         </section>
     </main>
 
+    <!-- FOOTER -->
     <footer class="container">
-        <section>
-            <h3>Contacto</h3>
-            <p>Ubicación: Panamá Oeste, La Chorrera</p>
-            <p>Teléfono: +507 6000-0000</p>
-            <p>Correo: festinPanama@gmail.com</p>
-        </section>
-        
-        <nav aria-label="Enlaces legales" class="legal">
-            <a href="privacidad-y-terminos.html">
-                Política de Privacidad y Términos y Condiciones
-            </a>
-        </nav>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contacto</h3>
+                <p>📍 Panamá Oeste, La Chorrera</p>
+                <p>📞 +507 6000-0000</p>
+                <p>✉️ festin.contacto.pa@gmail.com
+</p>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/profile.php?id=100009119315097" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/fiestasfestin?igsh=MXIxcG94Yzh6MTdncg==" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.youtube.com/@festinfiestasymas" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
 
-        <p class="copyright">
-            <small>&copy; 2026 Festín Panamá. Todos los derechos reservados.</small>
-        </p>
+            <div class="footer-section">
+                <h3>Enlaces Rápidos</h3>
+                <a href="index.html">Inicio</a>
+                <a href="catalogo.html">Catálogo</a>
+                <a href="servicios.html">Servicios</a>
+                <a href="faq.html">Preguntas Frecuentes</a>
+                <a href="contacto.html">Contacto</a>
+            </div>
+
+            <div class="footer-section">
+                <h3>Legal</h3>
+                <a href="privacidad-y-terminos.html">Política de Privacidad, Términos y Condiciones</a>
+            </div>
+
+            <div class="footer-section">
+                <h3>Atención al Cliente</h3>
+                <p>Lunes a Viernes: 8:00 AM - 6:00 PM</p>
+                <p>Sábados y Domingos: 10:00 AM - 2:00 PM</p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Festín Panamá. Todos los derechos reservados.</p>
+        </div>
     </footer>
+
+    <script>
+    // 🔍 Filtrar productos según la búsqueda
+    document.addEventListener('DOMContentLoaded', () => {
+        const urlParams = new URLSearchParams(window.location.search);
+        const termino = urlParams.get('q')?.toLowerCase().trim();
+        
+        if (!termino) return;
+        
+        console.log('🔍 Buscando:', termino);
+        
+        // Llenar el campo de búsqueda
+        const input = document.getElementById('buscar-prod');
+        if (input) input.value = termino;
+        
+        // Filtrar productos
+        const productos = document.querySelectorAll('.producto-card');
+        let encontrados = 0;
+        
+        productos.forEach(p => {
+            if (p.textContent.toLowerCase().includes(termino)) {
+                p.style.display = '';
+                encontrados++;
+            } else {
+                p.style.display = 'none';
+            }
+        });
+        
+        // Ocultar secciones vacías
+        document.querySelectorAll('.seccion').forEach(s => {
+            const grid = s.querySelector('.productos-grid');
+            if (grid && grid.querySelectorAll('.producto-card:not([style*="display: none"])').length === 0) {
+                s.style.display = 'none';
+            }
+        });
+        
+        // Mostrar mensaje
+        const main = document.querySelector('main');
+        const msg = document.createElement('div');
+        msg.style.cssText = 'background:#fff3cd; border:2px solid #ffc107; padding:15px; border-radius:10px; margin:20px 0; color:#856404;';
+        
+        if (encontrados === 0) {
+            msg.innerHTML = `<p><strong>😕 No se encontraron resultados para "${termino}"</strong></p>
+            <a href="catalogo.html" style="display:inline-block; margin-top:10px; padding:10px 20px; background:#ff6b6b; color:white; text-decoration:none; border-radius:5px;">Ver todo el catálogo</a>`;
+        } else {
+            msg.innerHTML = `<p><strong>🔍 ${encontrados} resultado${encontrados>1?'s':''} para "${termino}"</strong></p>
+            <a href="catalogo.html" style="display:inline-block; margin-top:10px; padding:8px 15px; background:#28a745; color:white; text-decoration:none; border-radius:5px; font-size:14px;">✖ Limpiar</a>`;
+        }
+        
+        main.insertBefore(msg, main.querySelector('.seccion'));
+    });
+</script>
 </body>
 </html>
