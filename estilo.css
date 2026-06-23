@@ -89,6 +89,30 @@ h1 {
   }
 }
 
+.hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+                url('fiesta.jpg') center/cover no-repeat;
+    color: white;
+    padding: 100px 20px;
+    text-align: center;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-content h2 {
+    color: white;
+    font-size: 48px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.hero-content p {
+    color: white;
+    font-size: 24px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
 .menu ul {
   list-style: none;
 }
