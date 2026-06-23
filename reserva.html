@@ -9,6 +9,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="supabase.js"></script>
     <script src="auth.js"></script>
+    <script src="validacion-reservas.js"></script>
     <script src="script.js" defer></script>
 </head>
 <body>
@@ -47,6 +48,9 @@
             
             <!-- Mensaje de error/éxito -->
             <div id="reserva-mensaje" class="mensaje-reserva" style="display:none;"></div>
+            
+            <!-- Resumen del carrito (se llena automáticamente si viene del carrito) -->
+            <div id="resumen-carrito" style="display:none;"></div>
         </section>
 
         <section class="seccion">
@@ -97,10 +101,18 @@
                         </div>
 
                         <div class="campo-form">
-                            <label for="reserva-hora">Hora del evento</label>
+                            <label for="reserva-hora">Hora de inicio</label>
                             <div class="input-wrapper">
                                 <span>🕐</span>
                                 <input type="time" id="reserva-hora" name="hora" required>
+                            </div>
+                        </div>
+
+                        <div class="campo-form">
+                            <label for="reserva-duracion">Duración (horas)</label>
+                            <div class="input-wrapper">
+                                <span>⏱️</span>
+                                <input type="number" id="reserva-duracion" name="duracion" min="1" max="20" value="4" required>
                             </div>
                         </div>
 

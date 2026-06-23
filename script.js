@@ -1,4 +1,4 @@
-// script.js - VERSIÓN SUPABASE (TODO INTEGRADO) CON DEBUG
+// script.js - VERSIÓN SUPABASE (TODO INTEGRADO) CON VALIDACIÓN DE RESERVAS
 
 document.addEventListener('DOMContentLoaded', async () => {
     
@@ -118,7 +118,6 @@ document.addEventListener('DOMContentLoaded', async () => {
             
             console.log('🔄 Llamando a registrarUsuario...');
             
-            // ← await aquí
             const res = await window.registrarUsuario(nombre, email, password);
             
             console.log('📬 Respuesta de registrarUsuario:', res);
@@ -151,7 +150,6 @@ document.addEventListener('DOMContentLoaded', async () => {
             
             console.log('🔄 Llamando a iniciarSesion...');
             
-            // ← await aquí
             const res = await window.iniciarSesion(email, password);
             
             console.log('📬 Respuesta de iniciarSesion:', res);
@@ -161,7 +159,6 @@ document.addEventListener('DOMContentLoaded', async () => {
             if (res.ok) {
                 formLogin.reset();
                 
-                // Si estamos en login.html y hay panel de usuario
                 if (panelUsuario) {
                     formLogin.style.display = 'none';
                     panelUsuario.style.display = 'block';
@@ -170,7 +167,6 @@ document.addEventListener('DOMContentLoaded', async () => {
                     if (nombreEl) nombreEl.textContent = res.usuario?.nombre || email.split('@')[0];
                     if (emailEl) emailEl.textContent = res.usuario?.email || email;
                 } else {
-                    // Redirigir al perfil
                     window.location.href = 'perfil-usuario.html';
                 }
             }
@@ -221,19 +217,25 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     // ============================================
-    // 🎉 RESERVAS (AHORA CON SUPABASE)
+    // 🎉 RESERVAS (CON VALIDACIÓN DE DISPONIBILIDAD Y STOCK)
     // ============================================
     const formReserva = document.getElementById('form-reserva');
     
     if (formReserva) {
+        console.log('✅ Formulario de reserva encontrado - Validaciones activas');
+        
         const mensajeReserva = document.getElementById('reserva-mensaje');
         const btnEnviar = document.getElementById('btn-enviar-reserva');
         const fechaEl = document.getElementById('reserva-fecha');
+        const horaEl = document.getElementById('reserva-hora');
+        const duracionEl = document.getElementById('reserva-duracion');
         
+        // Fecha mínima = hoy
         if (fechaEl && !fechaEl.min) {
             fechaEl.min = new Date().toISOString().split('T')[0];
         }
         
+        // Pre-llenar si hay sesión
         if (typeof window.obtenerSesion === 'function') {
             const sesion = await window.obtenerSesion();
             if (sesion) {
@@ -244,19 +246,168 @@ document.addEventListener('DOMContentLoaded', async () => {
             }
         }
         
+        // Cargar carrito si viene de carrito.html
+        const carritoTemp = sessionStorage.getItem('festin_carrito_temp');
+        let productosCarrito = [];
+        let paquetesCarrito = [];
+        let serviciosCarrito = [];
+        
+        if (carritoTemp) {
+            const carrito = JSON.parse(carritoTemp);
+            console.log('🛒 Carrito cargado desde sessionStorage:', carrito);
+            
+            // Separar productos, servicios y paquetes por ID
+            carrito.forEach(item => {
+                if (item.id >= 100 && item.id < 150) {
+                    // IDs 100-149 son servicios
+                    serviciosCarrito.push({
+                        producto_id: item.id,
+                        nombre: item.nombre,
+                        cantidad: item.cantidad,
+                        precio: item.precio
+                    });
+                } else if (item.id >= 150 && item.id < 200) {
+                    // IDs 150-199 son paquetes (ajusta según tus IDs reales)
+                    paquetesCarrito.push({
+                        producto_id: item.id,
+                        nombre: item.nombre,
+                        cantidad: item.cantidad,
+                        precio: item.precio
+                    });
+                } else {
+                    // IDs menores son productos
+                    productosCarrito.push({
+                        producto_id: item.id,
+                        nombre: item.nombre,
+                        cantidad: item.cantidad,
+                        precio: item.precio
+                    });
+                }
+            });
+            
+            console.log('📦 Productos:', productosCarrito);
+            console.log('🎁 Paquetes:', paquetesCarrito);
+            console.log('🎭 Servicios:', serviciosCarrito);
+        }
+        
+        // Función para calcular total
+        function calcularTotal() {
+            const totalProductos = productosCarrito.reduce((sum, p) => sum + (p.precio * p.cantidad), 0);
+            const totalPaquetes = paquetesCarrito.reduce((sum, p) => sum + (p.precio * p.cantidad), 0);
+            const totalServicios = serviciosCarrito.reduce((sum, s) => sum + (s.precio * s.cantidad), 0);
+            
+            // Servicios seleccionados del formulario (checkboxes)
+            const serviciosForm = Array.from(document.querySelectorAll('input[name="servicios[]"]:checked'))
+                .map(cb => parseFloat(cb.dataset.precio || 0));
+            const totalServiciosForm = serviciosForm.reduce((sum, p) => sum + p, 0);
+            
+            return totalProductos + totalPaquetes + totalServicios + totalServiciosForm;
+        }
+        
+        // Mostrar resumen del carrito si existe
+        if (carritoTemp && document.getElementById('resumen-carrito')) {
+            const resumenEl = document.getElementById('resumen-carrito');
+            const total = calcularTotal();
+            resumenEl.innerHTML = `
+                <h4>🛒 Resumen de tu carrito</h4>
+                ${productosCarrito.length > 0 ? `<p><strong>Productos:</strong> ${productosCarrito.map(p => `${p.cantidad}x ${p.nombre}`).join(', ')}</p>` : ''}
+                ${paquetesCarrito.length > 0 ? `<p><strong>Paquetes:</strong> ${paquetesCarrito.map(p => `${p.cantidad}x ${p.nombre}`).join(', ')}</p>` : ''}
+                ${serviciosCarrito.length > 0 ? `<p><strong>Servicios:</strong> ${serviciosCarrito.map(s => `${s.cantidad}x ${s.nombre}`).join(', ')}</p>` : ''}
+                <p><strong>Total estimado:</strong> B/.${total.toFixed(2)}</p>
+            `;
+        }
+        
         formReserva.addEventListener('submit', async (e) => {
             e.preventDefault();
             
-            const servicios = document.querySelectorAll('input[name="servicios[]"]:checked');
-            if (servicios.length === 0) {
-                mostrarMensaje('⚠️ Selecciona al menos un servicio.', 'error');
+            console.log('🚀 Iniciando validación de reserva...');
+            
+            // ===== VALIDACIONES BÁSICAS =====
+            const fechaEvento = document.getElementById('reserva-fecha')?.value;
+            const horaEvento = document.getElementById('reserva-hora')?.value;
+            const duracionHoras = parseInt(document.getElementById('reserva-duracion')?.value) || 4;
+            
+            if (!fechaEvento || !horaEvento) {
+                mostrarMensaje('⚠️ Debes seleccionar fecha y hora del evento.', 'error');
+                return;
+            }
+            
+            // Verificar que haya algo que reservar
+            const serviciosSeleccionados = document.querySelectorAll('input[name="servicios[]"]:checked');
+            const tieneAlgo = productosCarrito.length > 0 || 
+                             paquetesCarrito.length > 0 || 
+                             serviciosCarrito.length > 0 || 
+                             serviciosSeleccionados.length > 0;
+            
+            if (!tieneAlgo) {
+                mostrarMensaje('⚠️ Debes seleccionar al menos un producto, servicio o paquete.', 'error');
                 return;
             }
             
             if (btnEnviar) {
                 btnEnviar.disabled = true;
-                btnEnviar.textContent = 'Enviando...';
+                btnEnviar.textContent = 'Validando disponibilidad...';
             }
+            
+            // ===== VALIDACIÓN 1: DISPONIBILIDAD DE HORARIO =====
+            console.log('🔍 Validando disponibilidad de horario...');
+            const validacionHorario = await verificarDisponibilidad(fechaEvento, horaEvento, duracionHoras);
+            
+            if (!validacionHorario.disponible) {
+                console.warn('❌ Horario no disponible:', validacionHorario.mensaje);
+                mostrarMensaje(validacionHorario.mensaje, 'error');
+                if (btnEnviar) {
+                    btnEnviar.disabled = false;
+                    btnEnviar.textContent = 'Enviar reserva';
+                }
+                return;
+            }
+            
+            console.log('✅ Horario disponible');
+            
+            // ===== VALIDACIÓN 2: STOCK DE PRODUCTOS =====
+            let estadoFinal = 'pendiente'; // Por defecto
+            let mensajeStock = '';
+            
+            if (productosCarrito.length > 0) {
+                console.log('🔍 Validando stock de productos...');
+                const validacionStock = await verificarStock(productosCarrito, fechaEvento);
+                
+                if (!validacionStock.hayStock) {
+                    console.warn('❌ Stock insuficiente:', validacionStock.mensaje);
+                    estadoFinal = 'pendiente_stock';
+                    mensajeStock = validacionStock.mensaje;
+                } else {
+                    console.log('✅ Stock de productos disponible');
+                }
+            }
+            
+            // ===== VALIDACIÓN 3: STOCK DE PAQUETES =====
+            if (paquetesCarrito.length > 0 && estadoFinal !== 'pendiente_stock') {
+                console.log('🔍 Validando stock de paquetes...');
+                
+                for (const paquete of paquetesCarrito) {
+                    const validacionPaquete = await verificarStockPaquete(
+                        paquete.producto_id, 
+                        paquete.cantidad, 
+                        fechaEvento
+                    );
+                    
+                    if (!validacionPaquete.hayStock) {
+                        console.warn(`❌ Stock insuficiente para paquete ${paquete.nombre}:`, validacionPaquete.mensaje);
+                        estadoFinal = 'pendiente_stock';
+                        mensajeStock += `\n\n${paquete.nombre}: ${validacionPaquete.mensaje}`;
+                        break;
+                    }
+                }
+                
+                if (estadoFinal !== 'pendiente_stock') {
+                    console.log('✅ Stock de paquetes disponible');
+                }
+            }
+            
+            // ===== CREAR LA RESERVA =====
+            console.log('📝 Creando reserva...');
             
             const sesion = typeof window.obtenerSesion === 'function' ? await window.obtenerSesion() : null;
             
@@ -264,16 +415,24 @@ document.addEventListener('DOMContentLoaded', async () => {
                 usuario_id: sesion?.id || null,
                 nombre_cliente: document.getElementById('reserva-nombre')?.value.trim() || '',
                 email: document.getElementById('reserva-correo')?.value.trim().toLowerCase() || '',
-                telefono: document.getElementById('reserva-telefono')?.value.trim() || '',
-                fecha_evento: document.getElementById('reserva-fecha')?.value || '',
-                hora_evento: document.getElementById('reserva-hora')?.value || '',
+                celular: document.getElementById('reserva-telefono')?.value.trim() || '',
+                fecha_evento: fechaEvento,
+                hora_evento: horaEvento,
+                duracion_horas: duracionHoras,
                 lugar: document.getElementById('reserva-lugar')?.value.trim() || '',
                 tipo_evento: document.getElementById('reserva-tipo')?.value || '',
-                servicios: Array.from(servicios).map(cb => cb.value),
+                servicios: serviciosSeleccionados.length > 0 
+                    ? Array.from(serviciosSeleccionados).map(cb => cb.value) 
+                    : (serviciosCarrito.length > 0 ? serviciosCarrito.map(s => s.nombre) : []),
                 personas: parseInt(document.getElementById('reserva-personas')?.value) || 0,
                 comentarios: document.getElementById('reserva-comentarios')?.value.trim() || '',
-                estado: 'pendiente'
+                productos: productosCarrito.length > 0 ? productosCarrito : null,
+                paquetes: paquetesCarrito.length > 0 ? paquetesCarrito : null,
+                total: calcularTotal(),
+                estado: estadoFinal
             };
+            
+            console.log('📦 Datos de la reserva:', nuevaReserva);
             
             const { data, error } = await supabase
                 .from('reservas')
@@ -281,7 +440,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 .select();
             
             if (error) {
-                console.error('Error guardando reserva:', error);
+                console.error('❌ Error guardando reserva:', error);
                 mostrarMensaje('❌ Error al guardar la reserva: ' + error.message, 'error');
                 if (btnEnviar) {
                     btnEnviar.disabled = false;
@@ -290,20 +449,49 @@ document.addEventListener('DOMContentLoaded', async () => {
                 return;
             }
             
-            mostrarMensaje('✅ Reserva enviada. Redirigiendo...', 'success');
+            console.log('✅ Reserva guardada exitosamente:', data);
+            
+            // Limpiar carrito de sessionStorage
+            if (carritoTemp) {
+                sessionStorage.removeItem('festin_carrito_temp');
+                localStorage.removeItem('festin_carrito');
+                console.log('🧹 Carrito limpiado');
+            }
+            
+            // Mensaje final según el estado
+            if (estadoFinal === 'pendiente_stock') {
+                mostrarMensaje(
+                    `⚠️ Reserva recibida pero en estado PENDIENTE por falta de stock:\n${mensajeStock}\n\nNos pondremos en contacto contigo para ofrecerte alternativas.`,
+                    'warning'
+                );
+            } else {
+                mostrarMensaje('✅ Reserva enviada correctamente. Redirigiendo...', 'success');
+            }
             
             setTimeout(() => {
                 window.location.href = 'reserva-exito.html';
-            }, 1500);
+            }, 3000);
         });
         
         function mostrarMensaje(texto, tipo) {
-            if (!mensajeReserva) return;
+            if (!mensajeReserva) {
+                alert(texto);
+                return;
+            }
             mensajeReserva.style.display = 'block';
             mensajeReserva.textContent = texto;
-            mensajeReserva.style.background = tipo === 'success' ? '#d4edda' : '#f8d7da';
-            mensajeReserva.style.borderColor = tipo === 'success' ? '#28a745' : '#dc3545';
-            mensajeReserva.style.color = tipo === 'success' ? '#155724' : '#721c24';
+            mensajeReserva.style.whiteSpace = 'pre-line'; // Para saltos de línea
+            
+            const colores = {
+                'success': { bg: '#d4edda', border: '#28a745', color: '#155724' },
+                'error': { bg: '#f8d7da', border: '#dc3545', color: '#721c24' },
+                'warning': { bg: '#fff3cd', border: '#ffc107', color: '#856404' }
+            };
+            
+            const c = colores[tipo] || colores.error;
+            mensajeReserva.style.background = c.bg;
+            mensajeReserva.style.borderColor = c.border;
+            mensajeReserva.style.color = c.color;
             mensajeReserva.style.border = '2px solid';
             mensajeReserva.style.padding = '15px';
             mensajeReserva.style.borderRadius = '10px';
@@ -386,7 +574,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                     <img src="${item.imagen}" alt="${item.nombre}">
                     <div class="carrito-item-info">
                         <h4>${item.nombre}</h4>
-                        <p>$${item.precio.toFixed(2)} c/u</p>
+                        <p>B/.${item.precio.toFixed(2)} c/u</p>
                     </div>
                     <div class="carrito-cantidad">
                         <button onclick="actualizarCantidad(${item.id}, ${item.cantidad - 1})">−</button>
@@ -394,7 +582,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                         <button onclick="actualizarCantidad(${item.id}, ${item.cantidad + 1})">+</button>
                     </div>
                     <div class="carrito-item-subtotal">
-                        <strong>$${subtotal.toFixed(2)}</strong>
+                        <strong>B/.${subtotal.toFixed(2)}</strong>
                     </div>
                     <button class="carrito-item-eliminar" onclick="eliminarDelCarrito(${item.id})">×</button>
                 </div>
@@ -403,8 +591,8 @@ document.addEventListener('DOMContentLoaded', async () => {
         
         const subtotal = carrito.reduce((sum, item) => sum + (item.precio * item.cantidad), 0);
         
-        if (subtotalEl) subtotalEl.textContent = `$${subtotal.toFixed(2)}`;
-        if (totalEl) totalEl.textContent = `$${subtotal.toFixed(2)}`;
+        if (subtotalEl) subtotalEl.textContent = `B/.${subtotal.toFixed(2)}`;
+        if (totalEl) totalEl.textContent = `B/.${subtotal.toFixed(2)}`;
     }
 
     function actualizarContadorCarrito() {
