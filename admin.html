@@ -34,6 +34,31 @@
         .stat-card .number { font-size: 28px; font-weight: bold; color: #ff6b6b; }
         .stat-card .label { color: #666; font-size: 12px; }
 
+        /* PESTAÑAS */
+        .tabs {
+            display: flex; gap: 10px; margin-bottom: 20px;
+            background: white; padding: 10px; border-radius: 15px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .tab {
+            flex: 1; padding: 15px; border: none; background: #f5f5f5;
+            border-radius: 10px; cursor: pointer; font-family: 'Fredoka', sans-serif;
+            font-size: 16px; font-weight: 600; color: #666;
+            transition: all 0.3s; position: relative;
+        }
+        .tab:hover { background: #e0e0e0; }
+        .tab.active { background: #ff6b6b; color: white; }
+        .tab .badge {
+            position: absolute; top: -8px; right: -8px;
+            background: #ffc107; color: #333; border-radius: 50%;
+            width: 25px; height: 25px; display: flex;
+            align-items: center; justify-content: center;
+            font-size: 12px; font-weight: bold;
+        }
+
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+
         /* FILTROS */
         .filtros-panel {
             background: white; padding: 20px; border-radius: 15px;
@@ -51,12 +76,8 @@
             font-size: 14px; font-family: 'Fredoka', sans-serif; outline: none;
             transition: border-color 0.3s;
         }
-        .filtro-grupo input:focus, .filtro-grupo select:focus {
-            border-color: #ff6b6b;
-        }
-        .btn-filtros {
-            display: flex; gap: 10px; align-items: end;
-        }
+        .filtro-grupo input:focus, .filtro-grupo select:focus { border-color: #ff6b6b; }
+        .btn-filtros { display: flex; gap: 10px; align-items: end; }
         .btn-aplicar {
             padding: 10px 25px; background: #ff6b6b; color: white; border: none;
             border-radius: 10px; cursor: pointer; font-weight: bold;
@@ -70,14 +91,12 @@
             font-size: 14px; transition: background 0.3s; white-space: nowrap;
         }
         .btn-limpiar:hover { background: #ccc; }
-        .resultados-info {
-            margin-top: 10px; font-size: 13px; color: #888;
-        }
+        .resultados-info { margin-top: 10px; font-size: 13px; color: #888; }
 
         /* RESERVAS */
-        .reservas-list { display: flex; flex-direction: column; gap: 15px; }
+        .reservas-list, .mensajes-list { display: flex; flex-direction: column; gap: 15px; }
         
-        .reserva-card {
+        .reserva-card, .mensaje-card {
             background: white; border-radius: 15px; padding: 20px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1); border-left: 5px solid #ff6b6b;
         }
@@ -89,14 +108,17 @@
         .reserva-card.estado-en_evento { border-left-color: #007bff; }
         .reserva-card.estado-finalizado { border-left-color: #6c757d; }
         .reserva-card.estado-cancelado { border-left-color: #dc3545; }
+
+        .mensaje-card.no-leido { border-left-color: #ffc107; background: #fffef5; }
+        .mensaje-card.leido { border-left-color: #28a745; opacity: 0.85; }
         
-        .reserva-header {
+        .reserva-header, .mensaje-header {
             display: flex; justify-content: space-between;
             align-items: start; flex-wrap: wrap; gap: 10px; margin-bottom: 15px;
         }
-        .reserva-info h3 { margin: 0 0 8px 0; color: #333; font-size: 18px; }
-        .reserva-info p { margin: 3px 0; color: #666; font-size: 14px; }
-        .reserva-info strong { color: #333; }
+        .reserva-info h3, .mensaje-info h3 { margin: 0 0 8px 0; color: #333; font-size: 18px; }
+        .reserva-info p, .mensaje-info p { margin: 3px 0; color: #666; font-size: 14px; }
+        .reserva-info strong, .mensaje-info strong { color: #333; }
 
         .badge-estado-admin {
             display: inline-block; padding: 6px 16px; border-radius: 20px;
@@ -111,16 +133,28 @@
         .badge-estado-admin.finalizado { background: #e2e3e5; color: #383d41; }
         .badge-estado-admin.cancelado { background: #f8d7da; color: #721c24; }
 
+        .badge-asunto {
+            display: inline-block; padding: 4px 12px; border-radius: 15px;
+            font-size: 11px; font-weight: bold; text-transform: uppercase;
+            background: #e7f3ff; color: #004085;
+        }
+        .badge-asunto.cotizacion { background: #fff3cd; color: #856404; }
+        .badge-asunto.consulta { background: #e7f3ff; color: #004085; }
+        .badge-asunto.reserva { background: #d4edda; color: #155724; }
+        .badge-asunto.soporte { background: #f8d7da; color: #721c24; }
+        .badge-asunto.otro { background: #e2e3e5; color: #383d41; }
+
         .total-destacado {
             font-size: 22px; font-weight: bold; color: #ff6b6b; margin-top: 8px;
         }
 
-        .productos-detalle {
+        .productos-detalle, .mensaje-contenido {
             background: #f8f9fa; padding: 12px; border-radius: 10px; margin: 10px 0;
         }
-        .productos-detalle h4 { margin: 0 0 8px 0; color: #333; font-size: 14px; }
+        .productos-detalle h4, .mensaje-contenido h4 { margin: 0 0 8px 0; color: #333; font-size: 14px; }
         .productos-detalle ul { margin: 0; padding-left: 18px; }
         .productos-detalle li { margin: 3px 0; color: #666; font-size: 13px; }
+        .mensaje-contenido p { margin: 0; color: #333; line-height: 1.6; white-space: pre-wrap; }
 
         .acciones-estado {
             display: flex; gap: 8px; flex-wrap: wrap;
@@ -138,6 +172,9 @@
         .btn-evento { background: #007bff; color: white; }
         .btn-finalizar { background: #6c757d; color: white; }
         .btn-cancelar { background: #dc3545; color: white; }
+        .btn-leido { background: #17a2b8; color: white; }
+        .btn-no-leido { background: #ffc107; color: #333; }
+        .btn-eliminar { background: #dc3545; color: white; }
 
         .btn-whatsapp {
             padding: 10px 16px; background: #25d366; color: white; border: none;
@@ -146,6 +183,14 @@
             display: inline-flex; align-items: center; gap: 5px;
         }
         .btn-whatsapp:hover { background: #1da851; }
+
+        .btn-email {
+            padding: 10px 16px; background: #007bff; color: white; border: none;
+            border-radius: 8px; cursor: pointer; font-weight: bold; font-size: 13px;
+            font-family: 'Fredoka', sans-serif; text-decoration: none;
+            display: inline-flex; align-items: center; gap: 5px;
+        }
+        .btn-email:hover { background: #0056b3; }
 
         .loading { text-align: center; padding: 40px; font-size: 18px; color: #666; }
         .no-acceso {
@@ -175,7 +220,7 @@
                 <div class="stat-card">
                     <div class="icon">📋</div>
                     <div class="number" id="stat-total">0</div>
-                    <div class="label">Total</div>
+                    <div class="label">Total Reservas</div>
                 </div>
                 <div class="stat-card">
                     <div class="icon">⏳</div>
@@ -192,65 +237,124 @@
                     <div class="number" id="stat-ingresos">B/.0</div>
                     <div class="label">Ingresos</div>
                 </div>
+                <div class="stat-card">
+                    <div class="icon">📬</div>
+                    <div class="number" id="stat-mensajes">0</div>
+                    <div class="label">Mensajes</div>
+                </div>
             </div>
 
-            <!-- FILTROS -->
-            <div class="filtros-panel">
-                <h3>🔍 Filtrar Reservas</h3>
-                <div class="filtros-grid">
-                    <div class="filtro-grupo">
-                        <label>🔎 Buscar cliente</label>
-                        <input type="text" id="filtro-buscar" placeholder="Nombre o email...">
-                    </div>
-                    <div class="filtro-grupo">
-                        <label>📌 Estado</label>
-                        <select id="filtro-estado">
-                            <option value="">Todos los estados</option>
-                            <option value="pendiente">⏳ Pendiente</option>
-                            <option value="pendiente_stock">⚠️ Sin Stock</option>
-                            <option value="confirmada">✅ Confirmada</option>
-                            <option value="abonado">💰 Abonado</option>
-                            <option value="pagado">💳 Pagado</option>
-                            <option value="en_evento">🎉 En Evento</option>
-                            <option value="finalizado">✔️ Finalizado</option>
-                            <option value="cancelado">❌ Cancelado</option>
-                        </select>
-                    </div>
-                    <div class="filtro-grupo">
-                        <label>📅 Fecha desde</label>
-                        <input type="date" id="filtro-fecha-desde">
-                    </div>
-                    <div class="filtro-grupo">
-                        <label>📅 Fecha hasta</label>
-                        <input type="date" id="filtro-fecha-hasta">
-                    </div>
-                    <div class="filtro-grupo">
-                        <label>🎉 Tipo de evento</label>
-                        <select id="filtro-tipo">
-                            <option value="">Todos los tipos</option>
-                            <option value="infantil">🎈 Infantil</option>
-                            <option value="boda">💍 Boda</option>
-                            <option value="cumpleaños">🎂 Cumpleaños</option>
-                            <option value="corporativo">💼 Corporativo</option>
-                            <option value="familiar">👨‍👩‍👧 Familiar</option>
-                            <option value="otro">✨ Otro</option>
-                        </select>
-                    </div>
-                    <div class="btn-filtros">
-                        <button class="btn-aplicar" onclick="aplicarFiltros()">🔍 Filtrar</button>
-                        <button class="btn-limpiar" onclick="limpiarFiltros()">✖ Limpiar</button>
-                    </div>
-                </div>
-                <div class="resultados-info" id="resultados-info"></div>
+            <!-- PESTAÑAS -->
+            <div class="tabs">
+                <button class="tab active" onclick="cambiarTab('reservas')">
+                    📅 Reservas
+                </button>
+                <button class="tab" onclick="cambiarTab('mensajes')">
+                    📬 Mensajes de Contacto
+                    <span class="badge" id="badge-mensajes" style="display:none;">0</span>
+                </button>
             </div>
-            
-            <h2 style="margin-bottom:15px;">📅 Reservas</h2>
-            <div class="reservas-list" id="lista-reservas"></div>
+
+            <!-- TAB RESERVAS -->
+            <div id="tab-reservas" class="tab-content active">
+                <div class="filtros-panel">
+                    <h3>🔍 Filtrar Reservas</h3>
+                    <div class="filtros-grid">
+                        <div class="filtro-grupo">
+                            <label>🔎 Buscar cliente</label>
+                            <input type="text" id="filtro-buscar" placeholder="Nombre o email...">
+                        </div>
+                        <div class="filtro-grupo">
+                            <label>📌 Estado</label>
+                            <select id="filtro-estado">
+                                <option value="">Todos los estados</option>
+                                <option value="pendiente">⏳ Pendiente</option>
+                                <option value="pendiente_stock">⚠️ Sin Stock</option>
+                                <option value="confirmada">✅ Confirmada</option>
+                                <option value="abonado">💰 Abonado</option>
+                                <option value="pagado">💳 Pagado</option>
+                                <option value="en_evento">🎉 En Evento</option>
+                                <option value="finalizado">✔️ Finalizado</option>
+                                <option value="cancelado">❌ Cancelado</option>
+                            </select>
+                        </div>
+                        <div class="filtro-grupo">
+                            <label>📅 Fecha desde</label>
+                            <input type="date" id="filtro-fecha-desde">
+                        </div>
+                        <div class="filtro-grupo">
+                            <label>📅 Fecha hasta</label>
+                            <input type="date" id="filtro-fecha-hasta">
+                        </div>
+                        <div class="filtro-grupo">
+                            <label>🎉 Tipo de evento</label>
+                            <select id="filtro-tipo">
+                                <option value="">Todos los tipos</option>
+                                <option value="infantil">🎈 Infantil</option>
+                                <option value="boda">💍 Boda</option>
+                                <option value="cumpleaños">🎂 Cumpleaños</option>
+                                <option value="corporativo">💼 Corporativo</option>
+                                <option value="familiar">👨‍👩‍👧 Familiar</option>
+                                <option value="otro">✨ Otro</option>
+                            </select>
+                        </div>
+                        <div class="btn-filtros">
+                            <button class="btn-aplicar" onclick="aplicarFiltros()">🔍 Filtrar</button>
+                            <button class="btn-limpiar" onclick="limpiarFiltros()">✖ Limpiar</button>
+                        </div>
+                    </div>
+                    <div class="resultados-info" id="resultados-info"></div>
+                </div>
+                
+                <h2 style="margin-bottom:15px;">📅 Reservas</h2>
+                <div class="reservas-list" id="lista-reservas"></div>
+            </div>
+
+            <!-- TAB MENSAJES -->
+            <div id="tab-mensajes" class="tab-content">
+                <div class="filtros-panel">
+                    <h3>🔍 Filtrar Mensajes</h3>
+                    <div class="filtros-grid">
+                        <div class="filtro-grupo">
+                            <label>🔎 Buscar</label>
+                            <input type="text" id="filtro-msg-buscar" placeholder="Nombre, email o mensaje...">
+                        </div>
+                        <div class="filtro-grupo">
+                            <label>📌 Estado</label>
+                            <select id="filtro-msg-leido">
+                                <option value="">Todos</option>
+                                <option value="no-leido">🟡 No leídos</option>
+                                <option value="leido">🟢 Leídos</option>
+                            </select>
+                        </div>
+                        <div class="filtro-grupo">
+                            <label>📋 Asunto</label>
+                            <select id="filtro-msg-asunto">
+                                <option value="">Todos los asuntos</option>
+                                <option value="cotizacion">💰 Cotización</option>
+                                <option value="consulta">❓ Consulta</option>
+                                <option value="reserva">📅 Reserva</option>
+                                <option value="soporte">🛠️ Soporte</option>
+                                <option value="otro">✨ Otro</option>
+                            </select>
+                        </div>
+                        <div class="btn-filtros">
+                            <button class="btn-aplicar" onclick="aplicarFiltrosMensajes()">🔍 Filtrar</button>
+                            <button class="btn-limpiar" onclick="limpiarFiltrosMensajes()">✖ Limpiar</button>
+                        </div>
+                    </div>
+                    <div class="resultados-info" id="resultados-msg-info"></div>
+                </div>
+
+                <h2 style="margin-bottom:15px;">📬 Mensajes de Contacto</h2>
+                <div class="mensajes-list" id="lista-mensajes"></div>
+            </div>
         </div>
     </div>
     
     <script>
         let todasLasReservas = [];
+        let todosLosMensajes = [];
 
         document.addEventListener('DOMContentLoaded', async () => {
             const sesion = await window.obtenerSesion();
@@ -266,25 +370,39 @@
                 document.getElementById('no-acceso').style.display = 'block';
                 return;
             }
-            await cargarReservas();
+            await cargarTodo();
         });
 
+        async function cargarTodo() {
+            await cargarReservas();
+            await cargarMensajes();
+            document.getElementById('loading').style.display = 'none';
+            document.getElementById('contenido-admin').style.display = 'block';
+        }
+
+        function cambiarTab(tab) {
+            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+            
+            event.target.classList.add('active');
+            document.getElementById('tab-' + tab).classList.add('active');
+        }
+
+        // ===== RESERVAS =====
         async function cargarReservas() {
             const { data, error } = await supabase
                 .from('reservas').select('*').order('created_at', { ascending: false });
             if (error) { console.error(error); return; }
             todasLasReservas = data || [];
-            document.getElementById('loading').style.display = 'none';
-            document.getElementById('contenido-admin').style.display = 'block';
-            actualizarEstadisticas(todasLasReservas);
+            actualizarEstadisticas();
             renderizarReservas(todasLasReservas);
         }
 
-        function actualizarEstadisticas(reservas) {
-            document.getElementById('stat-total').textContent = reservas.length;
-            document.getElementById('stat-pendientes').textContent = reservas.filter(r => r.estado === 'pendiente' || r.estado === 'pendiente_stock').length;
-            document.getElementById('stat-confirmadas').textContent = reservas.filter(r => ['confirmada','abonado','pagado','en_evento'].includes(r.estado)).length;
-            const ingresos = reservas.filter(r => ['pagado','finalizado'].includes(r.estado)).reduce((s, r) => s + (r.total || 0), 0);
+        function actualizarEstadisticas() {
+            document.getElementById('stat-total').textContent = todasLasReservas.length;
+            document.getElementById('stat-pendientes').textContent = todasLasReservas.filter(r => r.estado === 'pendiente' || r.estado === 'pendiente_stock').length;
+            document.getElementById('stat-confirmadas').textContent = todasLasReservas.filter(r => ['confirmada','abonado','pagado','en_evento'].includes(r.estado)).length;
+            const ingresos = todasLasReservas.filter(r => ['pagado','finalizado'].includes(r.estado)).reduce((s, r) => s + (r.total || 0), 0);
             document.getElementById('stat-ingresos').textContent = 'B/.' + ingresos.toFixed(2);
         }
 
@@ -318,7 +436,6 @@
             renderizarReservas(todasLasReservas);
         }
 
-        // Filtrar al escribir en el buscador
         document.getElementById('filtro-buscar')?.addEventListener('input', aplicarFiltros);
         document.getElementById('filtro-estado')?.addEventListener('change', aplicarFiltros);
         document.getElementById('filtro-tipo')?.addEventListener('change', aplicarFiltros);
@@ -354,6 +471,7 @@
                     ${r.servicios && r.servicios.length > 0 ? '<div class="productos-detalle"><h4>🎭 Servicios</h4><ul>' + r.servicios.map(s => '<li>' + s + '</li>').join('') + '</ul></div>' : ''}
                     <div class="acciones-estado">
                         ${r.celular ? '<a href="https://wa.me/507' + r.celular.replace(/[^0-9]/g,'') + '?text=Hola%20' + encodeURIComponent(r.nombre_cliente||'') + ',%20le%20escribo%20de%20Festín%20sobre%20su%20reserva" target="_blank" class="btn-whatsapp">💬 WhatsApp</a>' : ''}
+                        ${r.email ? '<a href="mailto:' + r.email + '?subject=Sobre%20tu%20reserva%20en%20Festín" class="btn-email">📧 Email</a>' : ''}
                         ${(r.estado === 'pendiente' || r.estado === 'pendiente_stock') ? '<button class="btn-estado btn-confirmar" onclick="cambiarEstado(' + r.id + ',\'confirmada\')">✅ Confirmar</button>' : ''}
                         ${r.estado === 'confirmada' ? '<button class="btn-estado btn-abonar" onclick="cambiarEstado(' + r.id + ',\'abonado\')">💰 Abonado</button><button class="btn-estado btn-pagar" onclick="cambiarEstado(' + r.id + ',\'pagado\')">💳 Pagado</button>' : ''}
                         ${r.estado === 'abonado' ? '<button class="btn-estado btn-pagar" onclick="cambiarEstado(' + r.id + ',\'pagado\')">💳 Pagado</button>' : ''}
@@ -380,14 +498,123 @@
             await cargarReservas();
         }
 
+        // ===== MENSAJES =====
+        async function cargarMensajes() {
+            const { data, error } = await supabase
+                .from('mensajes_contacto').select('*').order('fecha_enviado', { ascending: false });
+            if (error) { console.error(error); return; }
+            todosLosMensajes = data || [];
+            
+            const noLeidos = todosLosMensajes.filter(m => !m.leido).length;
+            document.getElementById('stat-mensajes').textContent = todosLosMensajes.length;
+            
+            const badge = document.getElementById('badge-mensajes');
+            if (noLeidos > 0) {
+                badge.textContent = noLeidos;
+                badge.style.display = 'flex';
+            } else {
+                badge.style.display = 'none';
+            }
+            
+            renderizarMensajes(todosLosMensajes);
+        }
+
+        function aplicarFiltrosMensajes() {
+            const buscar = document.getElementById('filtro-msg-buscar').value.toLowerCase().trim();
+            const leido = document.getElementById('filtro-msg-leido').value;
+            const asunto = document.getElementById('filtro-msg-asunto').value;
+
+            let filtrados = todosLosMensajes.filter(m => {
+                if (buscar && !(m.nombre || '').toLowerCase().includes(buscar) && !(m.email || '').toLowerCase().includes(buscar) && !(m.mensaje || '').toLowerCase().includes(buscar)) return false;
+                if (leido === 'leido' && !m.leido) return false;
+                if (leido === 'no-leido' && m.leido) return false;
+                if (asunto && m.asunto !== asunto) return false;
+                return true;
+            });
+
+            document.getElementById('resultados-msg-info').textContent = 'Mostrando ' + filtrados.length + ' de ' + todosLosMensajes.length + ' mensajes';
+            renderizarMensajes(filtrados);
+        }
+
+        function limpiarFiltrosMensajes() {
+            document.getElementById('filtro-msg-buscar').value = '';
+            document.getElementById('filtro-msg-leido').value = '';
+            document.getElementById('filtro-msg-asunto').value = '';
+            document.getElementById('resultados-msg-info').textContent = '';
+            renderizarMensajes(todosLosMensajes);
+        }
+
+        document.getElementById('filtro-msg-buscar')?.addEventListener('input', aplicarFiltrosMensajes);
+        document.getElementById('filtro-msg-leido')?.addEventListener('change', aplicarFiltrosMensajes);
+        document.getElementById('filtro-msg-asunto')?.addEventListener('change', aplicarFiltrosMensajes);
+
+        function renderizarMensajes(mensajes) {
+            const lista = document.getElementById('lista-mensajes');
+            if (!mensajes || mensajes.length === 0) {
+                lista.innerHTML = '<p style="text-align:center; color:#666; padding:40px; background:white; border-radius:15px;">No se encontraron mensajes</p>';
+                return;
+            }
+            lista.innerHTML = mensajes.map(m => `
+                <div class="mensaje-card ${m.leido ? 'leido' : 'no-leido'}">
+                    <div class="mensaje-header">
+                        <div class="mensaje-info">
+                            <h3>${m.nombre || 'Sin nombre'} ${!m.leido ? '🟡' : ''}</h3>
+                            <p><strong>📧</strong> ${m.email || 'N/A'}</p>
+                            ${m.telefono ? '<p><strong>📞</strong> ' + m.telefono + '</p>' : ''}
+                            <p><strong>🕐</strong> ${formatearFechaHora(m.fecha_enviado)}</p>
+                            <p><span class="badge-asunto ${m.asunto || 'otro'}">${traducirAsunto(m.asunto)}</span></p>
+                        </div>
+                    </div>
+                    <div class="mensaje-contenido">
+                        <h4>💬 Mensaje:</h4>
+                        <p>${m.mensaje || 'Sin mensaje'}</p>
+                    </div>
+                    <div class="acciones-estado">
+                        ${m.email ? '<a href="mailto:' + m.email + '?subject=Re:%20' + encodeURIComponent(m.asunto || 'Tu mensaje a Festín') + '" class="btn-email">📧 Responder Email</a>' : ''}
+                        ${m.telefono ? '<a href="https://wa.me/507' + m.telefono.replace(/[^0-9]/g,'') + '?text=Hola%20' + encodeURIComponent(m.nombre||'') + ',%20te%20escribo%20de%20Festín%20sobre%20tu%20mensaje" target="_blank" class="btn-whatsapp">💬 WhatsApp</a>' : ''}
+                        ${!m.leido ? '<button class="btn-estado btn-leido" onclick="marcarLeido(' + m.id + ', true)">✅ Marcar como leído</button>' : '<button class="btn-estado btn-no-leido" onclick="marcarLeido(' + m.id + ', false)">🟡 Marcar como no leído</button>'}
+                        <button class="btn-estado btn-eliminar" onclick="eliminarMensaje(${m.id})">🗑️ Eliminar</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        async function marcarLeido(id, leido) {
+            const { error } = await supabase.from('mensajes_contacto').update({ leido }).eq('id', id);
+            if (error) { alert('❌ Error: ' + error.message); return; }
+            await cargarMensajes();
+        }
+
+        async function eliminarMensaje(id) {
+            if (!confirm('¿Eliminar este mensaje?')) return;
+            const { error } = await supabase.from('mensajes_contacto').delete().eq('id', id);
+            if (error) { alert('❌ Error: ' + error.message); return; }
+            alert('✅ Mensaje eliminado');
+            await cargarMensajes();
+        }
+
+        // ===== UTILIDADES =====
         function formatearFecha(f) {
             if (!f) return 'N/A';
             return new Date(f + 'T00:00:00').toLocaleDateString('es-ES', { year:'numeric', month:'long', day:'numeric' });
         }
 
+        function formatearFechaHora(f) {
+            if (!f) return 'N/A';
+            return new Date(f).toLocaleString('es-ES', { 
+                year:'numeric', month:'short', day:'numeric', 
+                hour:'2-digit', minute:'2-digit' 
+            });
+        }
+
         function traducirEstado(e) {
             const t = { pendiente:'⏳ Pendiente', pendiente_stock:'⚠️ Sin Stock', confirmada:'✅ Confirmada', abonado:'💰 Abonado', pagado:'💳 Pagado', en_evento:'🎉 En Evento', finalizado:'✔️ Finalizado', cancelado:'❌ Cancelado' };
             return t[e] || e;
+        }
+
+        function traducirAsunto(a) {
+            const t = { cotizacion:'💰 Cotización', consulta:'❓ Consulta', reserva:'📅 Reserva', soporte:'🛠️ Soporte', otro:'✨ Otro' };
+            return t[a] || a || '✨ Otro';
         }
     </script>
 </body>
