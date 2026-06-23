@@ -95,26 +95,27 @@
                         <div class="info-item">
                             <div class="info-item-content">
                                 <div class="info-item-label">Teléfono</div>
-                                <div class="info-item-value">+507 6000-0000</div>
+                                <div class="info-item-value" id="perfil-telefono">No registrado</div>
                             </div>
                         </div>
                     </div>
-                    <a href="#" class="btn-editar">Editar datos</a>
+                    <button id="btn-editar-datos" class="btn-editar">Editar datos</button>
                 </div>
 
-                <!-- ESTADO DEL PEDIDO -->
+                <!-- ESTADO DEL PEDIDO (DINÁMICO) -->
                 <div class="tarjeta-perfil">
                     <h3>Estado de tu Pedido</h3>
-                    <p class="estado-subtitulo">Progreso de tu alquiler para el evento:</p>
-                    
-                    <ul class="lista-progreso" aria-label="Pasos del estado del pedido">
-                        <li class="paso pendiente">Reservado</li>
-                        <li class="paso pendiente">Abonado</li>
-                        <li class="paso pendiente">Pago completo</li>
-                        <li class="paso pendiente">Día del evento</li>
-                        <li class="paso pendiente">Devolución de equipo</li>
-                        <li class="paso pendiente">Finalizado</li>
-                    </ul>
+                    <div id="contenedor-pedidos">
+                        <p class="sin-pedidos">No tienes pedidos activos</p>
+                    </div>
+                </div>
+
+                <!-- HISTORIAL DE RESERVAS -->
+                <div class="tarjeta-perfil">
+                    <h3>Historial de Reservas</h3>
+                    <div id="contenedor-historial">
+                        <p class="sin-pedidos">No tienes reservas anteriores</p>
+                    </div>
                 </div>
 
                 <!-- PUNTOS ACUMULADOS -->
@@ -122,14 +123,14 @@
                     <h3>Puntos Acumulados</h3>
                     <!-- ✅ ID para puntos dinámicos -->
                     <div class="puntos-destacados">
-                        <span id="perfil-puntos">150</span>
+                        <span id="perfil-puntos">0</span>
                         <small>puntos disponibles</small>
                     </div>
 
-                    <h4>Tus beneficios activos:</h4>
+                    <h4>Tus beneficios:</h4>
                     <ul class="beneficios-lista">
-                        <li>¡Tienes un <strong>10% de descuento</strong> listo para usar en tu próximo inflable!</li>
-                        <li>Soporte y atención prioritaria para tus eventos.</li>
+                        <li id="beneficio-1">Acumula puntos con cada reserva</li>
+                        <li id="beneficio-2">100 puntos = 10% de descuento</li>
                     </ul>
                 </div>
 

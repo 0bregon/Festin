@@ -2227,3 +2227,138 @@ footer {
     grid-template-columns: repeat(2, 1fr);
   }
 }
+
+/* Pedidos activos */
+.pedido-activo {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    border-left: 4px solid #ff6b6b;
+}
+
+.pedido-activo h4 {
+    margin-top: 0;
+    color: #333;
+}
+
+.estado-pedido {
+    margin: 15px 0;
+    padding: 10px;
+    background: white;
+    border-radius: 5px;
+}
+
+.badge-estado {
+    display: inline-block;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.badge-estado.pendiente { background: #fff3cd; color: #856404; }
+.badge-estado.pendiente_stock { background: #ffe5e5; color: #721c24; }
+.badge-estado.confirmada { background: #d4edda; color: #155724; }
+.badge-estado.abonado { background: #d1ecf1; color: #0c5460; }
+.badge-estado.pagado { background: #d4edda; color: #155724; }
+.badge-estado.en_evento { background: #cce5ff; color: #004085; }
+.badge-estado.finalizado { background: #e2e3e5; color: #383d41; }
+.badge-estado.cancelado { background: #f8d7da; color: #721c24; }
+
+/* Lista de progreso */
+.lista-progreso {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.lista-progreso .paso {
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 12px;
+    background: #e9ecef;
+    color: #6c757d;
+}
+
+.lista-progreso .paso.completado {
+    background: #28a745;
+    color: white;
+}
+
+.lista-progreso .paso.activo {
+    background: #ff6b6b;
+    color: white;
+    font-weight: bold;
+}
+
+/* Historial */
+.historial-reservas {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.reserva-historial {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    border-left: 3px solid #6c757d;
+}
+
+.reserva-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.reserva-info strong {
+    color: #333;
+}
+
+.reserva-info span {
+    color: #6c757d;
+    font-size: 14px;
+}
+
+.reserva-estado {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 5px;
+}
+
+.reserva-total {
+    font-weight: bold;
+    color: #ff6b6b;
+}
+
+.sin-pedidos {
+    text-align: center;
+    color: #6c757d;
+    font-style: italic;
+    padding: 20px;
+}
+
+.btn-editar {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    background: #ff6b6b;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.3s;
+}
+
+.btn-editar:hover {
+    background: #ff5252;
+}

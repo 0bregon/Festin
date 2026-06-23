@@ -189,32 +189,178 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     // ============================================
-    // 👤 PERFIL (VERIFICAR SESIÓN CON SUPABASE)
-    // ============================================
-    const seccionInvitado = document.getElementById('seccion-invitado');
-    const seccionUsuario = document.getElementById('seccion-usuario');
+// 👤 PERFIL (VERIFICAR SESIÓN CON SUPABASE)
+// ============================================
+const seccionInvitado = document.getElementById('seccion-invitado');
+const seccionUsuario = document.getElementById('seccion-usuario');
+
+if ((seccionInvitado || seccionUsuario) && typeof window.obtenerSesion === 'function') {
+    const sesion = await window.obtenerSesion();
     
-    if ((seccionInvitado || seccionUsuario) && typeof window.obtenerSesion === 'function') {
-        const sesion = await window.obtenerSesion();
+    if (sesion) {
+        if (seccionInvitado) seccionInvitado.style.display = 'none';
+        if (seccionUsuario) seccionUsuario.style.display = 'block';
         
-        if (sesion) {
-            if (seccionInvitado) seccionInvitado.style.display = 'none';
-            if (seccionUsuario) seccionUsuario.style.display = 'block';
-            
-            const nombreEl = document.getElementById('perfil-nombre');
-            const nombreCompletoEl = document.getElementById('perfil-nombre-completo');
-            const emailEl = document.getElementById('perfil-email');
-            const puntosEl = document.getElementById('perfil-puntos');
-            
-            if (nombreEl) nombreEl.textContent = (sesion.nombre || 'Usuario').split(' ')[0];
-            if (nombreCompletoEl) nombreCompletoEl.textContent = sesion.nombre || 'Usuario';
-            if (emailEl) emailEl.textContent = sesion.email || '';
-            if (puntosEl) puntosEl.textContent = sesion.puntos || 0;
-        } else {
-            if (seccionUsuario) seccionUsuario.style.display = 'none';
-            if (seccionInvitado) seccionInvitado.style.display = 'block';
+        // Llenar datos del usuario
+        const nombreEl = document.getElementById('perfil-nombre');
+        const nombreCompletoEl = document.getElementById('perfil-nombre-completo');
+        const emailEl = document.getElementById('perfil-email');
+        const puntosEl = document.getElementById('perfil-puntos');
+        const telefonoEl = document.getElementById('perfil-telefono');
+        
+        if (nombreEl) nombreEl.textContent = (sesion.nombre || 'Usuario').split(' ')[0];
+        if (nombreCompletoEl) nombreCompletoEl.textContent = sesion.nombre || 'Usuario';
+        if (emailEl) emailEl.textContent = sesion.email || '';
+        if (puntosEl) puntosEl.textContent = sesion.puntos || 0;
+        
+        // Teléfono (si existe en la tabla usuarios)
+        if (telefonoEl) {
+            telefonoEl.textContent = sesion.telefono || 'No registrado';
         }
+        
+        // Actualizar beneficios según puntos
+        actualizarBeneficios(sesion.puntos || 0);
+        
+        // Cargar pedidos activos e historial
+        await cargarPedidos(sesion.id);
+        
+    } else {
+        if (seccionUsuario) seccionUsuario.style.display = 'none';
+        if (seccionInvitado) seccionInvitado.style.display = 'block';
     }
+}
+
+// Función para actualizar beneficios según puntos
+function actualizarBeneficios(puntos) {
+    const beneficio1 = document.getElementById('beneficio-1');
+    const beneficio2 = document.getElementById('beneficio-2');
+    
+    if (puntos >= 500) {
+        if (beneficio1) beneficio1.innerHTML = '🌟 <strong>Nivel VIP:</strong> 20% de descuento en todos tus eventos';
+        if (beneficio2) beneficio2.innerHTML = '🎁 Soporte prioritario y asesoría gratuita';
+    } else if (puntos >= 200) {
+        if (beneficio1) beneficio1.innerHTML = '⭐ <strong>Nivel Premium:</strong> 15% de descuento en tu próximo evento';
+        if (beneficio2) beneficio2.innerHTML = '🎁 Acceso a ofertas exclusivas';
+    } else if (puntos >= 100) {
+        if (beneficio1) beneficio1.innerHTML = '✨ <strong>Nivel Bronce:</strong> 10% de descuento listo para usar';
+        if (beneficio2) beneficio2.innerHTML = '🎁 Soporte prioritario para tus eventos';
+    } else {
+        if (beneficio1) beneficio1.innerHTML = 'Acumula puntos con cada reserva';
+        if (beneficio2) beneficio2.innerHTML = '100 puntos = 10% de descuento';
+    }
+}
+
+// Función para cargar pedidos activos e historial
+async function cargarPedidos(usuarioId) {
+    try {
+        const { data: reservas, error } = await supabase
+            .from('reservas')
+            .select('*')
+            .eq('usuario_id', usuarioId)
+            .order('fecha_evento', { ascending: false });
+        
+        if (error) {
+            console.error('Error cargando reservas:', error);
+            return;
+        }
+        
+        const contenedorPedidos = document.getElementById('contenedor-pedidos');
+        const contenedorHistorial = document.getElementById('contenedor-historial');
+        
+        if (!reservas || reservas.length === 0) {
+            if (contenedorPedidos) contenedorPedidos.innerHTML = '<p class="sin-pedidos">No tienes pedidos activos</p>';
+            if (contenedorHistorial) contenedorHistorial.innerHTML = '<p class="sin-pedidos">No tienes reservas anteriores</p>';
+            return;
+        }
+        
+        // Separar pedidos activos vs historial
+        const hoy = new Date().toISOString().split('T')[0];
+        const pedidosActivos = reservas.filter(r => r.fecha_evento >= hoy && r.estado !== 'finalizado' && r.estado !== 'cancelado');
+        const historial = reservas.filter(r => r.fecha_evento < hoy || r.estado === 'finalizado' || r.estado === 'cancelado');
+        
+        // Mostrar pedidos activos
+        if (contenedorPedidos && pedidosActivos.length > 0) {
+            contenedorPedidos.innerHTML = pedidosActivos.map(reserva => `
+                <div class="pedido-activo">
+                    <h4>📅 Evento: ${formatearFecha(reserva.fecha_evento)}</h4>
+                    <p><strong>Hora:</strong> ${reserva.hora_evento}</p>
+                    <p><strong>Lugar:</strong> ${reserva.lugar}</p>
+                    <p><strong>Total:</strong> B/.${(reserva.total || 0).toFixed(2)}</p>
+                    <div class="estado-pedido">
+                        <strong>Estado:</strong> 
+                        <span class="badge-estado ${reserva.estado}">${traducirEstado(reserva.estado)}</span>
+                    </div>
+                    ${reserva.estado === 'pendiente' || reserva.estado === 'pendiente_stock' ? `
+                        <ul class="lista-progreso">
+                            <li class="paso ${reserva.estado === 'pendiente' || reserva.estado === 'pendiente_stock' ? 'activo' : 'completado'}">Reservado</li>
+                            <li class="paso ${reserva.estado === 'confirmada' ? 'activo' : 'pendiente'}">Confirmado</li>
+                            <li class="paso ${reserva.estado === 'abonado' ? 'activo' : 'pendiente'}">Abonado</li>
+                            <li class="paso ${reserva.estado === 'pagado' ? 'activo' : 'pendiente'}">Pago completo</li>
+                            <li class="paso ${reserva.estado === 'en_evento' ? 'activo' : 'pendiente'}">Día del evento</li>
+                            <li class="paso ${reserva.estado === 'finalizado' ? 'activo' : 'pendiente'}">Finalizado</li>
+                        </ul>
+                    ` : ''}
+                </div>
+            `).join('');
+        } else if (contenedorPedidos) {
+            contenedorPedidos.innerHTML = '<p class="sin-pedidos">No tienes pedidos activos</p>';
+        }
+        
+        // Mostrar historial
+        if (contenedorHistorial && historial.length > 0) {
+            contenedorHistorial.innerHTML = `
+                <div class="historial-reservas">
+                    ${historial.slice(0, 5).map(reserva => `
+                        <div class="reserva-historial">
+                            <div class="reserva-info">
+                                <strong>${formatearFecha(reserva.fecha_evento)}</strong>
+                                <span>${reserva.lugar}</span>
+                            </div>
+                            <div class="reserva-estado">
+                                <span class="badge-estado ${reserva.estado}">${traducirEstado(reserva.estado)}</span>
+                                <span class="reserva-total">B/.${(reserva.total || 0).toFixed(2)}</span>
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>
+            `;
+        } else if (contenedorHistorial) {
+            contenedorHistorial.innerHTML = '<p class="sin-pedidos">No tienes reservas anteriores</p>';
+        }
+        
+    } catch (err) {
+        console.error('Error en cargarPedidos:', err);
+    }
+}
+
+// Funciones auxiliares
+function formatearFecha(fecha) {
+    const opciones = { year: 'numeric', month: 'long', day: 'numeric' };
+    return new Date(fecha + 'T00:00:00').toLocaleDateString('es-ES', opciones);
+}
+
+function traducirEstado(estado) {
+    const traducciones = {
+        'pendiente': '⏳ Pendiente',
+        'pendiente_stock': '⚠️ Pendiente (sin stock)',
+        'confirmada': '✅ Confirmada',
+        'abonado': '💰 Abonado',
+        'pagado': '💳 Pagado',
+        'en_evento': '🎉 En evento',
+        'finalizado': '✔️ Finalizado',
+        'cancelado': '❌ Cancelado'
+    };
+    return traducciones[estado] || estado;
+}
+
+// Botón editar datos
+const btnEditar = document.getElementById('btn-editar-datos');
+if (btnEditar) {
+    btnEditar.addEventListener('click', () => {
+        alert('🚧 Función de editar datos próximamente');
+        // Aquí puedes agregar un modal o redirigir a una página de edición
+    });
+}
 
     // ============================================
     // 🎉 RESERVAS (CON VALIDACIÓN DE DISPONIBILIDAD Y STOCK)
