@@ -446,6 +446,11 @@ document.addEventListener('DOMContentLoaded', async () => {
                     btnEnviar.disabled = false;
                     btnEnviar.textContent = 'Enviar reserva';
                 }
+                
+                // Redirigir a página de error después de 3 segundos
+                setTimeout(() => {
+                    window.location.href = 'reserva_error.html';
+                }, 3000);
                 return;
             }
             
@@ -469,7 +474,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             }
             
             setTimeout(() => {
-                window.location.href = 'reserva-exito.html';
+                window.location.href = 'reserva-exitosa.html';
             }, 3000);
         });
         
